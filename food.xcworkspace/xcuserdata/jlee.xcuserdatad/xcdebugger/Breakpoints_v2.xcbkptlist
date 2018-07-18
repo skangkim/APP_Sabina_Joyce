@@ -31,40 +31,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "RecipeBookInfo"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "food.RecipeBookInfo.FoodName.getter : Swift.String"
-                  moduleName = "food"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/ViewController.swift"
-                  timestampString = "553495086.1550291"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "153">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "food.RecipeBookInfo.FoodName.setter : Swift.String"
-                  moduleName = "food"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/ViewController.swift"
-                  timestampString = "553495086.167181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "86">
-               </Location>
-            </Locations>
+            landmarkName = "init_IngredBook()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -79,8 +47,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "possibleIngredients()"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_CBCA54B7D66C5C56C768C444EB324F36_func1"
+                  moduleName = "food"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlee/Desktop/yo/food/ViewController.swift"
+                  timestampString = "553647232.898108"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "food.myFridge.unsafeMutableAddressor : Swift.Dictionary&lt;food.Ingrd, Swift.Int&gt;"
+                  moduleName = "food"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlee/Desktop/yo/food/ViewController.swift"
+                  timestampString = "553647232.901155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
             endingLineNumber = "260"
-            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "343"
             endingLineNumber = "343"
-            landmarkName = "configureSimpleSearchTextField()"
+            landmarkName = "addButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,7 +143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "236"
             endingLineNumber = "236"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/IngredientTableViewController.swift"
-            timestampString = "553495084.7477"
+            timestampString = "553647229.339493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/IngredientTableViewController.swift"
-            timestampString = "553495084.747762"
+            timestampString = "553647229.446921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/IngredientTableViewController.swift"
-            timestampString = "553495084.747838"
+            timestampString = "553647229.447777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"

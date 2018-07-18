@@ -17,6 +17,10 @@
 		0C9BC95320F7DE3200D458C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BC94A20F7DE3200D458C4 /* AppDelegate.swift */; };
 		0C9BC95420F7DE3200D458C4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BC94B20F7DE3200D458C4 /* Info.plist */; };
 		5477B212E67CC76511D06CE6 /* Pods_food.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41CC7A19D943AE0C0FAC85E /* Pods_food.framework */; };
+		7A576CC520FFFC3D003F49C3 /* shoppinglistbutton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */; };
+		7A576CC620FFFC3D003F49C3 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */; };
+		7A576CC720FFFC3D003F49C3 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */; };
+		7A576CC820FFFC3D003F49C3 /* filledIn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC420FFFC3D003F49C3 /* filledIn.jpg */; };
 		7A5A00FB20F7E17B00941572 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */; };
 		7A8D547220FBF21400EA2CB7 /* possibleIngredients.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */; };
 		7AC1B26F20F17C71001EB067 /* foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B26E20F17C71001EB067 /* foodTests.swift */; };
@@ -59,6 +63,10 @@
 		0C9BC94B20F7DE3200D458C4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2470EF269BA1BAD22621A6AA /* Pods-food.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food.release.xcconfig"; path = "Pods/Target Support Files/Pods-food/Pods-food.release.xcconfig"; sourceTree = "<group>"; };
 		257F3BCB306E63B5BAE17953 /* Pods_foodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppinglistbutton.jpg; sourceTree = "<group>"; };
+		7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
+		7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		7A576CC420FFFC3D003F49C3 /* filledIn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = filledIn.jpg; sourceTree = "<group>"; };
 		7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = possibleIngredients.json; sourceTree = "<group>"; };
 		7AC1B25620F17C70001EB067 /* food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +111,10 @@
 				0C9BC94920F7DE3200D458C4 /* TabBarViewController.swift */,
 				0C9BC94A20F7DE3200D458C4 /* AppDelegate.swift */,
 				7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */,
+				7A576CC420FFFC3D003F49C3 /* filledIn.jpg */,
+				7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */,
+				7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */,
+				7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */,
 				0C9BC94B20F7DE3200D458C4 /* Info.plist */,
 			);
 			path = food;
@@ -249,7 +261,9 @@
 				0C9BC95420F7DE3200D458C4 /* Info.plist in Resources */,
 				0C9BC95020F7DE3200D458C4 /* Main.storyboard in Resources */,
 				0C9BC94E20F7DE3200D458C4 /* Assets.xcassets in Resources */,
+				7A576CC820FFFC3D003F49C3 /* filledIn.jpg in Resources */,
 				0C9BC94F20F7DE3200D458C4 /* LaunchScreen.storyboard in Resources */,
+				7A576CC520FFFC3D003F49C3 /* shoppinglistbutton.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +349,10 @@
 				0C9BC95220F7DE3200D458C4 /* TabBarViewController.swift in Sources */,
 				0C9BC94D20F7DE3200D458C4 /* IngredientTableViewController.swift in Sources */,
 				0C9BC94C20F7DE3200D458C4 /* ViewController.swift in Sources */,
+				7A576CC720FFFC3D003F49C3 /* ShoppingListTableViewCell.swift in Sources */,
 				0C9BC95320F7DE3200D458C4 /* AppDelegate.swift in Sources */,
 				0C9BC95120F7DE3200D458C4 /* IngredientTableViewCell.swift in Sources */,
+				7A576CC620FFFC3D003F49C3 /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
