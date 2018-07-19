@@ -775,7 +775,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // make set and search for the item
         let myFridgeSet = Set<Ingrd>(myFridge)
         let ingred_in = Ingrd(name_in: input)
-        myFridge.append(ingred_in)
+        if(!myFridgeSet.contains(ingred_in)){
+            myFridge.append(ingred_in)
+        }
+        
         
         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.5/255.0, alpha:1.000))
         banner.dismissesOnTap = true
