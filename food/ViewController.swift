@@ -12,35 +12,20 @@ import SearchTextField
 import BRYXBanner
 import Alamofire
 
-// JSON
-let p: Parameters = ["api_key": "PkL8Lbt6TnPU5GrTQXZWSHJR0sl38DO6vEmlbFIn", "q" : "Banana", "ds" : "Standard Reference", "max" : "1"]
-// var url : String = "/api/foods?query=mango&count=1&start=0&spell=true"
-
-func makeRequest(){
-    
-    Alamofire.request("https://api.nal.usda.gov/ndb/search", parameters: p).responseJSON { response in
-        print("Request: \(String(describing: response.request))")   // original url request
-        print("Response: \(String(describing: response.response))") // http url response
-        print("Result: \(response.result)")                         // response serialization result
-        
-        if let json = response.result.value {
-            print("JSON: \(json)") // serialized json response
-        }
-        
-        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-            print("Data: \(utf8Text)") // original server data as UTF8 string
-        }
-    }
-    
-}
 enum FoodType: Int{
-    case Fruit
     case Dairy
-    case Poultry
+    case Fruits
+    case Veggie
+    case BakedNGrains
+    case Seasonings
     case Meat
-    case Protein_other
-    case Seasoning
-    case Etc
+    case Seafood
+    case Legume
+    case Nut
+    case Oils
+    case Soup
+    case DairyAlt
+    case Beverages
 }
 
 class Ingrd: Hashable{
@@ -55,7 +40,6 @@ class Ingrd: Hashable{
         return lhs.Name == rhs.Name
     }
     
-    
     init (name_in: String, type_in: FoodType) {
         Name = name_in
         Ingrd_Type = FoodType(rawValue: type_in.rawValue)!
@@ -68,27 +52,492 @@ class Ingrd: Hashable{
     } // Initialize with food name only
 }
 
-var myFridge = [Ingrd: Int]() // Ingredients list in User's Fridge
-var FruitCount = 0
-var DairyCount = 0
-var PoultryCount = 0
-var MeatCount = 0
-var Protein_otherCount = 0
-var SeasoningCount = 0
-var EtcCount = 0
+
+var myFridge = [Ingrd]() // Ingredients list in User's Fridge
 
 var IngredBook = [String : FoodType]() // Ingredient Book
 
 func init_IngredBook(){
-    IngredBook["Banana"] = FoodType.Fruit
-    IngredBook["Milk"] = FoodType.Dairy
-    IngredBook["Egg"] = FoodType.Poultry
-    IngredBook["Bacon"] = FoodType.Meat
-    IngredBook["Chicken"] = FoodType.Meat
-    IngredBook["Salt"] = FoodType.Seasoning
+    
+    IngredBook["butter"] = FoodType.Dairy
+    IngredBook["egg"] = FoodType.Dairy
+    IngredBook["milk"] = FoodType.Dairy
+    IngredBook["parmesan cheese"] = FoodType.Dairy
+    IngredBook["cheddar cheese"] = FoodType.Dairy
+    IngredBook["american cheese"] = FoodType.Dairy
+    IngredBook["sour cream"] = FoodType.Dairy
+    IngredBook["mozzarella"] = FoodType.Dairy
+    IngredBook["yogurt"] = FoodType.Dairy
+    IngredBook["cream"] = FoodType.Dairy
+    IngredBook["cream cheese"] = FoodType.Dairy
+    IngredBook["whipped cream"] = FoodType.Dairy
+    IngredBook["feta cheese"] = FoodType.Dairy
+    IngredBook["condensed milk"] = FoodType.Dairy
+    IngredBook["ice cream"] = FoodType.Dairy
+    IngredBook["frosting"] = FoodType.Dairy
+    IngredBook["ricotta"] = FoodType.Dairy
+    IngredBook["goat cheese"] = FoodType.Dairy
+    IngredBook["blue cheese"] = FoodType.Dairy
+    IngredBook["powdered milk"] = FoodType.Dairy
+    IngredBook["pizza cheese"] = FoodType.Dairy
+    
+    IngredBook["lemon"] = FoodType.Fruits
+    IngredBook["apple"] = FoodType.Fruits
+    IngredBook["banana"] = FoodType.Fruits
+    IngredBook["lime"] = FoodType.Fruits
+    IngredBook["strawberry"] = FoodType.Fruits
+    IngredBook["orange"] = FoodType.Fruits
+    IngredBook["pineapple"] = FoodType.Fruits
+    IngredBook["blueberry"] = FoodType.Fruits
+    IngredBook["raisin"] = FoodType.Fruits
+    IngredBook["coconut"] = FoodType.Fruits
+    IngredBook["grape"] = FoodType.Fruits
+    IngredBook["peach"] = FoodType.Fruits
+    IngredBook["raspberry"] = FoodType.Fruits
+    IngredBook["cranberry"] = FoodType.Fruits
+    IngredBook["mango"] = FoodType.Fruits
+    IngredBook["pear"] = FoodType.Fruits
+    IngredBook["blackberry"] = FoodType.Fruits
+    IngredBook["cherry"] = FoodType.Fruits
+    IngredBook["date"] = FoodType.Fruits
+    IngredBook["watermelon"] = FoodType.Fruits
+    IngredBook["berries"] = FoodType.Fruits
+    IngredBook["kiwi"] = FoodType.Fruits
+    IngredBook["grapefruit"] = FoodType.Fruits
+    IngredBook["mandarin"] = FoodType.Fruits
+    IngredBook["cantaloupe"] = FoodType.Fruits
+    IngredBook["plum"] = FoodType.Fruits
+    IngredBook["apricot"] = FoodType.Fruits
+    IngredBook["clementine"] = FoodType.Fruits
+    IngredBook["prunes"] = FoodType.Fruits
+    IngredBook["pomegranate"] = FoodType.Fruits
+    IngredBook["nectarine"] = FoodType.Fruits
+    IngredBook["tangerine"] = FoodType.Fruits
+    IngredBook["fig"] = FoodType.Fruits
+    IngredBook["papaya"] = FoodType.Fruits
+    IngredBook["currant"] = FoodType.Fruits
+    IngredBook["passion fruit"] = FoodType.Fruits
+    IngredBook["guava"] = FoodType.Fruits
+    IngredBook["lychee"] = FoodType.Fruits
+    IngredBook["star fruit"] = FoodType.Fruits
+    
+    IngredBook["rice"] = FoodType.BakedNGrains
+    IngredBook["pasta"] = FoodType.BakedNGrains
+    IngredBook["flour"] = FoodType.BakedNGrains
+    IngredBook["bread"] = FoodType.BakedNGrains
+    IngredBook["baking powder"] = FoodType.BakedNGrains
+    IngredBook["baking soda"] = FoodType.BakedNGrains
+    IngredBook["cornstarch"] = FoodType.BakedNGrains
+    IngredBook["bread crumbs"] = FoodType.BakedNGrains
+    IngredBook["rolled oats"] = FoodType.BakedNGrains
+    IngredBook["noodle"] = FoodType.BakedNGrains
+    IngredBook["flour tortillas"] = FoodType.BakedNGrains
+    IngredBook["pancake mix"] = FoodType.BakedNGrains
+    IngredBook["yeast"] = FoodType.BakedNGrains
+    IngredBook["cracker"] = FoodType.BakedNGrains
+    IngredBook["quinoa"] = FoodType.BakedNGrains
+    IngredBook["brown rice"] = FoodType.BakedNGrains
+    IngredBook["cornmeal"] = FoodType.BakedNGrains
+    IngredBook["cake mix"] = FoodType.BakedNGrains
+    IngredBook["saltines"] = FoodType.BakedNGrains
+    IngredBook["popcorn"] = FoodType.BakedNGrains
+    IngredBook["corn tortillas"] = FoodType.BakedNGrains
+    IngredBook["ramen"] = FoodType.BakedNGrains
+    IngredBook["cereal"] = FoodType.BakedNGrains
+    IngredBook["biscuits"] = FoodType.BakedNGrains
+    IngredBook["stuffing mix"] = FoodType.BakedNGrains
+    IngredBook["pie crust"] = FoodType.BakedNGrains
+    IngredBook["chips"] = FoodType.BakedNGrains
+    IngredBook["coconut flake"] = FoodType.BakedNGrains
+    IngredBook["bread flour"] = FoodType.BakedNGrains
+    IngredBook["pizza dough"] = FoodType.BakedNGrains
+    IngredBook["hot dog bun"] = FoodType.BakedNGrains
+    IngredBook["multigrain bread"] = FoodType.BakedNGrains
+    IngredBook["potato flakes"] = FoodType.BakedNGrains
+    IngredBook["pretzel"] = FoodType.BakedNGrains
+    IngredBook["cornbread"] = FoodType.BakedNGrains
+    IngredBook["muffin"] = FoodType.BakedNGrains
+    IngredBook["risotto"] = FoodType.BakedNGrains
+    IngredBook["ravioli"] = FoodType.BakedNGrains
+    IngredBook["wheat"] = FoodType.BakedNGrains
+    IngredBook["rice flour"] = FoodType.BakedNGrains
+    IngredBook["bread dough"] = FoodType.BakedNGrains
+    IngredBook["yeast flake"] = FoodType.BakedNGrains
+    IngredBook["breadsticks"] = FoodType.BakedNGrains
+    IngredBook["starch"] = FoodType.BakedNGrains
+    IngredBook["whole weat flour"] = FoodType.BakedNGrains
+    
+    
+    IngredBook["sugar"] = FoodType.Seasonings
+    IngredBook["honey"] = FoodType.Seasonings
+    IngredBook["maple syrup"] = FoodType.Seasonings
+    IngredBook["corn syrup"] = FoodType.Seasonings
+    IngredBook["artifical sweetener"] = FoodType.Seasonings
+    IngredBook["cinnamon"] = FoodType.Seasonings
+    IngredBook["vanilla"] = FoodType.Seasonings
+    IngredBook["garlic powder"] = FoodType.Seasonings
+    IngredBook["chili powder"] = FoodType.Seasonings
+    IngredBook["cumin"] = FoodType.Seasonings
+    IngredBook["italian seasoning"] = FoodType.Seasonings
+    IngredBook["onion powder"] = FoodType.Seasonings
+    IngredBook["nutmeg"] = FoodType.Seasonings
+    IngredBook["curry powder"] = FoodType.Seasonings
+    IngredBook["taco seasoning"] = FoodType.Seasonings
+    IngredBook["clove"] = FoodType.Seasonings
+    IngredBook["chive"] = FoodType.Seasonings
+    IngredBook["peppercorn"] = FoodType.Seasonings
+    IngredBook["vanilla essence"] = FoodType.Seasonings
+    IngredBook["herbs"] = FoodType.Seasonings
+    IngredBook["steak seasoning"] = FoodType.Seasonings
+    IngredBook["poultry seasoning"] = FoodType.Seasonings
+    IngredBook["cardamom"] = FoodType.Seasonings
+    IngredBook["italian herbs"] = FoodType.Seasonings
+    IngredBook["chipotle"] = FoodType.Seasonings
+    IngredBook["cacao"] = FoodType.Seasonings
+    IngredBook["chili paste"] = FoodType.Seasonings
+    IngredBook["lavendar"] = FoodType.Seasonings
+    
+    IngredBook["chicken breast"] = FoodType.Meat
+    IngredBook["ground beef"] = FoodType.Meat
+    IngredBook["bacon"] = FoodType.Meat
+    IngredBook["sausage"] = FoodType.Meat
+    IngredBook["beef stake"] = FoodType.Meat
+    IngredBook["ham"] = FoodType.Meat
+    IngredBook["hot dog"] = FoodType.Meat
+    IngredBook["pork chops"] = FoodType.Meat
+    IngredBook["chicken thighs"] = FoodType.Meat
+    IngredBook["ground turkey"] = FoodType.Meat
+    IngredBook["turkey"] = FoodType.Meat
+    IngredBook["pork"] = FoodType.Meat
+    IngredBook["peperoni"] = FoodType.Meat
+    IngredBook["chicken leg"] = FoodType.Meat
+    IngredBook["ground pork"] = FoodType.Meat
+    IngredBook["chorizo"] = FoodType.Meat
+    IngredBook["chicken wings"] = FoodType.Meat
+    IngredBook["beef roast"] = FoodType.Meat
+    IngredBook["salami"] = FoodType.Meat
+    IngredBook["pork roast"] = FoodType.Meat
+    IngredBook["ground chicekn"] = FoodType.Meat
+    IngredBook["pork ribs"] = FoodType.Meat
+    IngredBook["spam"] = FoodType.Meat
+    IngredBook["bologna"] = FoodType.Meat
+    IngredBook["lamb"] = FoodType.Meat
+    IngredBook["corned beef"] = FoodType.Meat
+    IngredBook["chicken roast"] = FoodType.Meat
+    IngredBook["duck"] = FoodType.Meat
+    IngredBook["pork belly"] = FoodType.Meat
+    IngredBook["pastrami"] = FoodType.Meat
+    IngredBook["chicken tenders"] = FoodType.Meat
+    
+    IngredBook["canned tuna"] = FoodType.Seafood
+    IngredBook["salmon"] = FoodType.Seafood
+    IngredBook["fish fillets"] = FoodType.Seafood
+    IngredBook["canned salmon"] = FoodType.Seafood
+    IngredBook["smoked salmon"] = FoodType.Seafood
+    IngredBook["tuna steak"] = FoodType.Seafood
+    IngredBook["whitefish"] = FoodType.Seafood
+    IngredBook["halibut"] = FoodType.Seafood
+    IngredBook["trout"] = FoodType.Seafood
+    IngredBook["haddock"] = FoodType.Seafood
+    IngredBook["flounder"] = FoodType.Seafood
+    IngredBook["catfish"] = FoodType.Seafood
+    IngredBook["caviar"] = FoodType.Seafood
+    IngredBook["eel"] = FoodType.Seafood
+    IngredBook["bluefish"] = FoodType.Seafood
+    IngredBook["carp"] = FoodType.Seafood
+    IngredBook["shrimp"] = FoodType.Seafood
+    IngredBook["crab"] = FoodType.Seafood
+    IngredBook["prawns"] = FoodType.Seafood
+    IngredBook["scallop"] = FoodType.Seafood
+    IngredBook["clam"] = FoodType.Seafood
+    IngredBook["lobster"] = FoodType.Seafood
+    IngredBook["mussel"] = FoodType.Seafood
+    IngredBook["oyster"] = FoodType.Seafood
+    IngredBook["squid"] = FoodType.Seafood
+    IngredBook["calamari"] = FoodType.Seafood
+    IngredBook["crafish"] = FoodType.Seafood
+    IngredBook["octopus"] = FoodType.Seafood
+    
+    IngredBook["mayonnaise"] = FoodType.Seasonings
+    IngredBook["ketchup"] = FoodType.Seasonings
+    IngredBook["mustard"] = FoodType.Seasonings
+    IngredBook["vinegar"] = FoodType.Seasonings
+    IngredBook["soy sauce"] = FoodType.Seasonings
+    IngredBook["balsamic vinegar"] = FoodType.Seasonings
+    IngredBook["worcestershire"] = FoodType.Seasonings
+    IngredBook["hot sauce"] = FoodType.Seasonings
+    IngredBook["barbecue sauce"] = FoodType.Seasonings
+    IngredBook["ranch dressing"] = FoodType.Seasonings
+    IngredBook["wine vinegar"] = FoodType.Seasonings
+    IngredBook["apple cider vinegar"] = FoodType.Seasonings
+    IngredBook["cider vinegar"] = FoodType.Seasonings
+    IngredBook["italian dressing"] = FoodType.Seasonings
+    IngredBook["rice vinegar"] = FoodType.Seasonings
+    IngredBook["tabasco"] = FoodType.Seasonings
+    IngredBook["fish sauce"] = FoodType.Seasonings
+    IngredBook["teriyaki"] = FoodType.Seasonings
+    IngredBook["steak sauce"] = FoodType.Seasonings
+    IngredBook["tahini"] = FoodType.Seasonings
+    IngredBook["enchilada sauce"] = FoodType.Seasonings
+    IngredBook["oyster sauce"] = FoodType.Seasonings
+    IngredBook["honey mustard"] = FoodType.Seasonings
+    IngredBook["sriracha"] = FoodType.Seasonings
+    IngredBook["caesar dressing"] = FoodType.Seasonings
+    IngredBook["taco sauce"] = FoodType.Seasonings
+    IngredBook["mirin"] = FoodType.Seasonings
+    IngredBook["blue cheese dressing"] = FoodType.Seasonings
+    IngredBook["buffalo sauce"] = FoodType.Seasonings
+    IngredBook["french dressing"] = FoodType.Seasonings
+    IngredBook["sesame dressing"] = FoodType.Seasonings
+    IngredBook["ground ginger"] = FoodType.Seasonings
+    IngredBook["sesame seed"] = FoodType.Seasonings
+    IngredBook["chili sauce"] = FoodType.Seasonings
+    IngredBook["rice wine"] = FoodType.Seasonings
+    IngredBook["poppy seed"] = FoodType.Seasonings
+    IngredBook["balsamic glaze"] = FoodType.Seasonings
+    IngredBook["miso"] = FoodType.Seasonings
+    IngredBook["wasabi"] = FoodType.Seasonings
+    IngredBook["rose water"] = FoodType.Seasonings
+    IngredBook["mustard powder"] = FoodType.Seasonings
+    IngredBook["mango powder"] = FoodType.Seasonings
+    IngredBook["matcha powder"] = FoodType.Seasonings
+    IngredBook["tomato sauce"] = FoodType.Seasonings
+    IngredBook["tomato paste"] = FoodType.Seasonings
+    IngredBook["salsa"] = FoodType.Seasonings
+    IngredBook["pesto"] = FoodType.Seasonings
+    IngredBook["alfredo sauce"] = FoodType.Seasonings
+    IngredBook["beef gravy"] = FoodType.Seasonings
+    IngredBook["curry paste"] = FoodType.Seasonings
+    IngredBook["chicken gravy"] = FoodType.Seasonings
+    IngredBook["cranberry sauce"] = FoodType.Seasonings
+    IngredBook["turkey gravy"] = FoodType.Seasonings
+    IngredBook["mushroom gravy"] = FoodType.Seasonings
+    IngredBook["sausage gravy"] = FoodType.Seasonings
+    IngredBook["onion gravy"] = FoodType.Seasonings
+    IngredBook["cream gravy"] = FoodType.Seasonings
+    IngredBook["tomato gravy"] = FoodType.Seasonings
+    
+    IngredBook["olive oil"] = FoodType.Oils
+    IngredBook["vegetable oil"] = FoodType.Oils
+    IngredBook["cooking spray"] = FoodType.Oils
+    IngredBook["canola oil"] = FoodType.Oils
+    IngredBook["sesame oil"] = FoodType.Oils
+    IngredBook["coconut oil"] = FoodType.Oils
+    IngredBook["peanut oil"] = FoodType.Oils
+    IngredBook["sunflower oil"] = FoodType.Oils
+    IngredBook["grape seed oil"] = FoodType.Oils
+    IngredBook["corn oil"] = FoodType.Oils
+    IngredBook["almond oil"] = FoodType.Oils
+    IngredBook["avocado oil"] = FoodType.Oils
+    IngredBook["safflower oil"] = FoodType.Oils
+    IngredBook["walnut oil"] = FoodType.Oils
+    IngredBook["hazelnut oil"] = FoodType.Oils
+    IngredBook["palm oil"] = FoodType.Oils
+    IngredBook["soybean oil"] = FoodType.Oils
+    IngredBook["mustard oil"] = FoodType.Oils
+    IngredBook["pistachio oil"] = FoodType.Oils
+    
+    IngredBook["green beans"] = FoodType.Legume
+    IngredBook["black beans"] = FoodType.Legume
+    IngredBook["peas"] = FoodType.Legume
+    IngredBook["chickpea"] = FoodType.Legume
+    IngredBook["lentil"] = FoodType.Legume
+    IngredBook["refried beans"] = FoodType.Legume
+    IngredBook["chili beans"] = FoodType.Legume
+    IngredBook["hummus"] = FoodType.Legume
+    IngredBook["kidney beans"] = FoodType.Legume
+    IngredBook["pinto beans"] = FoodType.Legume
+    IngredBook["edamame"] = FoodType.Legume
+    IngredBook["split beans"] = FoodType.Legume
+    IngredBook["snap beans"] = FoodType.Legume
+    IngredBook["soybeans"] = FoodType.Legume
+    
+    IngredBook["chicken broth"] = FoodType.Soup
+    IngredBook["mushroom soup"] = FoodType.Soup
+    IngredBook["beef broth"] = FoodType.Soup
+    IngredBook["tomato soup"] = FoodType.Soup
+    IngredBook["chicken soup"] = FoodType.Soup
+    IngredBook["onion soup"] = FoodType.Soup
+    IngredBook["vegetable soup"] = FoodType.Soup
+    
+    IngredBook["peanut butter"] = FoodType.Nut
+    IngredBook["almond"] = FoodType.Nut
+    IngredBook["walnut"] = FoodType.Nut
+    IngredBook["pecan"] = FoodType.Nut
+    IngredBook["peanut"] = FoodType.Nut
+    IngredBook["cashew"] = FoodType.Nut
+    IngredBook["flax"] = FoodType.Nut
+    IngredBook["pistachio"] = FoodType.Nut
+    IngredBook["pine nut"] = FoodType.Nut
+    IngredBook["hazelnut"] = FoodType.Nut
+    IngredBook["macademia"] = FoodType.Nut
+    
+    IngredBook["white wine"] = FoodType.Beverages
+    IngredBook["red wine"] = FoodType.Beverages
+    IngredBook["beer"] = FoodType.Beverages
+    IngredBook["vodka"] = FoodType.Beverages
+    IngredBook["rum"] = FoodType.Beverages
+    IngredBook["tequila"] = FoodType.Beverages
+    IngredBook["whiskey"] = FoodType.Beverages
+    IngredBook["bourbon"] = FoodType.Beverages
+    IngredBook["cooking wine"] = FoodType.Beverages
+    IngredBook["whisky"] = FoodType.Beverages
+    IngredBook["coffee"] = FoodType.Beverages
+    IngredBook["orange juice"] = FoodType.Beverages
+    IngredBook["tea"] = FoodType.Beverages
+    IngredBook["apple juice"] = FoodType.Beverages
+    IngredBook["tomato juice"] = FoodType.Beverages
+    IngredBook["espresso"] = FoodType.Beverages
+    IngredBook["fruit juice"] = FoodType.Beverages
+    
+    IngredBook["coconut milk"] = FoodType.DairyAlt
+    IngredBook["almond milk"] = FoodType.DairyAlt
+    IngredBook["soy milk"] = FoodType.DairyAlt
+    IngredBook["rice milk"] = FoodType.DairyAlt
+    IngredBook["non dairy creamer"] = FoodType.DairyAlt
+    
 }
 
-func possibleIngredients() -> [String] {
+
+var possibleRecipe = [Int]() // stores index of recipe book
+
+func makePossibleRecipe(){
+    var index = 0
+    for recipe in RecipeBook { // for each recipe
+        
+        var tot_count = recipe.DairyList.count + recipe.FruitsList.count + recipe.VeggieList.count + recipe.BakedNGrainsList.count + recipe.SeasoningsList.count + recipe.MeatList.count + recipe.SeafoodList.count + recipe.LegumeList.count + recipe.NutList.count + recipe.OilsList.count + recipe.SoupList.count + recipe.DairyAltList.count + recipe.BeveragesList.count
+        
+        
+        for ingred in myFridge{ // compare with the ingredients in user's fridge
+            if ingred.Ingrd_Type == FoodType.Dairy {
+                if !recipe.DairyList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.DairyList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Fruits{
+                if !recipe.FruitsList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.FruitsList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Veggie{
+                if !recipe.VeggieList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.VeggieList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.BakedNGrains{
+                if !recipe.BakedNGrainsList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.BakedNGrainsList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Seasonings{
+                if !recipe.SeasoningsList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.SeasoningsList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Meat{
+                if !recipe.MeatList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.MeatList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Seafood{
+                if !recipe.SeafoodList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.SeafoodList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Legume{
+                if !recipe.LegumeList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.LegumeList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Nut{
+                if !recipe.NutList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.NutList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Oils{
+                if !recipe.OilsList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.OilsList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Soup{
+                if !recipe.SoupList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.SoupList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.DairyAlt{
+                if !recipe.DairyAltList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.DairyAltList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+            if ingred.Ingrd_Type == FoodType.Beverages{
+                if !recipe.BeveragesList.isEmpty{ // if the list is not empty
+                    // find in the list
+                    if (recipe.BeveragesList.contains(ingred)){
+                        // found the ingredient
+                        tot_count -= 1
+                    }
+                }
+            }
+        }
+        if (tot_count == 0){
+            possibleRecipe.append(index)
+        }
+        if (tot_count < 0){
+            print("error on counting tot_count")
+        }
+        index += 1
+    }
+}
+
+func possibleIngredients() -> [String]{
     var ingredientNames = [String]()
     for ing in IngredBook {
         ingredientNames.append(ing.key)
@@ -105,13 +554,19 @@ struct RecipeBookInfo{
     var FoodName : String
     
     // List of Food Types
-    var FruitList = [Ingrd]()
-    var DairyList = [Ingrd]()
-    var PoultryList = [Ingrd]()
-    var MeatList = [Ingrd]()
-    var ProteinEtcList = [Ingrd]()
-    var SeasoningList = [Ingrd]()
-    var EtcList = [Ingrd]()
+    var DairyList = Set<Ingrd>()
+    var FruitsList = Set<Ingrd>()
+    var VeggieList = Set<Ingrd>()
+    var BakedNGrainsList = Set<Ingrd>()
+    var SeasoningsList = Set<Ingrd>()
+    var MeatList = Set<Ingrd>()
+    var SeafoodList = Set<Ingrd>()
+    var LegumeList = Set<Ingrd>()
+    var NutList = Set<Ingrd>()
+    var OilsList = Set<Ingrd>()
+    var SoupList = Set<Ingrd>()
+    var DairyAltList = Set<Ingrd>()
+    var BeveragesList = Set<Ingrd>()
     
     var Steps : String
     
@@ -121,26 +576,44 @@ struct RecipeBookInfo{
         Steps = steps_in
         
         for ingred_in in array_in{
-            if(ingred_in.Ingrd_Type == FoodType.Fruit){
-                FruitList.append(ingred_in)
+            if(ingred_in.Ingrd_Type == FoodType.Dairy){
+                DairyList.insert(ingred_in)
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Dairy){
-                DairyList.append(ingred_in)
+            else if(ingred_in.Ingrd_Type == FoodType.Fruits){
+                FruitsList.insert(ingred_in)
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Poultry){
-                PoultryList.append(ingred_in)
+            else if(ingred_in.Ingrd_Type == FoodType.Veggie){
+                VeggieList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.BakedNGrains){
+                BakedNGrainsList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.Seasonings){
+                LegumeList.insert(ingred_in)
             }
             else if(ingred_in.Ingrd_Type == FoodType.Meat){
-                MeatList.append(ingred_in)
+                MeatList.insert(ingred_in)
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Protein_other){
-                ProteinEtcList.append(ingred_in)
+            else if(ingred_in.Ingrd_Type == FoodType.Seafood){
+                SeafoodList.insert(ingred_in)
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Seasoning){
-                SeasoningList.append(ingred_in)
+            else if(ingred_in.Ingrd_Type == FoodType.Legume){
+                LegumeList.insert(ingred_in)
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Etc){
-                EtcList.append(ingred_in)
+            else if(ingred_in.Ingrd_Type == FoodType.Nut){
+                NutList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.Oils){
+                OilsList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.Soup){
+                SoupList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.DairyAlt){
+                DairyAltList.insert(ingred_in)
+            }
+            else if(ingred_in.Ingrd_Type == FoodType.Beverages){
+                BeveragesList.insert(ingred_in)
             }
         }
     } // Initilizer
@@ -150,76 +623,12 @@ var RecipeBook = [RecipeBookInfo]() // Recipe Book :D
 
 func initRecipeBook(){
     // banana milk
-    let IngrdArray = [Ingrd(name_in: "Banana"), Ingrd(name_in: "Milk")]
-    RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and MIlk"))
-}
-
-func update_availRecipe(){
-    for (index, item) in RecipeBook.enumerated() {
-        var count = item.FruitList.count + item.DairyList.count + item.PoultryList.count + item.MeatList.count
-            + item.ProteinEtcList.count + item.SeasoningList.count + item.EtcList.count
-
-        if(item.FruitList.count <= FruitCount){
-            for j in item.DairyList{
-                if(myFridge[j] != nil) {
-                    count -= 1
-                }
-            }
-        }
-        if(item.DairyList.count <= DairyCount){
-            for j in item.FruitList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(item.PoultryList.count <= PoultryCount){
-            for j in item.PoultryList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(item.MeatList.count <= MeatCount){
-            for j in item.MeatList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(item.ProteinEtcList.count <= Protein_otherCount){
-            for j in item.ProteinEtcList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(item.SeasoningList.count <= SeasoningCount){
-            for j in item.SeasoningList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(item.EtcList.count <= EtcCount){
-            for j in item.EtcList{
-                if(myFridge[j] != nil){
-                    count -= 1
-                }
-            }
-        }
-        if(count == 0){
-            availRecipe.append(index)
-            print("You can make: ")
-            print(item.FoodName)
-        }
-    }
+    let IngrdArray = [Ingrd(name_in: "banana"), Ingrd(name_in: "milk".lowercased())]
+    RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and Milk"))
 }
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
-    
-    let myPickerData = [String](arrayLiteral: "Fruit", "Dairy", "Protein", "Seasoning", "Poultry", "Etc")
+    let myPickerData = [String](arrayLiteral: "Dairy", "Fruits", "Veggie", "Baked Goods & Grains", "Seasonings", "Legume", "Meat", "Seafood", "Nut", "Oils", "Soup", "Dairy Alternatives", "Beverages")
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -241,7 +650,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         textFieldShouldReturn(categoryTextField)
         
     }
-
+    
     //MARK: Properties
     
     @IBOutlet weak var AddIngredientLabel: UILabel!
@@ -261,7 +670,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         configureSimpleSearchTextField()
         
         // Enable the Save button only if the text field has a valid Meal name.
-//        updateSaveButtonState()
+        //        updateSaveButtonState()
         let thePicker = UIPickerView()
         categoryTextField.inputView = thePicker
         thePicker.delegate = self
@@ -269,7 +678,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         nameTextField.delegate = self
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -288,55 +697,35 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        
-        makeRequest()
         //add ingredient to array
         let input = nameTextField.text!
         let cat = convertType(ing_in: categoryTextField.text!)
         let input_ingred = Ingrd(name_in: input, type_in: cat)
         
-        if myFridge[input_ingred] != nil{
-            myFridge[input_ingred]! += 1
-        }
-        else{
-            myFridge[input_ingred] = 1
-        }
+        /*
+         if myFridge[input_ingred] != nil{
+         myFridge[input_ingred]! += 1
+         }
+         else{
+         myFridge[input_ingred] = 1
+         }*/
         
-        //add to ingredients list
+        //add to myFridge
         IngredBook[input] = cat
-        IngredArray.insert(input, at: 0)
         
-        // update food group count
-        if(input_ingred.Ingrd_Type == FoodType.Fruit){
-            FruitCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Dairy){
-            DairyCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Poultry){
-            PoultryCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Meat){
-            MeatCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Protein_other){
-            Protein_otherCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Seasoning){
-            SeasoningCount += 1
-        }
-        else if(input_ingred.Ingrd_Type == FoodType.Etc){
-            EtcCount += 1
-        }
+        // make set and search for the item
+        let myFridgeSet = Set<Ingrd>(myFridge)
+        let ingred_in = Ingrd(name_in: input)
+        myFridge.append(ingred_in)
         
         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.5/255.0, alpha:1.000))
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
         
         print(IngredBook)
-        print(IngredArray)
+        print(myFridge)
         // update availRecipe
-        update_availRecipe()
+        makePossibleRecipe()
         
         nameTextField.text = nil
         categoryTextField.text = nil
@@ -347,11 +736,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Start visible even without user's interaction as soon as created - Default: false
         nameTextField.startVisibleWithoutInteraction = false
         
-//        // Set specific comparision options - Default: .caseInsensitive
-//        nameTextField.comparisonOptions = [.caseInsensitive]
-//
-//        // You can also limit the max height of the results list
-//        nameTextField.maxResultsListHeight = 10
+        //        // Set specific comparision options - Default: .caseInsensitive
+        //        nameTextField.comparisonOptions = [.caseInsensitive]
+        //
+        //        // You can also limit the max height of the results list
+        //        nameTextField.maxResultsListHeight = 10
         
         // Set the max number of results. By default it's not limited
         nameTextField.maxNumberOfResults = 5
@@ -373,51 +762,99 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         // Set data source
-        let possibleIng = possibleIngredients()
-        nameTextField.filterStrings(possibleIng)
+        
+        var ingredDropDown = [String]()
+        for (key, value) in IngredBook{
+            ingredDropDown.append(key)
+        }
+        nameTextField.filterStrings(ingredDropDown)
     }
-
+    
 }
 
 func convertType(ing_in: String) -> FoodType {
-    if(ing_in == "Fruit") {
-        return FoodType.Fruit
-    }
     if(ing_in == "Dairy") {
         return FoodType.Dairy
     }
-    if(ing_in == "Poultry") {
-        return FoodType.Poultry
+    else if(ing_in == "Fruits") {
+        return FoodType.Fruits
     }
-    if(ing_in == "Meat") {
+    else if(ing_in == "Vegetables") {
+        return FoodType.Veggie
+    }
+    else if(ing_in == "Baked Goods & Grains") {
+        return FoodType.BakedNGrains
+    }
+    else if(ing_in == "Seasonings") {
+        return FoodType.Seasonings
+    }
+    else if(ing_in == "Legume") {
+        return FoodType.Legume
+    }
+    else if(ing_in == "Meat"){
         return FoodType.Meat
     }
-    if(ing_in == "Protein_other") {
-        return FoodType.Protein_other
+    else if(ing_in == "Seafood"){
+        return FoodType.Seafood
     }
-    if(ing_in == "Seasoning") {
-        return FoodType.Seasoning
+    else if(ing_in == "Nut"){
+        return FoodType.Nut
     }
-    return FoodType.Etc
+    else if(ing_in == "Oils"){
+        return FoodType.Oils
+    }
+    else if(ing_in == "Soup"){
+        return FoodType.Soup
+    }
+    else if(ing_in == "Dairy Alternatives"){
+        return FoodType.DairyAlt
+    }
+    else if(ing_in == "Bevereages"){
+        return FoodType.Beverages
+    }
+    print("error in converttype")
+    return FoodType.Beverages
 }
 func FTtoSTRING(ing_in: FoodType) -> String {
-    if(ing_in == FoodType.Fruit) {
-        return "Fruit"
-    }
     if(ing_in == FoodType.Dairy) {
         return "Dairy"
     }
-    if(ing_in == FoodType.Poultry) {
-        return "Poultry"
+    else if(ing_in == FoodType.Fruits) {
+        return "Fruits"
     }
-    if(ing_in == FoodType.Meat) {
+    else if(ing_in == FoodType.Veggie) {
+        return "Vegetables"
+    }
+    else if(ing_in == FoodType.BakedNGrains) {
+        return "Baked Goods & Grains"
+    }
+    else if(ing_in == FoodType.Seasonings) {
+        return "Seasonings"
+    }
+    else if(ing_in == FoodType.Legume) {
+        return "Legume"
+    }
+    else if(ing_in == FoodType.Meat) {
         return "Meat"
     }
-    if(ing_in == FoodType.Protein_other) {
-        return "Protein_other"
+    else if(ing_in == FoodType.Seafood) {
+        return "Seafood"
     }
-    if(ing_in == FoodType.Seasoning) {
-        return "Seasoning"
+    else if(ing_in == FoodType.Nut) {
+        return "Nut"
     }
-    return "Etc"
+    else if(ing_in == FoodType.Oils) {
+        return "Oils"
+    }
+    else if(ing_in == FoodType.Soup) {
+        return "Soup"
+    }
+    else if(ing_in == FoodType.DairyAlt) {
+        return "Dairy Alternatives"
+    }
+    else if(ing_in == FoodType.Beverages) {
+        return "Beverages"
+    }
+    print("error in FTtostring")
+    return "Beverages"
 }
