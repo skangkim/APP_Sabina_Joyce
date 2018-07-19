@@ -14,6 +14,9 @@
 
 - [Food database](https://ndb.nal.usda.gov/ndb/search/list?home=true)
 
+## Recipe Idea
+- [40+ Easy Recipe for College Students](https://www.fromvalerieskitchen.com/40-easy-recipes-for-college-students/)
+
 
 ## Pods used
 
@@ -21,6 +24,8 @@
 - [BRYXBanner](https://github.com/bryx-inc/BRYXBanner)
 - [Alamofire](https://github.com/Alamofire/Alamofire)
 
+
+## Useful Link
 
 - [Notification Banner](https://github.com/bryx-inc/BRYXBanner)
 - [Cool loading animations](https://github.com/ninjaprox/NVActivityIndicatorView)
