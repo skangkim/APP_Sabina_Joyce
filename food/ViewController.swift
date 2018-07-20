@@ -458,14 +458,30 @@ func init_IngredBook(){
 }
 
 
-var possibleRecipe = [Int]() // stores index of recipe book
+var myRecipe = [Int]() // stores index of recipe book
 
-func makePossibleRecipe(){
-    var index = 0
-    for recipe in RecipeBook { // for each recipe
+class PotRecipeType{
+    var index : Int
+    var ingredList: [Ingrd] = []
+    
+    init (index_in: Int, ingredList_in: [Ingrd]){
+        index = index_in
+        ingredList = ingredList_in
+    }
+
+}
+var potentialRecipe = [PotRecipeType]() // stores index of recipe book
+
+func generateRecipe(){
+    for (index,recipe) in RecipeBook.enumerated() { // for each recipe
         
-        var tot_count = recipe.DairyList.count + recipe.FruitsList.count + recipe.VeggieList.count + recipe.BakedNGrainsList.count + recipe.SeasoningsList.count + recipe.MeatList.count + recipe.SeafoodList.count + recipe.LegumeList.count + recipe.NutList.count + recipe.OilsList.count + recipe.SoupList.count + recipe.DairyAltList.count + recipe.BeveragesList.count
         
+        let Set_all = Set(arrayLiteral: recipe.DairyList, recipe.FruitsList, recipe.VeggieList, recipe.BakedNGrainsList, recipe.SeasoningsList,  recipe.MeatList, recipe.SeafoodList, recipe.LegumeList, recipe.NutList, recipe.OilsList, recipe.SoupList, recipe.DairyAltList, recipe.BeveragesList)
+        
+        var IngredList : Set<Ingrd> = []
+        for it in Set_all{
+            IngredList = IngredList.union(it)
+        }
         
         for ingred in myFridge{ // compare with the ingredients in user's fridge
             if ingred.Ingrd_Type == FoodType.Dairy {
@@ -473,126 +489,131 @@ func makePossibleRecipe(){
                     // find in the list
                     if (recipe.DairyList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Fruits{
+            else if ingred.Ingrd_Type == FoodType.Fruits{
                 if !recipe.FruitsList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.FruitsList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Veggie{
+            else if ingred.Ingrd_Type == FoodType.Veggie{
                 if !recipe.VeggieList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.VeggieList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.BakedNGrains{
+            else if ingred.Ingrd_Type == FoodType.BakedNGrains{
                 if !recipe.BakedNGrainsList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.BakedNGrainsList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Seasonings{
+            else if ingred.Ingrd_Type == FoodType.Seasonings{
                 if !recipe.SeasoningsList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.SeasoningsList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Meat{
+            else if ingred.Ingrd_Type == FoodType.Meat{
                 if !recipe.MeatList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.MeatList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Seafood{
+            else if ingred.Ingrd_Type == FoodType.Seafood{
                 if !recipe.SeafoodList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.SeafoodList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Legume{
+            else if ingred.Ingrd_Type == FoodType.Legume{
                 if !recipe.LegumeList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.LegumeList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Nut{
+            else if ingred.Ingrd_Type == FoodType.Nut{
                 if !recipe.NutList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.NutList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Oils{
+            else if ingred.Ingrd_Type == FoodType.Oils{
                 if !recipe.OilsList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.OilsList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Soup{
+            else if ingred.Ingrd_Type == FoodType.Soup{
                 if !recipe.SoupList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.SoupList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.DairyAlt{
+            else if ingred.Ingrd_Type == FoodType.DairyAlt{
                 if !recipe.DairyAltList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.DairyAltList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
-            if ingred.Ingrd_Type == FoodType.Beverages{
+            else if ingred.Ingrd_Type == FoodType.Beverages{
                 if !recipe.BeveragesList.isEmpty{ // if the list is not empty
                     // find in the list
                     if (recipe.BeveragesList.contains(ingred)){
                         // found the ingredient
-                        tot_count -= 1
+                        IngredList.remove(ingred)
                     }
                 }
             }
         }
-        if (tot_count == 0){
-            possibleRecipe.append(index)
-        }
-        if (tot_count < 0){
+        
+        
+        if (IngredList.count < 0){
             print("error on counting tot_count")
         }
-        index += 1
+        else if (IngredList.count == 0){
+            myRecipe.append(index)
+        }
+        else if (IngredList.count < 3){
+            potentialRecipe.append(PotRecipeType(index_in: index, ingredList_in: Array(IngredList)))
+            // potential recipe
+        }
     }
 }
 
@@ -778,6 +799,53 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if(!myFridgeSet.contains(ingred_in)){
             myFridge.append(ingred_in)
         }
+        // update potential Recipe
+        
+        
+        // MARK: NEED TO WORK ON THIS
+        // when ingredient is added
+        // go thru potential recipe list
+            // if the recipe has the ingredient
+                // if the count is 1
+                    // then remove it and append it to myRecipe
+                // else
+                    // remove it from the list
+        
+        // array to keep track of index of potentialRecipe to delete
+        var arr = [Int]()
+        for (i, PRType) in potentialRecipe.enumerated(){
+            if PRType.ingredList.contains(ingred_in){
+                if PRType.ingredList.capacity == 1{
+                    arr.append(i)
+                    myRecipe.append(PRType.index)
+                }
+                else{
+                    var ing_index = -1
+                    // find the index of the ingredient on the ingredList
+                    for (i,ing) in PRType.ingredList.enumerated(){
+                        if ing == ingred_in{
+                            ing_index = i
+                        }
+                    }
+                    // remove it
+                    
+                    
+                    if ing_index == -1{
+                        print("invalid ing_index")
+                    }
+                    else{
+                        PRType.ingredList.remove(at: ing_index)
+                    }
+                    
+                }
+            }
+        }
+        
+        arr.sort()
+        arr.reverse()
+        for i in arr{
+            potentialRecipe.remove(at: i)
+        }
         
         
         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.5/255.0, alpha:1.000))
@@ -787,7 +855,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         print(IngredBook)
         print(myFridge)
         // update availRecipe
-        makePossibleRecipe()
+        generateRecipe()
         
         nameTextField.text = nil
         categoryTextField.text = nil

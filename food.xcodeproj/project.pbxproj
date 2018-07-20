@@ -104,6 +104,7 @@
 			children = (
 				0C9BC94120F7DE3200D458C4 /* ViewController.swift */,
 				0C9BC94220F7DE3200D458C4 /* IngredientTableViewController.swift */,
+				7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */,
 				0C9BC94320F7DE3200D458C4 /* Assets.xcassets */,
 				0C9BC94420F7DE3200D458C4 /* LaunchScreen.storyboard */,
 				0C9BC94620F7DE3200D458C4 /* Main.storyboard */,
@@ -114,7 +115,6 @@
 				7A576CC420FFFC3D003F49C3 /* filledIn.jpg */,
 				7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */,
 				7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */,
-				7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */,
 				0C9BC94B20F7DE3200D458C4 /* Info.plist */,
 			);
 			path = food;
