@@ -22,14 +22,6 @@
 - [40+ Easy Recipe for College Students](https://www.fromvalerieskitchen.com/40-easy-recipes-for-college-students/)
 
 
-#### Contact Info
-
-Questions? Contact us :D 
-
-UI/UX: Joyce Lee, joyylee@umich.edu
-Back-end: Sukang (Sabina) Kim, sukang@umich.edu
-
-
 ## Pods used
 
 - [SearchTextField](https://github.com/apasccon/SearchTextField)
@@ -45,3 +37,12 @@ Back-end: Sukang (Sabina) Kim, sukang@umich.edu
 - [README Formatting](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
 - [Github push & pull](https://readwrite.com/2013/10/02/github-for-beginners-part-2)
 - [SQLite.swift](https://github.com/stephencelis/SQLite.swift.git)
+
+
+
+#### Contact Info
+
+Questions? Contact us :D 
+
+UI/UX: Joyce Lee, joyylee@umich.edu
+Back-end: Sukang (Sabina) Kim, sukang@umich.edu
