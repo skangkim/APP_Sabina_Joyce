@@ -43,6 +43,5 @@
 #### Contact Info
 
 Questions? Contact us :D 
-
-UI/UX: Joyce Lee, joyylee@umich.edu
-Back-end: Sukang (Sabina) Kim, sukang@umich.edu
+- UI/UX: Joyce Lee, joyylee@umich.edu
+- Back-end: Sukang (Sabina) Kim, sukang@umich.edu
