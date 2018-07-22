@@ -472,9 +472,21 @@ class PotRecipeType{
 }
 var potentialRecipe = [PotRecipeType]() // stores index of recipe book
 
+// generate recipe when ingredient is added
 func generateRecipe(){
     for (index,recipe) in RecipeBook.enumerated() { // for each recipe
         
+        var found : Bool = false
+        // if the recipe already exists in myRcipe, then skip
+        for i in myRecipe{
+            if index == i{
+                found = true
+                break // exit the smaller loop
+            }
+        }
+        if(found){
+            continue // continue to look for next recipe
+        }
         
         let Set_all = Set(arrayLiteral: recipe.DairyList, recipe.FruitsList, recipe.VeggieList, recipe.BakedNGrainsList, recipe.SeasoningsList,  recipe.MeatList, recipe.SeafoodList, recipe.LegumeList, recipe.NutList, recipe.OilsList, recipe.SoupList, recipe.DairyAltList, recipe.BeveragesList)
         
@@ -484,6 +496,7 @@ func generateRecipe(){
         }
         
         for ingred in myFridge{ // compare with the ingredients in user's fridge
+            
             if ingred.Ingrd_Type == FoodType.Dairy {
                 if !recipe.DairyList.isEmpty{ // if the list is not empty
                     // find in the list
@@ -615,15 +628,6 @@ func generateRecipe(){
             // potential recipe
         }
     }
-}
-
-func possibleIngredients() -> [String]{
-    var ingredientNames = [String]()
-    for ing in IngredBook {
-        ingredientNames.append(ing.key)
-    }
-    
-    return ingredientNames
 }
 
 
@@ -781,28 +785,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let input = nameTextField.text!
         let cat = convertType(ing_in: categoryTextField.text!)
         let input_ingred = Ingrd(name_in: input, type_in: cat)
-        
-        /*
-         if myFridge[input_ingred] != nil{
-         myFridge[input_ingred]! += 1
-         }
-         else{
-         myFridge[input_ingred] = 1
-         }*/
-        
-        //add to myFridge
-        IngredBook[input] = cat
+        // MARK: ^^ no need
+
         
         // make set and search for the item
         let myFridgeSet = Set<Ingrd>(myFridge)
         let ingred_in = Ingrd(name_in: input)
+        // if it's not already in myFridge, add to myFridge
         if(!myFridgeSet.contains(ingred_in)){
             myFridge.append(ingred_in)
         }
         // update potential Recipe
         
         
-        // MARK: NEED TO WORK ON THIS
         // when ingredient is added
         // go thru potential recipe list
             // if the recipe has the ingredient
@@ -852,13 +847,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
         
-        print(IngredBook)
-        print(myFridge)
+        
         // update availRecipe
         generateRecipe()
         
         nameTextField.text = nil
         categoryTextField.text = nil
+        
+        
     }
     
     // 1 - Configure a simple search text view
