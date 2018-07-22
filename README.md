@@ -4,6 +4,10 @@
 
 [Meeting Log](https://docs.google.com/document/d/1rnYXrBgisV-yXKOJSlK_kvTcFYnOLTN2UR_vFMtFvic/edit?usp=sharing)
 
+## The Ultimate Guide to EAT's Backend
+
+- [Click Here](https://drive.google.com/file/d/1B465PPSkhVGwTNNWe3lZo-Trz-mfGuJB/view?usp=sharing)
+
 ## UI Link 
 
 - [Notification Banner](https://github.com/bryx-inc/BRYXBanner)
@@ -16,6 +20,14 @@
 
 ## Recipe Idea
 - [40+ Easy Recipe for College Students](https://www.fromvalerieskitchen.com/40-easy-recipes-for-college-students/)
+
+
+#### Contact Info
+
+Questions? Contact us :D 
+
+UI/UX: Joyce Lee, joyylee@umich.edu
+Back-end: Sukang (Sabina) Kim, sukang@umich.edu
 
 
 ## Pods used
