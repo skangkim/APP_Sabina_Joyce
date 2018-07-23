@@ -9,6 +9,7 @@ pod 'BRYXBanner'
 pod 'SQLite.swift', '0.11.4'
 pod 'SearchTextField'
 pod 'Alamofire', '~> 4.7'
+pod 'HexColors'
 
   # Pods for food
 

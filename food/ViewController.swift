@@ -11,6 +11,7 @@ import os.log
 import SearchTextField
 import BRYXBanner
 import Alamofire
+import HexColors
 
 enum FoodType: Int{
     case Dairy

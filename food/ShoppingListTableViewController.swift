@@ -82,6 +82,8 @@ class ShoppingListTableViewController: UITableViewController {
                 // Your code with delay
                 shoppingListArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                //switch status
+                tableView.reloadData()
             }
             
             
