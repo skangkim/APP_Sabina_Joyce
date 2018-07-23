@@ -71,6 +71,71 @@
             </objects>
             <point key="canvasLocation" x="-740" y="141.67916041979012"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="FHz-Zq-gmI">
+            <objects>
+                <tableViewController id="3gt-CL-raO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bF1-GE-FFj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="375" id="oj7-Es-CIz" customClass="SearchTableViewCell" customModule="food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oj7-Es-CIz" id="TmO-BE-qZX" customClass="SearchCollectionViewCell" customModule="food" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-vD-Zp7" customClass="SearchCollectionView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="khy-or-4fs">
+                                                <size key="itemSize" width="276" height="282"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCollectionViewCell" id="W1g-bv-oVV" customClass="SearchCollectionViewCell" customModule="food" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="46" width="276" height="282"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="276" height="282"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaN-bi-LC3">
+                                                                <rect key="frame" x="117" y="131" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </view>
+                                                    <connections>
+                                                        <outlet property="recipeLabel" destination="YaN-bi-LC3" id="FlF-zu-Azc"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3gt-CL-raO" id="jNX-NI-qLo"/>
+                            <outlet property="delegate" destination="3gt-CL-raO" id="7WE-wU-oFv"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" id="kxZ-bm-Xeo"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oh-2d-Giw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2119.1999999999998" y="-651.72413793103453"/>
+        </scene>
         <!--My Ingredients-->
         <scene sceneID="T8J-kn-PZt">
             <objects>
@@ -186,17 +251,6 @@
             </objects>
             <point key="canvasLocation" x="-2225" y="1763"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="6J0-bB-llN">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="pxZ-xe-ENa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="i1n-iB-EV0"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MQx-N8-fNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1442" y="-715"/>
-        </scene>
         <!--Ingredient Table View Controller-->
         <scene sceneID="mLg-AH-73g">
             <objects>
@@ -272,7 +326,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="pxZ-xe-ENa" kind="relationship" relationship="viewControllers" id="6Vk-dj-Rzh"/>
+                        <segue destination="3gt-CL-raO" kind="relationship" relationship="viewControllers" id="OPj-uA-4fW"/>
                         <segue destination="YvN-Bv-zF5" kind="relationship" relationship="viewControllers" id="wBx-zG-fW4"/>
                         <segue destination="JTF-ju-Jkc" kind="relationship" relationship="viewControllers" id="jr1-SQ-MDd"/>
                         <segue destination="ZFe-Nr-g5x" kind="relationship" relationship="viewControllers" id="cd8-Gb-32E"/>

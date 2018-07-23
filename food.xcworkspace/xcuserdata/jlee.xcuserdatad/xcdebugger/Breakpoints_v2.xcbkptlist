@@ -49,38 +49,6 @@
             endingLineNumber = "70"
             landmarkName = "init_IngredBook()"
             landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_CBCA54B7D66C5C56C768C444EB324F36_func1"
-                  moduleName = "food"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jlee/Desktop/yo/food/ViewController.swift"
-                  timestampString = "553647232.898108"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "food.myFridge.unsafeMutableAddressor : Swift.Dictionary&lt;food.Ingrd, Swift.Int&gt;"
-                  moduleName = "food"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jlee/Desktop/yo/food/ViewController.swift"
-                  timestampString = "553647232.901155"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -193,6 +161,22 @@
             endingLineNumber = "96"
             landmarkName = "IngredientTableViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/SearchTableViewCell.swift"
+            timestampString = "554018072.7785521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
