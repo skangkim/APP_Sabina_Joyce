@@ -710,10 +710,21 @@ func initRecipeBook(){
     // banana milk
     let IngrdArray = [Ingrd(name_in: "banana"), Ingrd(name_in: "milk".lowercased())]
     RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and Milk"))
+    let IngrdArray2 = [Ingrd(name_in: "avocado"), Ingrd(name_in: "bread"), Ingrd(name_in: "egg")]
+    RecipeBook.append(RecipeBookInfo(name_in: "avocado toast", array_in: IngrdArray, steps_in: "Toast the bread, spread avo and add on egg"))
+}
+
+func setCardView(view : UIView){
+    view.layer.masksToBounds = false
+    view.layer.shadowOffset = CGSize(width: 0, height: 3)
+    view.layer.shadowRadius = 2
+    view.layer.shadowOpacity = 0.5
 }
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     let myPickerData = [String](arrayLiteral: "Dairy", "Fruits", "Veggie", "Baked Goods & Grains", "Seasonings", "Legume", "Meat", "Seafood", "Nut", "Oils", "Soup", "Dairy Alternatives", "Beverages")
+    
+    @IBOutlet weak var viewCell: UIView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -761,6 +772,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         thePicker.delegate = self
         // Handle the text field's user input throught delegate callbacks.
         nameTextField.delegate = self
+        setCardView(view: viewCell)
+        viewCell.backgroundColor = UIColor("FFAF87")
         
     }
     
@@ -844,7 +857,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         
-        let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.5/255.0, alpha:1.000))
+        let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#31CC97")!)
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
         
