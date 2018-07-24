@@ -22,7 +22,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return RecipeBook.count
+        return myRecipe.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -30,7 +30,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
                                                       for: indexPath) as? SearchCollectionViewCell
-        cell?.recipeName.text = RecipeBook[indexPath.row].FoodName
+        cell?.recipeName.text = RecipeBook[myRecipe[indexPath.row]].FoodName
         //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
         setShadow(UICollectionViewCell: cell!)
         return cell!

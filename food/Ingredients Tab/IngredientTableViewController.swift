@@ -30,7 +30,7 @@ class IngredientTableViewController: UITableViewController {
         // Init ingredients
         
         init_IngredBook()
-        //initRecipeBook()
+        initRecipeBook()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
