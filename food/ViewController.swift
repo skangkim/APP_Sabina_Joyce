@@ -5,7 +5,6 @@
 //  Created by J Lee on 7/7/18.
 //  Copyright © 2018 J Lee. All rights reserved.
 //
-
 import UIKit
 import os.log
 import SearchTextField
@@ -55,9 +54,7 @@ class Ingrd: Hashable{
 
 
 var myFridge = [Ingrd]() // Ingredients list in User's Fridge
-
 var IngredBook = [String : FoodType]() // Ingredient Book
-
 func init_IngredBook(){
     
     IngredBook["butter"] = FoodType.Dairy
@@ -460,7 +457,6 @@ func init_IngredBook(){
 
 
 var myRecipe = [Int]() // stores index of recipe book
-
 class PotRecipeType{
     var index : Int
     var ingredList: [Ingrd] = []
@@ -469,10 +465,9 @@ class PotRecipeType{
         index = index_in
         ingredList = ingredList_in
     }
-
+    
 }
 var potentialRecipe = [PotRecipeType]() // stores index of recipe book
-
 // generate recipe when ingredient is added
 func generateRecipe(){
     for (index,recipe) in RecipeBook.enumerated() { // for each recipe
@@ -633,7 +628,6 @@ func generateRecipe(){
 
 
 var availRecipe = [Int]() // Stores recipe index that user can make
-
 struct RecipeBookInfo{
     
     var FoodName : String
@@ -705,7 +699,6 @@ struct RecipeBookInfo{
 }
 
 var RecipeBook = [RecipeBookInfo]() // Recipe Book :D
-
 func initRecipeBook(){
     // banana milk
     let IngrdArray = [Ingrd(name_in: "banana"), Ingrd(name_in: "milk".lowercased())]
@@ -797,7 +790,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let cat = convertType(ing_in: categoryTextField.text!)
         let input_ingred = Ingrd(name_in: input, type_in: cat)
         // MARK: ^^ no need
-
         
         // make set and search for the item
         let myFridgeSet = Set<Ingrd>(myFridge)
@@ -811,11 +803,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // when ingredient is added
         // go thru potential recipe list
-            // if the recipe has the ingredient
-                // if the count is 1
-                    // then remove it and append it to myRecipe
-                // else
-                    // remove it from the list
+        // if the recipe has the ingredient
+        // if the count is 1
+        // then remove it and append it to myRecipe
+        // else
+        // remove it from the list
         
         // array to keep track of index of potentialRecipe to delete
         var arr = [Int]()
@@ -854,7 +846,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         
-         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#31CC97")!)
+        let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#31CC97")!)
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
         
