@@ -10,6 +10,10 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
+
+
+    @IBOutlet var recipeTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

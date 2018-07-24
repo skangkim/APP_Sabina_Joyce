@@ -38,6 +38,12 @@ class ShoppingListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         setCardView(view: SLview)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false
+        // Set a header for the table view
+        tableView.tableHeaderView = SLview
     }
     
     override func viewWillAppear(_ animated: Bool) {
