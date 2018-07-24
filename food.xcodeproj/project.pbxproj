@@ -20,6 +20,8 @@
 		7A096177210597AB004A5814 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A096176210597AB004A5814 /* SearchTableViewCell.swift */; };
 		7A096179210597BC004A5814 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A096178210597BC004A5814 /* SearchTableViewController.swift */; };
 		7A09617B210598D3004A5814 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09617A210598D3004A5814 /* SearchCollectionViewCell.swift */; };
+		7A2A45072106B9990055F29D /* icons8-heart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A45062106B9980055F29D /* icons8-heart-30.png */; };
+		7A2A45092106B99D0055F29D /* icons8-heart-outline-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A45082106B99D0055F29D /* icons8-heart-outline-30.png */; };
 		7A576CC520FFFC3D003F49C3 /* shoppinglistbutton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */; };
 		7A576CC620FFFC3D003F49C3 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */; };
 		7A576CC720FFFC3D003F49C3 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */; };
@@ -69,6 +71,8 @@
 		7A096176210597AB004A5814 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7A096178210597BC004A5814 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		7A09617A210598D3004A5814 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A2A45062106B9980055F29D /* icons8-heart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-heart-30.png"; path = "../../icons8-heart-30.png"; sourceTree = "<group>"; };
+		7A2A45082106B99D0055F29D /* icons8-heart-outline-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-heart-outline-30.png"; path = "../../icons8-heart-outline-30.png"; sourceTree = "<group>"; };
 		7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppinglistbutton.jpg; sourceTree = "<group>"; };
 		7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */,
 				7A576CC420FFFC3D003F49C3 /* filledIn.jpg */,
 				7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */,
+				7A2A45062106B9980055F29D /* icons8-heart-30.png */,
+				7A2A45082106B99D0055F29D /* icons8-heart-outline-30.png */,
 				7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */,
 				0C9BC94B20F7DE3200D458C4 /* Info.plist */,
 				7A096176210597AB004A5814 /* SearchTableViewCell.swift */,
@@ -269,10 +275,12 @@
 				7A8D547220FBF21400EA2CB7 /* possibleIngredients.json in Resources */,
 				0C9BC95420F7DE3200D458C4 /* Info.plist in Resources */,
 				0C9BC95020F7DE3200D458C4 /* Main.storyboard in Resources */,
+				7A2A45072106B9990055F29D /* icons8-heart-30.png in Resources */,
 				0C9BC94E20F7DE3200D458C4 /* Assets.xcassets in Resources */,
 				7A576CC820FFFC3D003F49C3 /* filledIn.jpg in Resources */,
 				0C9BC94F20F7DE3200D458C4 /* LaunchScreen.storyboard in Resources */,
 				7A576CC520FFFC3D003F49C3 /* shoppinglistbutton.jpg in Resources */,
+				7A2A45092106B99D0055F29D /* icons8-heart-outline-30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
