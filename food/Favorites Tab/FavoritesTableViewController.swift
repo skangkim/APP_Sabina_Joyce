@@ -10,16 +10,41 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
+    @IBOutlet weak var favUIView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setCardView(view: favUIView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false
+        // Set a header for the table view
+        tableView.tableHeaderView = favUIView
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //get rid of bottom line of navigation
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.isTranslucent = false
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,23 +54,24 @@ class FavoritesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return RecipeBook.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
         // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
+        }
+        cell.recipeTitle.text! = RecipeBook[indexPath.row].FoodName
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

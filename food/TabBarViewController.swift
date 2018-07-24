@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class TabBarViewController: UIViewController {
     var count = 0
     @IBOutlet weak var myLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {

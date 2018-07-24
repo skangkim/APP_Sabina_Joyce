@@ -710,6 +710,9 @@ func setCardView(view : UIView){
     view.layer.shadowOffset = CGSize(width: 0, height: 3)
     view.layer.shadowRadius = 2
     view.layer.shadowOpacity = 0.5
+ 
+
+
 }
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
