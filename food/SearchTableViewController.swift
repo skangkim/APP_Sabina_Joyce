@@ -27,26 +27,23 @@ class SearchTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    var categories = ["You Can Make This !", "Recent Recipies"]
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        return categories.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
-    }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Configure the cell...
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as? SearchTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of SearchTableViewController.")
-        }
-
-//        //fetches appropriate recipie for the data source layout
-//        let recipie = RecipeBook[indexPath.row]
-//        // TODO: Find out how to fetch from dictionary
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
+        cell.label.text = "WHY DONT U WORK"
         return cell
     }
 

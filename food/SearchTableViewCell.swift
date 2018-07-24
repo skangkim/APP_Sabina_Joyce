@@ -8,19 +8,11 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
-        cell.recipeLabel.text = "Hello!"
-        return cell
-    }
-    
-
-    override func awakeFromNib() {
+class SearchTableViewCell: UITableViewCell {
+//
+//
+    @IBOutlet weak var label: UILabel!
+        override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -31,4 +23,30 @@ class SearchTableViewCell: UITableViewCell, UICollectionViewDataSource {
         // Configure the view for the selected state
     }
 
+}
+
+extension SearchCollectionViewCell : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeaerchCollectionViewCell", for: indexPath)
+        recipeLabel.text = "hello"
+        return cell
+    }
+    
+    
+}
+
+extension SearchCollectionViewCell : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let itemsPerRow:CGFloat = 4
+        let hardCodedPadding:CGFloat = 5
+        let itemWidth = (collectionView.bounds.width / itemsPerRow) - hardCodedPadding
+        let itemHeight = collectionView.bounds.height - (2 * hardCodedPadding)
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
 }

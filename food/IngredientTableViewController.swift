@@ -19,6 +19,7 @@ class IngredientTableViewController: UITableViewController {
     
     //MARK: Properties
     
+    @IBOutlet weak var ingCell: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +39,13 @@ class IngredientTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
-        
+        setCardView(view: ingCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FF7F51")
+        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
@@ -396,4 +397,16 @@ class IngredientTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
+}
+
+extension UIView {
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
 }
