@@ -10,7 +10,7 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet  weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,5 +30,26 @@ class SearchTableViewCell: UITableViewCell {
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
         collectionView.reloadData()
+        
     }
+}
+
+class SearchCollectionViewCell: UICollectionViewCell {
+    
+
+    @IBOutlet weak var recipeName: UILabel!
+    
+    @IBOutlet weak var StepsLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+}
+
+func setShadow(UICollectionViewCell: SearchCollectionViewCell) {
+    UICollectionViewCell.layer.masksToBounds = false
+    UICollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 0)
+    UICollectionViewCell.layer.shadowRadius = 2
+    UICollectionViewCell.layer.shadowOpacity = 0.5
+    UICollectionViewCell.layer.cornerRadius = 10
 }

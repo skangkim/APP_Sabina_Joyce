@@ -10,6 +10,8 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+    
     func didScroll(to position: CGFloat) {
         for cell in tableView.visibleCells as! [SearchTableViewCell] {
             (cell.collectionView as UIScrollView).contentOffset.x = position
@@ -18,24 +20,20 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     @IBOutlet weak var uiView: UIView!
     
-    let model: [UIColor] = [UIColor.white, UIColor.red, UIColor.blue, UIColor.black]
-    
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        
-        print(model.count)
-        return model.count
+        return RecipeBook.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
-                                                      for: indexPath)
-        print(cell.backgroundColor)
-        cell.backgroundColor = model[indexPath.row]
-        print(model[indexPath.row])
-        return cell
+                                                      for: indexPath) as? SearchCollectionViewCell
+        cell?.recipeName.text = RecipeBook[indexPath.row].FoodName
+        //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
+        setShadow(UICollectionViewCell: cell!)
+        return cell!
     }
     
     override func viewDidLoad() {
@@ -51,9 +49,11 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         
         let layout = UICollectionViewFlowLayout()
         
-        layout.scrollDirection = .vertical
-        tableView.rowHeight = UITableViewAutomaticDimension
+        layout.scrollDirection = .horizontal
+        
+        tableView.rowHeight = 205
         tableView.estimatedRowHeight = 205
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -146,7 +146,6 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -154,6 +153,5 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
