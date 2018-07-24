@@ -846,7 +846,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         
+<<<<<<< HEAD
         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#31CC97")!)
+=======
+         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#31CC97")!)
+>>>>>>> 3786f678237f0c061944ed62db2ce437a03d3e9f
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
         
