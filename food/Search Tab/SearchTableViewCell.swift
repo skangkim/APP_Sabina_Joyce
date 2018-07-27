@@ -16,11 +16,11 @@ class SearchTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
     
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
@@ -46,10 +46,13 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 }
 
+
 func setShadow(UICollectionViewCell: SearchCollectionViewCell) {
     UICollectionViewCell.layer.masksToBounds = false
     UICollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 0)
     UICollectionViewCell.layer.shadowRadius = 2
+    UICollectionViewCell.layer.shadowColor = UIColor("FFAF87")?.cgColor
     UICollectionViewCell.layer.shadowOpacity = 0.5
     UICollectionViewCell.layer.cornerRadius = 10
 }
+

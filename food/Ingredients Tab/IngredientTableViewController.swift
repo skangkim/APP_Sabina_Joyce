@@ -18,8 +18,7 @@ let POT_REP_LIMIT = 2
 class IngredientTableViewController: UITableViewController {
     
     //MARK: Properties
-    
-    @IBOutlet weak var ingCell: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,15 @@ class IngredientTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-        setCardView(view: ingCell)
+        setUpNavBar()
+
+    }
+    
+    func setUpNavBar() {
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.prefersLargeTitles = true
+                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
+        NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 36)]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +54,12 @@ class IngredientTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        //get rid of bottom line of navigation
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.isTranslucent = false
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
+
+//        //get rid of bottom line of navigation
+//        let navigationBar = navigationController!.navigationBar
+//        navigationBar.isTranslucent = false
+//        navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationBar.shadowImage = UIImage()
     }
     
     override func didReceiveMemoryWarning() {

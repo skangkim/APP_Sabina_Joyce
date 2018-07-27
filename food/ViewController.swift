@@ -703,6 +703,15 @@ func initRecipeBook(){
     // banana milk
     let IngrdArray = [Ingrd(name_in: "banana"), Ingrd(name_in: "milk".lowercased())]
     RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and Milk"))
+    // coffee milk
+    let coffeeMilkArray = [Ingrd(name_in: "coffee"), Ingrd(name_in: "milk".lowercased())]
+    RecipeBook.append(RecipeBookInfo(name_in: "coffee milk", array_in: coffeeMilkArray, steps_in: "Blend coffee and Milk"))
+    // strawberry milk
+    let strawberryMilkArray = [Ingrd(name_in: "strawberry"), Ingrd(name_in: "milk".lowercased())]
+    RecipeBook.append(RecipeBookInfo(name_in: "strawberry milk", array_in: strawberryMilkArray, steps_in: "Blend strawberry and Milk"))
+    // chocolate milk
+    let blueberryMilkArray = [Ingrd(name_in: "blueberry"), Ingrd(name_in: "milk".lowercased())]
+    RecipeBook.append(RecipeBookInfo(name_in: "blueberry milk", array_in: blueberryMilkArray, steps_in: "Blend blueberry and Milk"))
 }
 
 func setCardView(view : UIView){
@@ -766,8 +775,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         thePicker.delegate = self
         // Handle the text field's user input throught delegate callbacks.
         nameTextField.delegate = self
-        setCardView(view: viewCell)
-        viewCell.backgroundColor = UIColor("FFAF87")
+//        setCardView(view: viewCell)
+//        viewCell.backgroundColor = UIColor("FFAF87")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -781,6 +791,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+
         textFieldShouldReturn(nameTextField)
         
     }

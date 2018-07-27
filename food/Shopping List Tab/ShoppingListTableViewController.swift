@@ -25,8 +25,6 @@ func init_shoppingListArray(){
 
 class ShoppingListTableViewController: UITableViewController {
     
-    @IBOutlet weak var SLview: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,25 +35,27 @@ class ShoppingListTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        setCardView(view: SLview)
         
         tableView.dataSource = self
         tableView.delegate = self
-        self.automaticallyAdjustsScrollViewInsets = false
-        // Set a header for the table view
-        tableView.tableHeaderView = SLview
+        
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.prefersLargeTitles = true
+                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FFF87A")
+        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        //get rid of bottom line of navigation
-        let navigationBar = navigationController?.navigationBar
-        navigationBar?.isTranslucent = false
-        navigationBar?.setBackgroundImage(UIImage(), for: .default)
-        navigationBar?.shadowImage = UIImage()
+//        //get rid of bottom line of navigation
+//        let navigationBar = navigationController?.navigationBar
+//        navigationBar?.isTranslucent = false
+//        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+//        navigationBar?.shadowImage = UIImage()
     }
     
     

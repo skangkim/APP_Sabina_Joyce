@@ -1,15 +1,15 @@
 //
-//  FavoritesTableViewController.swift
+//  FullSearchTableViewController.swift
 //  food
 //
-//  Created by J Lee on 7/23/18.
+//  Created by J Lee on 7/25/18.
 //  Copyright © 2018 J Lee. All rights reserved.
 //
 
 import UIKit
 
-class FavoritesTableViewController: UITableViewController {
-    
+class FullSearchTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -19,33 +19,10 @@ class FavoritesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.rowHeight = 150
-        tableView.estimatedRowHeight = 150
-        
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        tableView.rowHeight = 100
+        tableView.estimatedRowHeight = 100
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-//        //get rid of bottom line of navigation
-//        let navigationBar = navigationController!.navigationBar
-//        navigationBar.isTranslucent = false
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar.shadowImage = UIImage()
-//
-        tableView.reloadData()
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,19 +37,20 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return RecipeBook.count
+        return myRecipe.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Configure the cell...
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FullSearchTableViewCell", for: indexPath) as? FullSearchTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of FullSearchTableViewCell.")
         }
-        cell.recipeTitle.text! = RecipeBook[indexPath.row].FoodName
+        cell.recipeTitle.text! = RecipeBook[myRecipe[indexPath.row]].FoodName
         return cell
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
