@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
@@ -29,7 +30,6 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
                                                           for: indexPath) as? SearchCollectionViewCell
             cell?.recipeName.text = RecipeBook[myRecipe[indexPath.row]].FoodName
-        
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
             return cell!
