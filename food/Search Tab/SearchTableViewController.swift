@@ -14,9 +14,9 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
-    @IBAction func cellSelect(_ sender: Any) {
-        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
-    }
+//    @IBAction func cellSelect(_ sender: Any) {
+//        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
+//    }
     func didScroll(to position: CGFloat) {
         for cell in tableView.visibleCells as! [SearchTableViewCell] {
             (cell.collectionView as UIScrollView).contentOffset.x = position
@@ -39,6 +39,10 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         index = myRecipe[indexPath.row]
             return cell!
 
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        index = indexPath.row
+        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
     }
     
     

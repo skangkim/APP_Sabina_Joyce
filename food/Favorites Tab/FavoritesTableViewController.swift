@@ -77,8 +77,11 @@ class FavoritesTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
         cell.recipeTitle.text! = RecipeBook[indexPath.row].FoodName
-        index = indexPath.row
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index = indexPath.row
+        performSegue(withIdentifier: "favoritesFullRecipe", sender: index)
     }
 
     /*
