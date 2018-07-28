@@ -12,6 +12,15 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var recipeName: UILabel!
     
+
+    @IBAction func addShoppingListTapped(_ sender: UIButton) {
+        
+        print("add to shopping list !!!!")
+
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!

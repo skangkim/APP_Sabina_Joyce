@@ -12,6 +12,20 @@ import BRYXBanner
 import Alamofire
 import HexColors
 
+enum UnitType: Int{
+    case lb
+    case oz
+    case count
+}
+
+class foodMeasureUnit{
+    var measure : Int
+    var unit : UnitType
+    init (measure_in: Int, unit_in: UnitType){
+        measure = measure_in
+        unit = unit_in
+    }
+}
 enum FoodType: Int{
     case Dairy
     case Fruits
@@ -484,19 +498,60 @@ func generateRecipe(){
             continue // continue to look for next recipe
         }
         
-        let Set_all = Set(arrayLiteral: recipe.DairyList, recipe.FruitsList, recipe.VeggieList, recipe.BakedNGrainsList, recipe.SeasoningsList,  recipe.MeatList, recipe.SeafoodList, recipe.LegumeList, recipe.NutList, recipe.OilsList, recipe.SoupList, recipe.DairyAltList, recipe.BeveragesList)
+        var IngredList = Set<Ingrd>()
         
-        var IngredList : Set<Ingrd> = []
-        for it in Set_all{
-            IngredList = IngredList.union(it)
+        for i in recipe.DairyList{
+            IngredList.insert(i.0)
+            print(i)
         }
+        for i in recipe.FruitsList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.VeggieList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.BakedNGrainsList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.SeasoningsList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.MeatList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.SeafoodList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.LegumeList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.NutList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.OilsList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.SoupList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.DairyAltList{
+            IngredList.insert(i.0)
+        }
+        for i in recipe.BeveragesList{
+            IngredList.insert(i.0)
+        }
+        print("ingred list")
+        print(IngredList)
+        
+
+        
         
         for ingred in myFridge{ // compare with the ingredients in user's fridge
             
             if ingred.Ingrd_Type == FoodType.Dairy {
                 if !recipe.DairyList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.DairyList.contains(ingred)){
+                    if (recipe.DairyList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -505,7 +560,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Fruits{
                 if !recipe.FruitsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.FruitsList.contains(ingred)){
+                    if (recipe.FruitsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -514,7 +569,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Veggie{
                 if !recipe.VeggieList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.VeggieList.contains(ingred)){
+                    if (recipe.VeggieList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -523,7 +578,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.BakedNGrains{
                 if !recipe.BakedNGrainsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.BakedNGrainsList.contains(ingred)){
+                    if (recipe.BakedNGrainsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -532,7 +587,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Seasonings{
                 if !recipe.SeasoningsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SeasoningsList.contains(ingred)){
+                    if (recipe.SeasoningsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -541,7 +596,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Meat{
                 if !recipe.MeatList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.MeatList.contains(ingred)){
+                    if (recipe.MeatList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -550,7 +605,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Seafood{
                 if !recipe.SeafoodList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SeafoodList.contains(ingred)){
+                    if (recipe.SeafoodList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -559,7 +614,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Legume{
                 if !recipe.LegumeList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.LegumeList.contains(ingred)){
+                    if (recipe.LegumeList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -568,7 +623,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Nut{
                 if !recipe.NutList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.NutList.contains(ingred)){
+                    if (recipe.NutList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -577,7 +632,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Oils{
                 if !recipe.OilsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.OilsList.contains(ingred)){
+                    if (recipe.OilsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -586,7 +641,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Soup{
                 if !recipe.SoupList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SoupList.contains(ingred)){
+                    if (recipe.SoupList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -595,7 +650,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.DairyAlt{
                 if !recipe.DairyAltList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.DairyAltList.contains(ingred)){
+                    if (recipe.DairyAltList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -604,7 +659,7 @@ func generateRecipe(){
             else if ingred.Ingrd_Type == FoodType.Beverages{
                 if !recipe.BeveragesList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.BeveragesList.contains(ingred)){
+                    if (recipe.BeveragesList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -628,71 +683,72 @@ func generateRecipe(){
 
 
 var availRecipe = [Int]() // Stores recipe index that user can make
+
 struct RecipeBookInfo{
     
     var FoodName : String
     
     // List of Food Types
-    var DairyList = Set<Ingrd>()
-    var FruitsList = Set<Ingrd>()
-    var VeggieList = Set<Ingrd>()
-    var BakedNGrainsList = Set<Ingrd>()
-    var SeasoningsList = Set<Ingrd>()
-    var MeatList = Set<Ingrd>()
-    var SeafoodList = Set<Ingrd>()
-    var LegumeList = Set<Ingrd>()
-    var NutList = Set<Ingrd>()
-    var OilsList = Set<Ingrd>()
-    var SoupList = Set<Ingrd>()
-    var DairyAltList = Set<Ingrd>()
-    var BeveragesList = Set<Ingrd>()
+    var DairyList = [Ingrd:foodMeasureUnit]()
+    var FruitsList = [Ingrd:foodMeasureUnit]()
+    var VeggieList = [Ingrd:foodMeasureUnit]()
+    var BakedNGrainsList = [Ingrd:foodMeasureUnit]()
+    var SeasoningsList = [Ingrd:foodMeasureUnit]()
+    var MeatList = [Ingrd:foodMeasureUnit]()
+    var SeafoodList = [Ingrd:foodMeasureUnit]()
+    var LegumeList = [Ingrd:foodMeasureUnit]()
+    var NutList = [Ingrd:foodMeasureUnit]()
+    var OilsList = [Ingrd:foodMeasureUnit]()
+    var SoupList = [Ingrd:foodMeasureUnit]()
+    var DairyAltList = [Ingrd:foodMeasureUnit]()
+    var BeveragesList = [Ingrd:foodMeasureUnit]()
     
     var Steps : String
     
-    init (name_in: String, array_in: [Ingrd], steps_in: String) {
+    init (name_in: String, array_in: [(Ingrd,foodMeasureUnit)], steps_in: String) {
         
         FoodName = name_in
         Steps = steps_in
         
         for ingred_in in array_in{
-            if(ingred_in.Ingrd_Type == FoodType.Dairy){
-                DairyList.insert(ingred_in)
+            if(ingred_in.0.Ingrd_Type == FoodType.Dairy){
+                DairyList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Fruits){
-                FruitsList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Fruits){
+                FruitsList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Veggie){
-                VeggieList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Veggie){
+                VeggieList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.BakedNGrains){
-                BakedNGrainsList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.BakedNGrains){
+                BakedNGrainsList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Seasonings){
-                LegumeList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Seasonings){
+                SeasoningsList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Meat){
-                MeatList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Meat){
+                MeatList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Seafood){
-                SeafoodList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Seafood){
+                SeafoodList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Legume){
-                LegumeList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Legume){
+                LegumeList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Nut){
-                NutList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Nut){
+                NutList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Oils){
-                OilsList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Oils){
+                OilsList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Soup){
-                SoupList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Soup){
+                SoupList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.DairyAlt){
-                DairyAltList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.DairyAlt){
+                DairyAltList[ingred_in.0] = ingred_in.1
             }
-            else if(ingred_in.Ingrd_Type == FoodType.Beverages){
-                BeveragesList.insert(ingred_in)
+            else if(ingred_in.0.Ingrd_Type == FoodType.Beverages){
+                BeveragesList[ingred_in.0] = ingred_in.1
             }
         }
     } // Initilizer
@@ -701,16 +757,18 @@ struct RecipeBookInfo{
 var RecipeBook = [RecipeBookInfo]() // Recipe Book :D
 func initRecipeBook(){
     // banana milk
-    let IngrdArray = [Ingrd(name_in: "banana"), Ingrd(name_in: "milk".lowercased())]
+    let banana = (Ingrd(name_in: "banana"), foodMeasureUnit(measure_in: 1, unit_in: UnitType.count))
+    let milk = (Ingrd(name_in: "milk"), foodMeasureUnit(measure_in: 12, unit_in: UnitType.oz))
+    let IngrdArray = [banana, milk]
     RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and Milk"))
-    // coffee milk
-    let coffeeMilkArray = [Ingrd(name_in: "coffee"), Ingrd(name_in: "milk".lowercased())]
-    RecipeBook.append(RecipeBookInfo(name_in: "coffee milk", array_in: coffeeMilkArray, steps_in: "Blend coffee and Milk"))
+    let strawberry = (Ingrd(name_in: "strawberry"), foodMeasureUnit(measure_in: 5, unit_in: UnitType.count))
     // strawberry milk
-    let strawberryMilkArray = [Ingrd(name_in: "strawberry"), Ingrd(name_in: "milk".lowercased())]
+    let strawberryMilkArray = [strawberry, milk]
     RecipeBook.append(RecipeBookInfo(name_in: "strawberry milk", array_in: strawberryMilkArray, steps_in: "Blend strawberry and Milk"))
-    // chocolate milk
-    let blueberryMilkArray = [Ingrd(name_in: "blueberry"), Ingrd(name_in: "milk".lowercased())]
+    
+    //MARK: when ingrd not found, give user the option
+    let blueberry = (Ingrd(name_in: "blueberry"), foodMeasureUnit(measure_in: 2, unit_in: UnitType.oz))
+    let blueberryMilkArray = [blueberry, milk]
     RecipeBook.append(RecipeBookInfo(name_in: "blueberry milk", array_in: blueberryMilkArray, steps_in: "Blend blueberry and Milk"))
 }
 

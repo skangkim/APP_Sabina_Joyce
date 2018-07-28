@@ -120,67 +120,67 @@ class IngredientTableViewController: UITableViewController {
             // go through each recipe in Recipe
             for (myRecipeIndex,recipeBookIndex) in myRecipe.enumerated(){
                 if(ingrd.Ingrd_Type == FoodType.Dairy){
-                    if(RecipeBook[recipeBookIndex].DairyList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].DairyList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Fruits){
-                    if(RecipeBook[recipeBookIndex].FruitsList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].FruitsList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Veggie){
-                    if(RecipeBook[recipeBookIndex].VeggieList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].VeggieList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.BakedNGrains){
-                    if(RecipeBook[recipeBookIndex].BakedNGrainsList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].BakedNGrainsList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Seasonings){
-                    if(RecipeBook[recipeBookIndex].SeasoningsList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].SeasoningsList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Legume){
-                    if(RecipeBook[recipeBookIndex].LegumeList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].LegumeList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Nut){
-                    if(RecipeBook[recipeBookIndex].NutList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].NutList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Oils){
-                    if(RecipeBook[recipeBookIndex].OilsList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].OilsList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Soup){
-                    if(RecipeBook[recipeBookIndex].SoupList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].SoupList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.DairyAlt){
-                    if(RecipeBook[recipeBookIndex].DairyAltList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].DairyAltList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
                 }
                 else {
-                    if(RecipeBook[recipeBookIndex].BeveragesList.contains(ingrd)){
+                    if(RecipeBook[recipeBookIndex].BeveragesList.keys.contains(ingrd)){
                         // found the ingredient
                         arr.append(myRecipeIndex)
                     }
@@ -201,7 +201,7 @@ class IngredientTableViewController: UITableViewController {
             
             for (i,PRType) in potentialRecipe.enumerated(){
                 if(ingrd.Ingrd_Type == FoodType.Dairy){
-                    if(RecipeBook[PRType.index].DairyList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].DairyList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -214,7 +214,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Fruits){
-                    if(RecipeBook[PRType.index].FruitsList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].FruitsList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -227,7 +227,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Veggie){
-                    if(RecipeBook[PRType.index].VeggieList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].VeggieList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -240,7 +240,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.BakedNGrains){
-                    if(RecipeBook[PRType.index].BakedNGrainsList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].BakedNGrainsList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -253,7 +253,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Seasonings){
-                    if(RecipeBook[PRType.index].SeasoningsList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].SeasoningsList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -266,7 +266,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Meat){
-                    if(RecipeBook[PRType.index].MeatList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].MeatList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -279,7 +279,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Seafood){
-                    if(RecipeBook[PRType.index].SeafoodList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].SeafoodList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -292,7 +292,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Legume){
-                    if(RecipeBook[PRType.index].LegumeList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].LegumeList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -305,7 +305,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Nut){
-                    if(RecipeBook[PRType.index].NutList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].NutList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -318,7 +318,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Oils){
-                    if(RecipeBook[PRType.index].OilsList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].OilsList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -331,7 +331,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.Soup){
-                    if(RecipeBook[PRType.index].SoupList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].SoupList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -344,7 +344,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else if(ingrd.Ingrd_Type == FoodType.DairyAlt){
-                    if(RecipeBook[PRType.index].DairyAltList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].DairyAltList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -357,7 +357,7 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 else {
-                    if(RecipeBook[PRType.index].BeveragesList.contains(ingrd)){
+                    if(RecipeBook[PRType.index].BeveragesList.keys.contains(ingrd)){
                         // found the ingredient
                         if(PRType.ingredList.count >= POT_REP_LIMIT){
                             // need to remove from potential Recipe
@@ -370,7 +370,6 @@ class IngredientTableViewController: UITableViewController {
                     }
                 }
                 
-                // MARK: OMG FIGURE OUT THIS - when deleting, if 0, then move to myRecipe
                 
                 arr1.sort()
                 arr1.reverse()
