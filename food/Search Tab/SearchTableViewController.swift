@@ -8,11 +8,15 @@
 
 import UIKit
 
-
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var index: Int?
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
+    @IBAction func cellSelect(_ sender: Any) {
+        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
+    }
     func didScroll(to position: CGFloat) {
         for cell in tableView.visibleCells as! [SearchTableViewCell] {
             (cell.collectionView as UIScrollView).contentOffset.x = position
@@ -32,9 +36,11 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             cell?.recipeName.text = RecipeBook[myRecipe[indexPath.row]].FoodName
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
+        index = myRecipe[indexPath.row]
             return cell!
 
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +121,6 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             return cell
         }
 
-
     
     /*
      // Override to support conditional editing of the table view.
@@ -156,8 +161,15 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let data = index
+
+        if let destinationViewController = segue.destination as? SearchViewController {
+            destinationViewController.index = data
+        }
+
     }
     
 }

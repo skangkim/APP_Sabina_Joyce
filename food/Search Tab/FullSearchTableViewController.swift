@@ -9,7 +9,7 @@
 import UIKit
 
 class FullSearchTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()

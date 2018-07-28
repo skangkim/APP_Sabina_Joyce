@@ -8,7 +8,13 @@
 
 import UIKit
 
+
 class FavoritesTableViewController: UITableViewController {
+    var index: Int?
+    
+    @IBAction func showFullRecipe(_ sender: Any) {
+                performSegue(withIdentifier: "favoritesFullRecipe", sender: index)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +77,7 @@ class FavoritesTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
         cell.recipeTitle.text! = RecipeBook[indexPath.row].FoodName
+        index = indexPath.row
         return cell
     }
 
@@ -109,14 +116,19 @@ class FavoritesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        super.prepare(for: segue, sender: sender)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let data = index
+        
+        if let destinationViewController = segue.destination as? SearchViewController {
+            destinationViewController.index = data
+        }
+        
     }
-    */
 
 }
