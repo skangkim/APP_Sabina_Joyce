@@ -502,7 +502,6 @@ func generateRecipe(){
         
         for i in recipe.DairyList{
             IngredList.insert(i.0)
-            print(i)
         }
         for i in recipe.FruitsList{
             IngredList.insert(i.0)
@@ -540,8 +539,6 @@ func generateRecipe(){
         for i in recipe.BeveragesList{
             IngredList.insert(i.0)
         }
-        print("ingred list")
-        print(IngredList)
         
 
         
@@ -761,6 +758,7 @@ func initRecipeBook(){
     let milk = (Ingrd(name_in: "milk"), foodMeasureUnit(measure_in: 12, unit_in: UnitType.oz))
     let IngrdArray = [banana, milk]
     RecipeBook.append(RecipeBookInfo(name_in: "Banana Smoothie", array_in: IngrdArray, steps_in: "Blend Banana and Milk"))
+    
     let strawberry = (Ingrd(name_in: "strawberry"), foodMeasureUnit(measure_in: 5, unit_in: UnitType.count))
     // strawberry milk
     let strawberryMilkArray = [strawberry, milk]

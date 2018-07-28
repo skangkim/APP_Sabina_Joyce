@@ -8,27 +8,12 @@
 
 import UIKit
 
-var shoppingListArray = [String]()
-
-func init_shoppingListArray(){
-    shoppingListArray.append("3 Bananas")
-    shoppingListArray.append("2 cartons Milk")
-    shoppingListArray.append("8 Eggs")
-    shoppingListArray.append("3 v")
-    shoppingListArray.append("2 a")
-    shoppingListArray.append("8 s")
-    shoppingListArray.append("3 d")
-    shoppingListArray.append("2 f Milk")
-    shoppingListArray.append("8 g")
-    
-}
+var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
 
 class ShoppingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        init_shoppingListArray()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -85,7 +70,7 @@ class ShoppingListTableViewController: UITableViewController {
         }
         
         //fetches appropriate recipie for the data source layout
-        let recipie = shoppingListArray[indexPath.row]
+        let recipie = RecipeBook[shoppingListArray[indexPath.row].0].FoodName
         // TODO: Find out how to fetch from dictionary
         
         let image = UIImage(named: "shoppinglistbutton.jpg")

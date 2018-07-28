@@ -36,12 +36,11 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             cell?.recipeName.text = RecipeBook[myRecipe[indexPath.row]].FoodName
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
-        index = myRecipe[indexPath.row]
             return cell!
 
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        index = indexPath.row
+        index = myRecipe[indexPath.row]
         performSegue(withIdentifier: "showDaFullRecipe", sender: index)
     }
     

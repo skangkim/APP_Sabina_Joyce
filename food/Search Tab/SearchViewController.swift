@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+
 class SearchViewController: UIViewController {
     
     var index: Int?
@@ -16,10 +19,88 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var steps: UILabel!
     
     
+    // assuming that index (index of RecipeBook) is in potential recipe
+    
     @IBAction func addShoppingListTapped(_ sender: UIButton) {
         
+        var arr = [(Ingrd, foodMeasureUnit)]()
+        for i in RecipeBook[index!].DairyList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].FruitsList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].VeggieList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].BakedNGrainsList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].SeasoningsList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].MeatList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].SeafoodList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].LegumeList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].NutList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].OilsList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].SoupList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        for i in RecipeBook[index!].DairyAltList{
+            if(!myFridge.contains(i.0)){
+                // need this ingredient
+                arr.append(i)
+            }
+        }
+        let OS = NSOrderedSet(array: arr)
         print("add to shopping list !!!!")
         
+        
+        shoppingListArray.append((index!, OS))
         
     }
     

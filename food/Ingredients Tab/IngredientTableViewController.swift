@@ -149,6 +149,18 @@ class IngredientTableViewController: UITableViewController {
                         arr.append(myRecipeIndex)
                     }
                 }
+                else if(ingrd.Ingrd_Type == FoodType.Meat){
+                    if(RecipeBook[recipeBookIndex].MeatList.keys.contains(ingrd)){
+                        // found the ingredient
+                        arr.append(myRecipeIndex)
+                    }
+                }
+                else if(ingrd.Ingrd_Type == FoodType.Seafood){
+                    if(RecipeBook[recipeBookIndex].SeafoodList.keys.contains(ingrd)){
+                        // found the ingredient
+                        arr.append(myRecipeIndex)
+                    }
+                }
                 else if(ingrd.Ingrd_Type == FoodType.Legume){
                     if(RecipeBook[recipeBookIndex].LegumeList.keys.contains(ingrd)){
                         // found the ingredient
