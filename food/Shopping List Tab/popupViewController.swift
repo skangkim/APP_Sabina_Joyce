@@ -10,7 +10,7 @@ import UIKit
 
 class popupViewController: UIViewController {
 
-    var addedIngredient: Ingrd?
+    var addedIngredient: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

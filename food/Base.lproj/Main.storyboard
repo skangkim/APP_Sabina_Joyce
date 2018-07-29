@@ -683,7 +683,6 @@
         <image name="icons8-natural-food-50.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUm-3z-9Gz"/>
         <segue reference="pPf-10-Tfh"/>
         <segue reference="GNq-jA-QFi"/>
     </inferredMetricsTieBreakers>

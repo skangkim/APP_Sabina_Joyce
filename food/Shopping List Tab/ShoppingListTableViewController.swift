@@ -12,8 +12,7 @@ var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
 
 class ShoppingListTableViewController: UITableViewController {
     
-    var addedIngredient: Ingrd?
-    var ingredientArray: [Ingrd]?
+    var addedIngredient: String?
     
     
     
@@ -88,12 +87,11 @@ class ShoppingListTableViewController: UITableViewController {
         //fetches appropriate recipie for the data source layout
         cell.recipeName.text = RecipeBook[shoppingListArray[indexPath.row].0].FoodName
         // MARK: TODO: how to get the ingredients needed for the recipe
+        //cell.nameLabel.text = shoppingListArray[indexPath.row].1.object(at: indexPath.section) as (Ingrd, foodMeasureUnit).0.Name
         
         let image = UIImage(named: "shoppinglistbutton.jpg")
         cell.ring.image = image
-        
-        //find the needed ingredients
-//        cell.nameLabel.text = ((shoppingListArray[indexPath.row].1.object(at: indexPath.row)) as! Ingrd).Name
+
 
         return cell
     }
@@ -110,8 +108,8 @@ class ShoppingListTableViewController: UITableViewController {
         
                 performSegue(withIdentifier: "addToFridge", sender: addedIngredient)
             
-            //MARK: TODO: add the checked item to fridge as an Ingred type
-            //addedIngredient =
+            //MARK: TODO: add the checked item to fridge as an Ingrd(?) type (currently just passed as a String)
+            addedIngredient = cell.nameLabel.text
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
                 // Your code with delay
