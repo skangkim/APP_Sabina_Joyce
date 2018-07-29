@@ -10,6 +10,8 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+
+    
     var index: Int?
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
@@ -25,7 +27,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return myRecipe.count
+        return potentialRecipe.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -33,17 +35,31 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
                                                           for: indexPath) as? SearchCollectionViewCell
-            cell?.recipeName.text = RecipeBook[myRecipe[indexPath.row]].FoodName
+
+            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+        if potentialRecipe[indexPath.row].ingredList.count == 0 {
+            cell?.moreIngredients.text = ""
+        }
+        else {
+            cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
+        }
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
+        
+        //on checkbox click
+        cell?.onClick = { cell in
+                    let image = UIImage(named: "icons8-heart-30.png")
+            cell.filledHeart.image = image
+                    //MARK: TODO: add the recipe to favorites (also delete from favorites, though the UI hasnt been implemented yet
+        }
+        
             return cell!
 
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        index = myRecipe[indexPath.row]
+        index = potentialRecipe[indexPath.row].index
         performSegue(withIdentifier: "showDaFullRecipe", sender: index)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +139,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             tableView.estimatedRowHeight = 375
             return cell
         }
+
 
     
     /*

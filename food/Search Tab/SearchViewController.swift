@@ -9,8 +9,6 @@
 import UIKit
 
 
-
-
 class SearchViewController: UIViewController {
     
     var index: Int?
@@ -18,6 +16,14 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var steps: UILabel!
     
+    @IBOutlet weak var filledHeart: UIImageView!
+    @IBAction func heartTapped(_ sender: Any) {
+            let image = UIImage(named: "icons8-heart-30.png")
+            filledHeart.image = image
+            //MARK: TODO: add the recipe to favorites (also delete from favorites, though the UI hasnt been implemented yet
+    }
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var numIngredientsNeeded: UILabel!
     
     // assuming that index (index of RecipeBook) is in potential recipe
     
@@ -102,6 +108,7 @@ class SearchViewController: UIViewController {
         
         shoppingListArray.append((index!, OS))
         
+
     }
     
     
@@ -126,20 +133,22 @@ class SearchViewController: UIViewController {
         print(RecipeBook[index!].FoodName)
         recipeName.text = RecipeBook[index!].FoodName
         steps.text = RecipeBook[index!].Steps
+        if potentialRecipe[index!].ingredList.count == 0 {
+            numIngredientsNeeded.text = ""
+            addButton.isHidden = true
+        }
+        else if potentialRecipe[index!].ingredList.count == 1 {
+            numIngredientsNeeded.text = "You need 1 more ingredient!"
+        }
+        else {
+            numIngredientsNeeded.text = "You need " + String(potentialRecipe[index!].ingredList.count) + " more ingredients!"
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

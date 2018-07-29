@@ -30,6 +30,7 @@
 		7A576CC820FFFC3D003F49C3 /* filledIn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC420FFFC3D003F49C3 /* filledIn.jpg */; };
 		7A5A00FB20F7E17B00941572 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */; };
 		7A5CA89F2107E6DA00D01126 /* icons8-cherry-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CA89E2107E6D900D01126 /* icons8-cherry-100.png */; };
+		7A6B825A210D7FD80079F82A /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6B8259210D7FD80079F82A /* popupViewController.swift */; };
 		7A8D547220FBF21400EA2CB7 /* possibleIngredients.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */; };
 		7AA74795210A6CA700DC4CC8 /* icons8-heart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA74794210A6CA600DC4CC8 /* icons8-heart-30.png */; };
 		7AC1B26F20F17C71001EB067 /* foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B26E20F17C71001EB067 /* foodTests.swift */; };
@@ -89,6 +90,7 @@
 		7A576CC420FFFC3D003F49C3 /* filledIn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = filledIn.jpg; sourceTree = "<group>"; };
 		7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7A5CA89E2107E6D900D01126 /* icons8-cherry-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-cherry-100.png"; sourceTree = "<group>"; };
+		7A6B8259210D7FD80079F82A /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = possibleIngredients.json; sourceTree = "<group>"; };
 		7AA74794210A6CA600DC4CC8 /* icons8-heart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-heart-30.png"; sourceTree = "<group>"; };
 		7AC1B25620F17C70001EB067 /* food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */,
+				7A6B8259210D7FD80079F82A /* popupViewController.swift */,
 				7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */,
 			);
 			path = "Shopping List Tab";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9BC95220F7DE3200D458C4 /* TabBarViewController.swift in Sources */,
+				7A6B825A210D7FD80079F82A /* popupViewController.swift in Sources */,
 				7ACA1C932106DD7C000658C5 /* FavoritesTableViewCell.swift in Sources */,
 				0C9BC94D20F7DE3200D458C4 /* IngredientTableViewController.swift in Sources */,
 				0C9BC94C20F7DE3200D458C4 /* ViewController.swift in Sources */,

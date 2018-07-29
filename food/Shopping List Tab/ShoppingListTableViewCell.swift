@@ -11,14 +11,15 @@ import UIKit
 class ShoppingListTableViewCell: UITableViewCell {
 
     //var item: Item?
-    var onClick: ( (ShoppingListTableViewCell) -> () )?
+//    var onClick: ( (ShoppingListTableViewCell) -> () )?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ring: UIImageView!
     @IBOutlet weak var filledInCircle: UIImageView!
     
+    @IBOutlet weak var recipeName: UILabel!
     @IBAction func doneButton(_ sender: UIButton) {
-        onClick?(self)
+//        onClick?(self)
     }
     
 override func awakeFromNib() {

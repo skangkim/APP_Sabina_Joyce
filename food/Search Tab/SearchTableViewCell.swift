@@ -36,10 +36,16 @@ class SearchTableViewCell: UITableViewCell {
 
 class SearchCollectionViewCell: UICollectionViewCell {
     
-
+var onClick: ( (SearchCollectionViewCell) -> () )?
+    
     @IBOutlet weak var recipeName: UILabel!
     
-    @IBOutlet weak var StepsLabel: UILabel!
+    @IBOutlet weak var filledHeart: UIImageView!
+    @IBAction func favoritesHeartTapped(_ sender: Any) {
+        onClick?(self)
+    }
+    
+    @IBOutlet weak var moreIngredients: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
