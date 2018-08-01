@@ -831,7 +831,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     //MARK: Properties
     
-    @IBOutlet weak var AddIngredientLabel: UILabel!
     @IBOutlet weak var insertButton: UIButton!
     @IBOutlet weak var nameTextField: SearchTextField!
     

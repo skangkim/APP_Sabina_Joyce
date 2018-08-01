@@ -44,16 +44,16 @@ class IngredientTableViewController: UITableViewController {
     func setUpNavBar() {
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
-                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
+                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
         NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 36)]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("8CD600")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor("8CD600")
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
 
 //        //get rid of bottom line of navigation
 //        let navigationBar = navigationController!.navigationBar

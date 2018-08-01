@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
 
@@ -31,15 +32,16 @@ class ShoppingListTableViewController: UITableViewController {
         
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
-                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationBar.isHidden = false
+                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FF7028")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor("8CD600")
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor("8CD600")]
         
         self.navigationController?.toolbar.barTintColor = UIColor.white
         self.navigationController?.toolbar.tintColor = UIColor.black
@@ -51,6 +53,9 @@ class ShoppingListTableViewController: UITableViewController {
         if shoppingListArray.count == 0 {
             zeroLabel.text = "Your Shopping List \n add ingredeints here for you shopping list"
         }
+        
+        self.navigationController?.isToolbarHidden = false
+        
     }
     
     
@@ -214,10 +219,69 @@ class ShoppingListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let data = addedIngredient
         
-        if let destinationViewController = segue.destination as? popupViewController {
-            destinationViewController.addedIngredient = data
-        }
+//        if let destinationViewController = segue.destination as? popupViewController {
+//            destinationViewController.addedIngredient = data
+//        }
         
     }
+    
+//    @IBAction func editTapped(_ sender: Any) {
+//        print("Edit")
+//    }
+    
+    @IBAction func clearAllTapped(_ sender: Any) {
+        print("clear")
+        
+        // Prepare the popup assets
+        let title = "Clear All Items"
+        let message = "Do you want to clear all items on the shopping list?"
+        
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message, image: nil)
+        
+        // Create buttons
+        let buttonOne = DefaultButton(title: "Yes please !") {
+            print("clear all")
+            //MARK: TODO: clear all from shopping lsit
+        }
+        
+        let buttonTwo = CancelButton(title: "Cancel") {
+            print("You canceled the clear all.")
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne, buttonTwo])
+        
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
+                
+    }
+    
+    @IBAction func addToFridgeTapped(_ sender: Any) {
+        print("add to fridge")
+        
+        // Prepare the popup assets
+        let title = "Add all checked items to fridge?"
+        let message = "This will also delete the items from the shopping list"
+        let popup = PopupDialog(title: title, message: message, image: nil)
+        
+        // Create buttons
+        let buttonOne = DefaultButton(title: "Yes please !") {
+            print("Add to fridge and clear selected")
+            //MARK: TODO: add all checked items to the ingredients list
+        }
+        
+        let buttonTwo = CancelButton(title: "Cancel") {
+            print("You canceled the clear all.")
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne, buttonTwo])
+        
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
+    }
+    
 }
+
 

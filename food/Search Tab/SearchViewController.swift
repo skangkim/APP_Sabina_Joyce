@@ -80,23 +80,12 @@ class SearchViewController: UIViewController {
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
         }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    @IBAction func addTapped(_ sender: Any) {
-        print("add")
-    }
-    
-    @IBAction func clearAllTapped(_ sender: Any) {
-        print("clear")
-    }
-    
-    @IBAction func addToFridgeTapped(_ sender: Any) {
-        print("add to fridge")
-    }
     
 }

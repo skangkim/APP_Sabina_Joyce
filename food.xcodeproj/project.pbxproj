@@ -22,6 +22,8 @@
 		7A275B452107C98E0057C92C /* icons8-natural-food-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A275B442107C98B0057C92C /* icons8-natural-food-50.png */; };
 		7A275B472107C9F10057C92C /* icons8-add-list-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A275B462107C9EE0057C92C /* icons8-add-list-50.png */; };
 		7A275B492107CB430057C92C /* icons8-heart-outline-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A275B482107CB420057C92C /* icons8-heart-outline-30.png */; };
+		7A2924912112238200A29B4F /* icons8-pencil-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2924902112238200A29B4F /* icons8-pencil-30.png */; };
+		7A29249321123E3A00A29B4F /* AddToListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A29249221123E3A00A29B4F /* AddToListViewController.swift */; };
 		7A3368602109116D000B02D9 /* FullSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33685F2109116D000B02D9 /* FullSearchTableViewController.swift */; };
 		7A3368622109117E000B02D9 /* FullSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3368612109117E000B02D9 /* FullSearchTableViewCell.swift */; };
 		7A576CC520FFFC3D003F49C3 /* shoppinglistbutton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */; };
@@ -30,7 +32,6 @@
 		7A576CC820FFFC3D003F49C3 /* filledIn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A576CC420FFFC3D003F49C3 /* filledIn.jpg */; };
 		7A5A00FB20F7E17B00941572 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */; };
 		7A5CA89F2107E6DA00D01126 /* icons8-cherry-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CA89E2107E6D900D01126 /* icons8-cherry-100.png */; };
-		7A6B825A210D7FD80079F82A /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6B8259210D7FD80079F82A /* popupViewController.swift */; };
 		7A8D547220FBF21400EA2CB7 /* possibleIngredients.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */; };
 		7AA74795210A6CA700DC4CC8 /* icons8-heart-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA74794210A6CA600DC4CC8 /* icons8-heart-30.png */; };
 		7AC1B26F20F17C71001EB067 /* foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B26E20F17C71001EB067 /* foodTests.swift */; };
@@ -82,6 +83,8 @@
 		7A275B442107C98B0057C92C /* icons8-natural-food-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-natural-food-50.png"; sourceTree = "<group>"; };
 		7A275B462107C9EE0057C92C /* icons8-add-list-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-add-list-50.png"; sourceTree = "<group>"; };
 		7A275B482107CB420057C92C /* icons8-heart-outline-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-heart-outline-30.png"; sourceTree = "<group>"; };
+		7A2924902112238200A29B4F /* icons8-pencil-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-pencil-30.png"; sourceTree = "<group>"; };
+		7A29249221123E3A00A29B4F /* AddToListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToListViewController.swift; sourceTree = "<group>"; };
 		7A33685F2109116D000B02D9 /* FullSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSearchTableViewController.swift; sourceTree = "<group>"; };
 		7A3368612109117E000B02D9 /* FullSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSearchTableViewCell.swift; sourceTree = "<group>"; };
 		7A576CC120FFFC3C003F49C3 /* shoppinglistbutton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoppinglistbutton.jpg; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		7A576CC420FFFC3D003F49C3 /* filledIn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = filledIn.jpg; sourceTree = "<group>"; };
 		7A5A00F420F7E17B00941572 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7A5CA89E2107E6D900D01126 /* icons8-cherry-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-cherry-100.png"; sourceTree = "<group>"; };
-		7A6B8259210D7FD80079F82A /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = possibleIngredients.json; sourceTree = "<group>"; };
 		7AA74794210A6CA600DC4CC8 /* icons8-heart-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-heart-30.png"; sourceTree = "<group>"; };
 		7AC1B25620F17C70001EB067 /* food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = food.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 				7A275B482107CB420057C92C /* icons8-heart-outline-30.png */,
 				7A275B462107C9EE0057C92C /* icons8-add-list-50.png */,
 				7A275B422107C83C0057C92C /* icons8-ingredients-50 (1).png */,
+				7A2924902112238200A29B4F /* icons8-pencil-30.png */,
 				7A5CA89E2107E6D900D01126 /* icons8-cherry-100.png */,
 				7A275B442107C98B0057C92C /* icons8-natural-food-50.png */,
 				7A576CC420FFFC3D003F49C3 /* filledIn.jpg */,
@@ -246,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				7A576CC220FFFC3C003F49C3 /* ShoppingListTableViewController.swift */,
-				7A6B8259210D7FD80079F82A /* popupViewController.swift */,
+				7A29249221123E3A00A29B4F /* AddToListViewController.swift */,
 				7A576CC320FFFC3D003F49C3 /* ShoppingListTableViewCell.swift */,
 			);
 			path = "Shopping List Tab";
@@ -344,6 +347,7 @@
 				7A275B472107C9F10057C92C /* icons8-add-list-50.png in Resources */,
 				0C9BC95420F7DE3200D458C4 /* Info.plist in Resources */,
 				7A275B432107C83C0057C92C /* icons8-ingredients-50 (1).png in Resources */,
+				7A2924912112238200A29B4F /* icons8-pencil-30.png in Resources */,
 				7AA74795210A6CA700DC4CC8 /* icons8-heart-30.png in Resources */,
 				0C9BC95020F7DE3200D458C4 /* Main.storyboard in Resources */,
 				0C9BC94E20F7DE3200D458C4 /* Assets.xcassets in Resources */,
@@ -410,8 +414,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-food/Pods-food-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBanner/NotificationBanner.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 			);
@@ -419,8 +424,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYXBanner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBanner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 			);
@@ -437,7 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9BC95220F7DE3200D458C4 /* TabBarViewController.swift in Sources */,
-				7A6B825A210D7FD80079F82A /* popupViewController.swift in Sources */,
+				7A29249321123E3A00A29B4F /* AddToListViewController.swift in Sources */,
 				7ACA1C932106DD7C000658C5 /* FavoritesTableViewCell.swift in Sources */,
 				0C9BC94D20F7DE3200D458C4 /* IngredientTableViewController.swift in Sources */,
 				0C9BC94C20F7DE3200D458C4 /* ViewController.swift in Sources */,

@@ -367,10 +367,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Ingredient" id="EJR-iN-9sW"/>
                     <connections>
-                        <outlet property="categoryTextField" destination="Z00-e0-paT" id="Sux-RI-MOu"/>
-                        <outlet property="insertButton" destination="dOd-qh-fI5" id="2DN-hJ-LjY"/>
-                        <outlet property="moreInfoLabel" destination="rqq-b8-eOo" id="ECs-cZ-gjV"/>
-                        <outlet property="nameTextField" destination="ymn-h0-d6W" id="vQS-DO-AH9"/>
+                        <outlet property="categoryTextField" destination="Z00-e0-paT" id="Hyb-nK-d7Z"/>
+                        <outlet property="insertButton" destination="dOd-qh-fI5" id="c69-yA-UJK"/>
+                        <outlet property="moreInfoLabel" destination="rqq-b8-eOo" id="Mno-vq-14A"/>
+                        <outlet property="nameTextField" destination="ymn-h0-d6W" id="fpX-b1-kDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -428,22 +428,24 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem systemItem="add" id="Bsq-it-bPY">
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="v5b-t6-Vl5"/>
+                                <barButtonItem systemItem="add" id="qmg-cf-KTs">
                                     <connections>
-                                        <action selector="addTapped:" destination="Pbn-ne-4Ik" id="S9h-2e-ZzK"/>
+                                        <action selector="addTapped:" destination="JTF-ju-Jkc" id="M6E-O6-leD"/>
+                                        <segue destination="VwD-sO-utC" kind="show" id="QCh-9H-zp4"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem systemItem="edit" id="6ks-RE-4Ka"/>
-                                <barButtonItem systemItem="trash" id="b8g-oX-mRG">
+                                <barButtonItem title="Clear List" id="OrD-UW-TKY">
                                     <connections>
-                                        <action selector="clearAllTapped:" destination="Pbn-ne-4Ik" id="fYS-oe-kJ6"/>
+                                        <action selector="clearAllTapped:" destination="JTF-ju-Jkc" id="cAx-Ck-Evt"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem title="add to fridge" id="q0g-Rg-rBP">
+                                <barButtonItem title="Add to Fridge" id="fDE-Js-JsC">
                                     <connections>
-                                        <action selector="addToFridgeTapped:" destination="Pbn-ne-4Ik" id="X8j-XH-dOZ"/>
+                                        <action selector="addToFridgeTapped:" destination="JTF-ju-Jkc" id="O2C-vj-ej1"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="npV-vl-1S1"/>
                             </items>
                         </toolbar>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2lC-0L-Z2A">
@@ -493,7 +495,6 @@
                                     <outlet property="nameLabel" destination="tZX-Da-UVa" id="Jam-wI-uRn"/>
                                     <outlet property="recipeName" destination="MId-ai-m67" id="pzS-jW-eEe"/>
                                     <outlet property="ring" destination="PCB-EM-vfS" id="zSy-KE-iiW"/>
-                                    <segue destination="kF2-2w-sMm" kind="show" identifier="addToFridge" trigger="accessoryAction" id="AUm-3z-9Gz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -509,51 +510,87 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhx-UA-t34" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Pbn-ne-4Ik" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1402.4000000000001" y="926.98650674662679"/>
         </scene>
-        <!--Popup View Controller-->
-        <scene sceneID="mft-ui-Obz">
+        <!--Add to List-->
+        <scene sceneID="ZKW-Yb-SY0">
             <objects>
-                <viewController id="kF2-2w-sMm" customClass="popupViewController" customModule="food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bat-qG-b1l">
+                <viewController id="VwD-sO-utC" customClass="AddToListViewController" customModule="food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Wk-hc-Bu8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Ingredient to Fridge?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2W-y7-hKW">
-                                <rect key="frame" x="43" y="149" width="272" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLW-eX-SnX">
+                                <rect key="frame" x="16" y="261" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1P-CK-dut">
-                                <rect key="frame" x="63" y="239" width="101" height="59"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Quanitity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kBk-Ax-qMb">
+                                <rect key="frame" x="16" y="283" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGv-OM-ufu">
+                                <rect key="frame" x="123" y="343" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Ok"/>
+                                <color key="backgroundColor" red="0.90085989239999997" green="0.24206945299999999" blue="0.1972693801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilu-e4-Pra">
+                                <rect key="frame" x="123" y="343" width="128" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Insert">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addIngredientTapped:" destination="kF2-2w-sMm" eventType="touchUpInside" id="J9a-xS-TlP"/>
+                                    <action selector="addButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPs-29-oZc"/>
+                                    <action selector="addToListTapped:" destination="VwD-sO-utC" eventType="touchUpInside" id="VuM-XP-P8P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFl-0J-MS7">
-                                <rect key="frame" x="181" y="239" width="101" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <segue destination="JTF-ju-Jkc" kind="show" id="pPf-10-Tfh"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Ingredient" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-l9-MEv" customClass="SearchTextField" customModule="SearchTextField">
+                                <rect key="frame" x="16" y="202" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dr-na-fpy">
+                                <rect key="frame" x="16" y="180" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="HkH-72-bBI"/>
+                        <viewLayoutGuide key="safeArea" id="8hs-rP-ibR"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add to List" id="soF-dz-cxG"/>
+                    <connections>
+                        <outlet property="ingredientName" destination="Kg8-l9-MEv" id="dKg-db-OiB"/>
+                        <outlet property="quanitity" destination="kBk-Ax-qMb" id="WHM-6o-W2y"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YwH-H1-vps" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZz-Dr-XmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-682.39999999999998" y="926.98650674662679"/>
+            <point key="canvasLocation" x="-682" y="927"/>
         </scene>
         <!--My Favorites-->
         <scene sceneID="a1T-B7-Xhu">
@@ -728,7 +765,6 @@
         <image name="icons8-natural-food-50.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lig-7V-thD"/>
         <segue reference="cKN-5D-fr7"/>
     </inferredMetricsTieBreakers>
 </document>
