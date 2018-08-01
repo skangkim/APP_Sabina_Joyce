@@ -26,6 +26,41 @@ class foodMeasureUnit{
         unit = unit_in
     }
 }
+
+class FoodTypeList{
+    
+    var DairyList = [Ingrd:foodMeasureUnit]()
+    var FruitsList = [Ingrd:foodMeasureUnit]()
+    var VeggieList = [Ingrd:foodMeasureUnit]()
+    var BakedNGrainsList = [Ingrd:foodMeasureUnit]()
+    var SeasoningsList = [Ingrd:foodMeasureUnit]()
+    var MeatList = [Ingrd:foodMeasureUnit]()
+    var SeafoodList = [Ingrd:foodMeasureUnit]()
+    var LegumeList = [Ingrd:foodMeasureUnit]()
+    var NutList = [Ingrd:foodMeasureUnit]()
+    var OilsList = [Ingrd:foodMeasureUnit]()
+    var SoupList = [Ingrd:foodMeasureUnit]()
+    var DairyAltList = [Ingrd:foodMeasureUnit]()
+    var BeveragesList = [Ingrd:foodMeasureUnit]()
+    
+    init(){
+        DairyList = [:]
+        FruitsList = [:]
+        VeggieList = [:]
+        BakedNGrainsList = [:]
+        SeasoningsList = [:]
+        MeatList = [:]
+        SeafoodList = [:]
+        LegumeList = [:]
+        NutList = [:]
+        OilsList = [:]
+        SoupList = [:]
+        DairyAltList = [:]
+        BeveragesList = [:]
+        
+    }
+    
+}
 enum FoodType: Int{
     case Dairy
     case Fruits
@@ -500,43 +535,43 @@ func generateRecipe(){
         
         var IngredList = Set<Ingrd>()
         
-        for i in recipe.DairyList{
+        for i in recipe.FTL.DairyList{
             IngredList.insert(i.0)
         }
-        for i in recipe.FruitsList{
+        for i in recipe.FTL.FruitsList{
             IngredList.insert(i.0)
         }
-        for i in recipe.VeggieList{
+        for i in recipe.FTL.VeggieList{
             IngredList.insert(i.0)
         }
-        for i in recipe.BakedNGrainsList{
+        for i in recipe.FTL.BakedNGrainsList{
             IngredList.insert(i.0)
         }
-        for i in recipe.SeasoningsList{
+        for i in recipe.FTL.SeasoningsList{
             IngredList.insert(i.0)
         }
-        for i in recipe.MeatList{
+        for i in recipe.FTL.MeatList{
             IngredList.insert(i.0)
         }
-        for i in recipe.SeafoodList{
+        for i in recipe.FTL.SeafoodList{
             IngredList.insert(i.0)
         }
-        for i in recipe.LegumeList{
+        for i in recipe.FTL.LegumeList{
             IngredList.insert(i.0)
         }
-        for i in recipe.NutList{
+        for i in recipe.FTL.NutList{
             IngredList.insert(i.0)
         }
-        for i in recipe.OilsList{
+        for i in recipe.FTL.OilsList{
             IngredList.insert(i.0)
         }
-        for i in recipe.SoupList{
+        for i in recipe.FTL.SoupList{
             IngredList.insert(i.0)
         }
-        for i in recipe.DairyAltList{
+        for i in recipe.FTL.DairyAltList{
             IngredList.insert(i.0)
         }
-        for i in recipe.BeveragesList{
+        for i in recipe.FTL.BeveragesList{
             IngredList.insert(i.0)
         }
         
@@ -546,117 +581,117 @@ func generateRecipe(){
         for ingred in myFridge{ // compare with the ingredients in user's fridge
             
             if ingred.Ingrd_Type == FoodType.Dairy {
-                if !recipe.DairyList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.DairyList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.DairyList.keys.contains(ingred)){
+                    if (recipe.FTL.DairyList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Fruits{
-                if !recipe.FruitsList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.FruitsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.FruitsList.keys.contains(ingred)){
+                    if (recipe.FTL.FruitsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Veggie{
-                if !recipe.VeggieList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.VeggieList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.VeggieList.keys.contains(ingred)){
+                    if (recipe.FTL.VeggieList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.BakedNGrains{
-                if !recipe.BakedNGrainsList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.BakedNGrainsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.BakedNGrainsList.keys.contains(ingred)){
+                    if (recipe.FTL.BakedNGrainsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Seasonings{
-                if !recipe.SeasoningsList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.SeasoningsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SeasoningsList.keys.contains(ingred)){
+                    if (recipe.FTL.SeasoningsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Meat{
-                if !recipe.MeatList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.MeatList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.MeatList.keys.contains(ingred)){
+                    if (recipe.FTL.MeatList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Seafood{
-                if !recipe.SeafoodList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.SeafoodList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SeafoodList.keys.contains(ingred)){
+                    if (recipe.FTL.SeafoodList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Legume{
-                if !recipe.LegumeList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.LegumeList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.LegumeList.keys.contains(ingred)){
+                    if (recipe.FTL.LegumeList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Nut{
-                if !recipe.NutList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.NutList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.NutList.keys.contains(ingred)){
+                    if (recipe.FTL.NutList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Oils{
-                if !recipe.OilsList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.OilsList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.OilsList.keys.contains(ingred)){
+                    if (recipe.FTL.OilsList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Soup{
-                if !recipe.SoupList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.SoupList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.SoupList.keys.contains(ingred)){
+                    if (recipe.FTL.SoupList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.DairyAlt{
-                if !recipe.DairyAltList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.DairyAltList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.DairyAltList.keys.contains(ingred)){
+                    if (recipe.FTL.DairyAltList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
                 }
             }
             else if ingred.Ingrd_Type == FoodType.Beverages{
-                if !recipe.BeveragesList.isEmpty{ // if the list is not empty
+                if !recipe.FTL.BeveragesList.isEmpty{ // if the list is not empty
                     // find in the list
-                    if (recipe.BeveragesList.keys.contains(ingred)){
+                    if (recipe.FTL.BeveragesList.keys.contains(ingred)){
                         // found the ingredient
                         IngredList.remove(ingred)
                     }
@@ -686,19 +721,7 @@ struct RecipeBookInfo{
     var FoodName : String
     
     // List of Food Types
-    var DairyList = [Ingrd:foodMeasureUnit]()
-    var FruitsList = [Ingrd:foodMeasureUnit]()
-    var VeggieList = [Ingrd:foodMeasureUnit]()
-    var BakedNGrainsList = [Ingrd:foodMeasureUnit]()
-    var SeasoningsList = [Ingrd:foodMeasureUnit]()
-    var MeatList = [Ingrd:foodMeasureUnit]()
-    var SeafoodList = [Ingrd:foodMeasureUnit]()
-    var LegumeList = [Ingrd:foodMeasureUnit]()
-    var NutList = [Ingrd:foodMeasureUnit]()
-    var OilsList = [Ingrd:foodMeasureUnit]()
-    var SoupList = [Ingrd:foodMeasureUnit]()
-    var DairyAltList = [Ingrd:foodMeasureUnit]()
-    var BeveragesList = [Ingrd:foodMeasureUnit]()
+    var FTL = FoodTypeList()
     
     var Steps : String
     
@@ -709,43 +732,43 @@ struct RecipeBookInfo{
         
         for ingred_in in array_in{
             if(ingred_in.0.Ingrd_Type == FoodType.Dairy){
-                DairyList[ingred_in.0] = ingred_in.1
+                FTL.DairyList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Fruits){
-                FruitsList[ingred_in.0] = ingred_in.1
+                FTL.FruitsList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Veggie){
-                VeggieList[ingred_in.0] = ingred_in.1
+                FTL.VeggieList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.BakedNGrains){
-                BakedNGrainsList[ingred_in.0] = ingred_in.1
+                FTL.BakedNGrainsList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Seasonings){
-                SeasoningsList[ingred_in.0] = ingred_in.1
+                FTL.SeasoningsList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Meat){
-                MeatList[ingred_in.0] = ingred_in.1
+                FTL.MeatList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Seafood){
-                SeafoodList[ingred_in.0] = ingred_in.1
+                FTL.SeafoodList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Legume){
-                LegumeList[ingred_in.0] = ingred_in.1
+                FTL.LegumeList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Nut){
-                NutList[ingred_in.0] = ingred_in.1
+                FTL.NutList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Oils){
-                OilsList[ingred_in.0] = ingred_in.1
+                FTL.OilsList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Soup){
-                SoupList[ingred_in.0] = ingred_in.1
+                FTL.SoupList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.DairyAlt){
-                DairyAltList[ingred_in.0] = ingred_in.1
+                FTL.DairyAltList[ingred_in.0] = ingred_in.1
             }
             else if(ingred_in.0.Ingrd_Type == FoodType.Beverages){
-                BeveragesList[ingred_in.0] = ingred_in.1
+                FTL.BeveragesList[ingred_in.0] = ingred_in.1
             }
         }
     } // Initilizer
