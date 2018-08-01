@@ -18,13 +18,19 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var filledHeart: UIImageView!
     @IBAction func heartTapped(_ sender: Any) {
+        //delete from favorites
+        if FavoritesList.contains(index!) {
+            let image = UIImage(named: "")
+            filledHeart.image = image
+            let delete = FavoritesList.index(of: index!) as! Int
+            FavoritesList.remove(at: delete)
+        }
+        else {
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
-            //MARK: TODO: add the recipe to favorites (also delete from favorites, though the UI hasnt been implemented yet
-        FavoritesList.append(index!)
-        
-        //MARK: TODO: delete favorites function?
-        
+            FavoritesList.append(index!)
+            
+        }
         
     }
     @IBOutlet weak var addButton: UIButton!
@@ -35,7 +41,7 @@ class SearchViewController: UIViewController {
     @IBAction func addShoppingListTapped(_ sender: UIButton) {
         // MARK: TODO: need to ask questions at the meeting
         
-
+        
     }
     
     
@@ -70,12 +76,27 @@ class SearchViewController: UIViewController {
         else {
             numIngredientsNeeded.text = "You need " + String(potentialRecipe[index!].ingredList.count) + " more ingredients!"
         }
+        if FavoritesList.contains(index!) {
+            let image = UIImage(named: "icons8-heart-30.png")
+            filledHeart.image = image
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
+
+    @IBAction func addTapped(_ sender: Any) {
+        print("add")
+    }
+    
+    @IBAction func clearAllTapped(_ sender: Any) {
+        print("clear")
+    }
+    
+    @IBAction func addToFridgeTapped(_ sender: Any) {
+        print("add to fridge")
+    }
     
 }

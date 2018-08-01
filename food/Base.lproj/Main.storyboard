@@ -69,7 +69,7 @@
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" image="icons8-heart-outline-30.png"/>
                                                                 <connections>
-                                                                    <action selector="favoritesHeartTapped:" destination="dKj-YP-IBh" eventType="touchUpInside" id="zLG-ou-9EB"/>
+                                                                    <action selector="favoritesHeartTapped:" destination="dKj-YP-IBh" eventType="touchUpInside" id="POe-tM-R7e"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-cherry-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-Hb-2LQ">
@@ -91,7 +91,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <outlet property="filledHeart" destination="oWD-al-22R" id="M8D-pM-rdW"/>
+                                                        <outlet property="filledHeart" destination="oWD-al-22R" id="gUB-Yi-4rn"/>
                                                         <outlet property="moreIngredients" destination="9TI-Fh-9Ns" id="Abx-Z8-Tci"/>
                                                         <outlet property="recipeName" destination="L6B-lL-oqh" id="hrF-sr-yJ9"/>
                                                     </connections>
@@ -314,7 +314,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOa-TH-TOu">
                                 <rect key="frame" x="123" y="298" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.87447941303253174" green="0.52188891172409058" blue="0.47445851564407349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90085989236831665" green="0.24206945300102234" blue="0.19726938009262085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -424,9 +424,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="unf-fk-qDG">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem systemItem="add" id="Bsq-it-bPY">
+                                    <connections>
+                                        <action selector="addTapped:" destination="Pbn-ne-4Ik" id="S9h-2e-ZzK"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="edit" id="6ks-RE-4Ka"/>
+                                <barButtonItem systemItem="trash" id="b8g-oX-mRG">
+                                    <connections>
+                                        <action selector="clearAllTapped:" destination="Pbn-ne-4Ik" id="fYS-oe-kJ6"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="add to fridge" id="q0g-Rg-rBP">
+                                    <connections>
+                                        <action selector="addToFridgeTapped:" destination="Pbn-ne-4Ik" id="X8j-XH-dOZ"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2lC-0L-Z2A">
+                            <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ShoppingListTableViewCell" rowHeight="51" id="HhA-kG-RAq" customClass="ShoppingListTableViewCell" customModule="food" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="51"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HhA-kG-RAq" id="ofb-56-c86" customClass="ShoppingListTableViewCell" customModule="food" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="50.5"/>
@@ -475,8 +504,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping List" id="PA0-yh-wwK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="zeroLabel" destination="2lC-0L-Z2A" id="ajG-h4-wwB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhx-UA-t34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Pbn-ne-4Ik" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1402.4000000000001" y="926.98650674662679"/>
         </scene>
@@ -530,6 +563,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Huh-5X-bS7">
+                            <rect key="frame" x="0.0" y="178" width="375" height="376"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="150" id="z2n-un-W0P" customClass="FavoritesTableViewCell" customModule="food" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
@@ -545,7 +585,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-heart-30.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbh-AA-fX8">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vbh-AA-fX8">
                                             <rect key="frame" x="331" y="99" width="28" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -553,11 +593,15 @@
                                             <rect key="frame" x="331" y="99" width="28" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="icons8-heart-outline-30.png"/>
+                                            <connections>
+                                                <action selector="favoritesHeartTapped:" destination="z2n-un-W0P" eventType="touchUpInside" id="F4h-Re-fCP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="filledHeart" destination="Vbh-AA-fX8" id="Ked-uM-sdb"/>
                                     <outlet property="recipeTitle" destination="NiZ-Xg-uJz" id="PeP-kd-h86"/>
                                 </connections>
                             </tableViewCell>
@@ -569,6 +613,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Favorites" id="sfq-nZ-w3C"/>
                     <connections>
+                        <outlet property="zeroLabel" destination="Huh-5X-bS7" id="iwg-tl-IlQ"/>
                         <segue destination="5LP-EH-6lR" kind="show" identifier="favoritesFullRecipe" id="cKN-5D-fr7"/>
                     </connections>
                 </tableViewController>
@@ -683,7 +728,7 @@
         <image name="icons8-natural-food-50.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pPf-10-Tfh"/>
-        <segue reference="GNq-jA-QFi"/>
+        <segue reference="Lig-7V-thD"/>
+        <segue reference="cKN-5D-fr7"/>
     </inferredMetricsTieBreakers>
 </document>

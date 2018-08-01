@@ -49,6 +49,7 @@ var onClick: ( (SearchCollectionViewCell) -> () )?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 }
 

@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.0286551"
+            timestampString = "554799467.824192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "init_IngredBook()"
-            landmarkType = "9">
+            landmarkName = "Ingrd"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,43 +42,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.043861"
+            timestampString = "554799467.831666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FoodType"
+            landmarkType = "13">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_CBCA54B7D66C5C56C768C444EB324F36_func0"
+                  symbolName = "food.FoodType.init(rawValue: Swift.Int) -&gt; Swift.Optional&lt;food.FoodType&gt;"
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/ViewController.swift"
-                  timestampString = "554539110.676563"
+                  timestampString = "554796342.1957901"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "147">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "food.myFridge.unsafeMutableAddressor : Swift.Array&lt;food.Ingrd&gt;"
+                  symbolName = "food.FoodType.rawValue.getter : Swift.Int"
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/ViewController.swift"
-                  timestampString = "554539110.680198"
+                  timestampString = "554796342.21047"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "124">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.044613"
+            timestampString = "554799467.8338799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.04519"
+            timestampString = "554799467.83522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "343"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.0457211"
+            timestampString = "554799467.835761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "312"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.046458"
+            timestampString = "554799467.836108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "236"
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "554440802.752723"
+            timestampString = "554799467.837281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "554440802.752941"
+            timestampString = "554799467.83899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.345858"
+            timestampString = "554799467.8404109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "tableView(tableView:willDisplayCell:forRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.346194"
+            timestampString = "554799467.8416049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.346508"
+            timestampString = "554799467.8430229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.346825"
+            timestampString = "554799467.844099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.347048"
+            timestampString = "554799467.845028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.04864"
+            timestampString = "554799467.846035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "620"
@@ -458,7 +458,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.049412"
+            timestampString = "554799467.846442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "617"
@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.050024"
+            timestampString = "554799467.846904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "623"
@@ -490,27 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.347393"
+            timestampString = "554799467.847347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.347611"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -522,13 +506,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.0511301"
+            timestampString = "554799467.848209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "861"
             endingLineNumber = "861"
-            landmarkName = "addButtonTapped(_:)"
-            landmarkType = "7">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -538,7 +522,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.051953"
+            timestampString = "554799467.848537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "928"
@@ -554,27 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "554440802.757566"
+            timestampString = "554799467.848918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "showFullRecipe(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "554440802.75766"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -585,24 +553,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "food/Search Tab/SearchViewController.swift"
-            timestampString = "554537662.348137"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "addShoppingListTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "food/ViewController.swift"
-            timestampString = "554528211.0528671"
+            timestampString = "554799467.8502899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "915"
@@ -617,13 +569,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "food/Search Tab/SearchViewController.swift"
-            timestampString = "554537662.3484499"
+            filePath = "food/Shopping List Tab/ShoppingListTableViewController.swift"
+            timestampString = "554799467.853443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -634,45 +586,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Shopping List Tab/ShoppingListTableViewController.swift"
-            timestampString = "554538809.95443"
+            timestampString = "554799467.854439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "food/Shopping List Tab/ShoppingListTableViewController.swift"
-            timestampString = "554538810.117575"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "food/Shopping List Tab/ShoppingListTableViewController.swift"
-            timestampString = "554538810.1196491"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "ShoppingListTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -682,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "554537662.350176"
+            timestampString = "554799467.855273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -698,13 +618,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Shopping List Tab/ShoppingListTableViewController.swift"
-            timestampString = "554538810.121164"
+            timestampString = "554799467.856725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "tableView(_:viewForHeaderInSection:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Search Tab/SearchViewController.swift"
+            timestampString = "554799467.857577"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "heartTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Search Tab/SearchViewController.swift"
+            timestampString = "554799467.90174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "heartTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Search Tab/SearchTableViewController.swift"
+            timestampString = "554799467.904175"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
+            timestampString = "554799467.905525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
+            timestampString = "554799467.9061331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
+            timestampString = "554799467.906601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

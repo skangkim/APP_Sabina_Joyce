@@ -10,12 +10,24 @@ import UIKit
 
 
 class FavoritesTableViewController: UITableViewController {
-    var index: Int?
+    var index = 0
     
-    @IBAction func showFullRecipe(_ sender: Any) {
-                performSegue(withIdentifier: "favoritesFullRecipe", sender: index)
-    }
-    
+
+    @IBOutlet weak var zeroLabel: UILabel!
+//    @IBAction func favoritesTapped(_ sender: Any) {
+//        if FavoritesList.contains(index) {
+//            let image = UIImage(named: "")
+//            heartFilled.image = image
+//            let delete = FavoritesList.index(of: index) as! Int
+//            FavoritesList.remove(at: delete)
+//        }
+//        else {
+//            let image = UIImage(named: "icons8-heart-30.png")
+//            heartFilled.image = image
+//            FavoritesList.append(index)
+//
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -39,7 +51,7 @@ class FavoritesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
+        self.navigationController?.navigationBar.barTintColor = UIColor("E03a00")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
@@ -49,6 +61,10 @@ class FavoritesTableViewController: UITableViewController {
 //        navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar.shadowImage = UIImage()
 //
+        if FavoritesList.count == 0 {
+            zeroLabel.text = "Your Favorite Recipies go here! \n click the heart on the recipie that you love"
+        }
+
         tableView.reloadData()
     }
     
@@ -66,7 +82,7 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return RecipeBook.count
+        return FavoritesList.count
     }
 
     
@@ -76,7 +92,30 @@ class FavoritesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
-        cell.recipeTitle.text! = RecipeBook[indexPath.row].FoodName
+        cell.recipeTitle.text! = RecipeBook[FavoritesList[indexPath.row]].FoodName
+        
+        //on checkbox click
+        cell.onClick = { cell in
+            if FavoritesList.contains(indexPath.row) {
+                let image = UIImage(named: "")
+                cell.filledHeart.image = image
+                let delete = FavoritesList.index(of: indexPath.row) as! Int
+                FavoritesList.remove(at: delete)
+                tableView.reloadData()
+            }
+            else {
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell.filledHeart.image = image
+                FavoritesList.append(indexPath.row)
+                
+            }
+        }
+        
+            if FavoritesList.contains(indexPath.row) {
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell.filledHeart.image = image
+        }
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

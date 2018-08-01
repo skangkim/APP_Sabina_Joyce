@@ -15,10 +15,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     var index: Int?
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
-    
-//    @IBAction func cellSelect(_ sender: Any) {
-//        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
-//    }
+
+
     func didScroll(to position: CGFloat) {
         for cell in tableView.visibleCells as! [SearchTableViewCell] {
             (cell.collectionView as UIScrollView).contentOffset.x = position
@@ -46,11 +44,27 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
         
+        if FavoritesList.count != 0 {
+            if FavoritesList.contains(indexPath.row) {
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
+            }
+        }
+        
         //on checkbox click
         cell?.onClick = { cell in
-                    let image = UIImage(named: "icons8-heart-30.png")
-            cell.filledHeart.image = image
-                    //MARK: TODO: add the recipe to favorites (also delete from favorites, though the UI hasnt been implemented yet
+            if FavoritesList.contains(indexPath.row) {
+                let image = UIImage(named: "")
+                cell.filledHeart.image = image
+                let delete = FavoritesList.index(of: indexPath.row) as! Int
+                FavoritesList.remove(at: delete)
+            }
+            else {
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell.filledHeart.image = image
+                FavoritesList.append(indexPath.row)
+                
+            }
         }
         
             return cell!
@@ -93,6 +107,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
 //        navigationBar.isTranslucent = false
 //        navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar.shadowImage = UIImage()
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -137,6 +152,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             
             tableView.rowHeight = 375
             tableView.estimatedRowHeight = 375
+        
+        
             return cell
         }
 

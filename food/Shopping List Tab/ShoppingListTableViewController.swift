@@ -14,6 +14,7 @@ class ShoppingListTableViewController: UITableViewController {
     
     var addedIngredient: String?
     
+    @IBOutlet weak var zeroLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class ShoppingListTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,15 +37,20 @@ class ShoppingListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
+        self.navigationController?.navigationBar.barTintColor = UIColor("FF7028")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
+        self.navigationController?.toolbar.barTintColor = UIColor.white
+        self.navigationController?.toolbar.tintColor = UIColor.black
 //        //get rid of bottom line of navigation
 //        let navigationBar = navigationController?.navigationBar
 //        navigationBar?.isTranslucent = false
 //        navigationBar?.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar?.shadowImage = UIImage()
+        if shoppingListArray.count == 0 {
+            zeroLabel.text = "Your Shopping List \n add ingredeints here for you shopping list"
+        }
     }
     
     
@@ -72,10 +78,42 @@ class ShoppingListTableViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 30))
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textColor = UIColor.black
-        //label.text = RecipeBook[shoppingListArray[indexPath.row].0].FoodName
+        if let group = FoodType(rawValue: section) {
+            switch group {
+            case .Dairy:
+                label.text = "Dairy"
+            case .Fruits:
+                label.text = "Fruits"
+            case .Veggie:
+                label.text = "Veggetables"
+            case .BakedNGrains:
+                label.text = "Baked and grains"
+            case .Seasonings:
+                label.text = "Seasonings"
+            case .Meat:
+                label.text = "Meat"
+            case .Seafood:
+                label.text = "Seafood"
+            case .Legume:
+                label.text = "Legumes"
+            case .Nut:
+                label.text = "Nuts"
+            case .Oils:
+                label.text = "Oils"
+            case .Soup:
+                label.text = "Soup"
+            case .DairyAlt:
+                label.text = "Dairy Alternatives"
+            case .Beverages:
+                label.text = "Beverages"
+            default:
+                label.text = ""
+            }
+        }
         view.addSubview(label)
         return view
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -85,7 +123,7 @@ class ShoppingListTableViewController: UITableViewController {
         }
         
         //fetches appropriate recipie for the data source layout
-        cell.recipeName.text = RecipeBook[shoppingListArray[indexPath.row].0].FoodName
+        //cell.recipeName.text = RecipeBook[shoppingListArray[indexPath.row].0].FoodName
         // MARK: TODO: how to get the ingredients needed for the recipe
         //cell.nameLabel.text = shoppingListArray[indexPath.row].1.object(at: indexPath.section) as (Ingrd, foodMeasureUnit).0.Name
         

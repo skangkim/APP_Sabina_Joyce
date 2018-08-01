@@ -51,7 +51,7 @@ class IngredientTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("FFAF87")
+        self.navigationController?.navigationBar.barTintColor = UIColor("8CD600")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
