@@ -10,12 +10,15 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet var recipeTitle: UILabel!
     var onClick: ( (FavoritesTableViewCell) -> () )?
     @IBOutlet weak var filledHeart: UIImageView!
     @IBAction func favoritesHeartTapped(_ sender: Any) {
         onClick?(self)
     }
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

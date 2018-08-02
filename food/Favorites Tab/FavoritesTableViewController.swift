@@ -45,15 +45,16 @@ class FavoritesTableViewController: UITableViewController {
         
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.navigationController?.navigationBar.barTintColor = UIColor("8CD600")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         
 //        //get rid of bottom line of navigation
 //        let navigationBar = navigationController!.navigationBar
@@ -63,9 +64,16 @@ class FavoritesTableViewController: UITableViewController {
 //
         if FavoritesList.count == 0 {
             zeroLabel.text = "Your Favorite Recipies go here! \n click the heart on the recipie that you love"
+            zeroLabel.textAlignment = NSTextAlignment.center
         }
-
+        else {
+            zeroLabel.isHidden = true
+        }
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
+        
         tableView.reloadData()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +102,7 @@ class FavoritesTableViewController: UITableViewController {
         }
         cell.recipeTitle.text! = RecipeBook[FavoritesList[indexPath.row]].FoodName
         
-        //on checkbox click
+        //when favorites heart clicked
         cell.onClick = { cell in
             if FavoritesList.contains(indexPath.row) {
                 let image = UIImage(named: "")
@@ -107,14 +115,18 @@ class FavoritesTableViewController: UITableViewController {
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
                 FavoritesList.append(indexPath.row)
-                
             }
         }
-        
             if FavoritesList.contains(indexPath.row) {
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
         }
+        
+        //set shadow
+        cell.cellView.layer.shadowColor = UIColor.gray.cgColor
+        cell.cellView.layer.shadowOpacity = 1
+        cell.cellView.layer.shadowOffset = CGSize.zero
+        cell.cellView.layer.shadowRadius = 8
         
         return cell
     }

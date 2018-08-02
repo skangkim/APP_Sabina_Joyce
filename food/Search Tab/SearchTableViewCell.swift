@@ -53,12 +53,11 @@ var onClick: ( (SearchCollectionViewCell) -> () )?
     }
 }
 
-
 func setShadow(UICollectionViewCell: SearchCollectionViewCell) {
     UICollectionViewCell.layer.masksToBounds = false
     UICollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 0)
     UICollectionViewCell.layer.shadowRadius = 2
-    UICollectionViewCell.layer.shadowColor = UIColor("FFAF87")?.cgColor
+    UICollectionViewCell.layer.shadowColor = UIColor("dddddd")?.cgColor
     UICollectionViewCell.layer.shadowOpacity = 0.5
     UICollectionViewCell.layer.cornerRadius = 10
 }

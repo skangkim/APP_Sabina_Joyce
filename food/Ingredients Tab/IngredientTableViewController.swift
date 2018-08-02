@@ -53,7 +53,7 @@ class IngredientTableViewController: UITableViewController {
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("8CD600")
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor("8CD600")]
 
 //        //get rid of bottom line of navigation
 //        let navigationBar = navigationController!.navigationBar

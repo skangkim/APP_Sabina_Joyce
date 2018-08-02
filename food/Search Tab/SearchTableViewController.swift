@@ -14,9 +14,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     var index: Int?
     
-    @IBOutlet weak var layout: UICollectionViewFlowLayout!
-
-
+    @IBOutlet weak var zeroLabel: UILabel!
+    
     func didScroll(to position: CGFloat) {
         for cell in tableView.visibleCells as! [SearchTableViewCell] {
             (cell.collectionView as UIScrollView).contentOffset.x = position
@@ -92,7 +91,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
-        
+        self.view.backgroundColor = UIColor("#f7f7f7")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,12 +100,16 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("FFAF87")
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-//        //get rid of bottom line of navigation
-//        let navigationBar = navigationController!.navigationBar
-//        navigationBar.isTranslucent = false
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar.shadowImage = UIImage()
+
+        if potentialRecipe.count == 0 {
+//            self.tableView.isHidden = true
+            zeroLabel.text = "Add Ingredients to see recommended Recipes !!"
+            zeroLabel.textAlignment = NSTextAlignment.center
+        }
+        else {
+            zeroLabel.isHidden = true
+        }
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         tableView.reloadData()
     }
     
@@ -195,7 +198,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
      */
     
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        super.prepare(for: segue, sender: sender)

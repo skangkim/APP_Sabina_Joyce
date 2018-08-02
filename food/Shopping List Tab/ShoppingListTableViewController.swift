@@ -32,7 +32,9 @@ class ShoppingListTableViewController: UITableViewController {
         
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationBar.isHidden = false
+
                 navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
     
@@ -44,18 +46,20 @@ class ShoppingListTableViewController: UITableViewController {
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor("8CD600")]
         
         self.navigationController?.toolbar.barTintColor = UIColor.white
-        self.navigationController?.toolbar.tintColor = UIColor.black
-//        //get rid of bottom line of navigation
-//        let navigationBar = navigationController?.navigationBar
-//        navigationBar?.isTranslucent = false
-//        navigationBar?.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar?.shadowImage = UIImage()
+        self.navigationController?.toolbar.tintColor = UIColor("#afafaf")
+
+        UIBarButtonItem.appearance().setTitleTextAttributes(
+            [
+                NSAttributedStringKey.font : UIFont(name: "HelveticaNeue-Medium", size: 16)!,
+                NSAttributedStringKey.foregroundColor : UIColor("#565656"),
+                ], for: .normal)
         if shoppingListArray.count == 0 {
-            zeroLabel.text = "Your Shopping List \n add ingredeints here for you shopping list"
+            zeroLabel.text = "Your Shopping List!"
+            zeroLabel.textAlignment = NSTextAlignment.center
         }
         
         self.navigationController?.isToolbarHidden = false
-        
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
     
     
