@@ -105,11 +105,13 @@ class FavoritesTableViewController: UITableViewController {
         //when favorites heart clicked
         cell.onClick = { cell in
             if FavoritesList.contains(indexPath.row) {
-                let image = UIImage(named: "")
-                cell.filledHeart.image = image
-                let delete = FavoritesList.index(of: indexPath.row) as! Int
-                FavoritesList.remove(at: delete)
-                tableView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    let image = UIImage(named: "")
+                    cell.filledHeart.image = image
+                    let delete = FavoritesList.index(of: indexPath.row) as! Int
+                    FavoritesList.remove(at: delete)
+                    tableView.reloadData()
+                }
             }
             else {
                 let image = UIImage(named: "icons8-heart-30.png")

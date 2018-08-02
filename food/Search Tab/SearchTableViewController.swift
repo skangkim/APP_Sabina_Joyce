@@ -35,7 +35,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
 
             cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
         if potentialRecipe[indexPath.row].ingredList.count == 0 {
-            cell?.moreIngredients.text = ""
+            cell?.moreIngredients.text = "You have all the ingredients to make this!"
         }
         else {
             cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
