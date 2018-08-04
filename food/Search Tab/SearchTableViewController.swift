@@ -11,7 +11,7 @@ import UIKit
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
 
-    
+    var section: Int?
     var index: Int?
     
     @IBOutlet weak var zeroLabel: UILabel!
@@ -29,20 +29,60 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if section == 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
+                                                              for: indexPath) as? SearchCollectionViewCell
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
-                                                          for: indexPath) as? SearchCollectionViewCell
-
-            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
-        if potentialRecipe[indexPath.row].ingredList.count == 0 {
-            cell?.moreIngredients.text = "You have all the ingredients to make this!"
+                cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+            if potentialRecipe[indexPath.row].ingredList.count == 0 {
+                cell?.moreIngredients.text = "You have all the ingredients to make this!"
+            }
+            else {
+                cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
+            }
+                //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
+                setShadow(UICollectionViewCell: cell!)
+            
+            if FavoritesList.count != 0 {
+                if FavoritesList.contains(indexPath.row) {
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell?.filledHeart.image = image
+                }
+            }
+            
+            //on checkbox click
+            cell?.onClick = { cell in
+                if FavoritesList.contains(indexPath.row) {
+                    let image = UIImage(named: "")
+                    cell.filledHeart.image = image
+                    let delete = FavoritesList.index(of: indexPath.row) as! Int
+                    FavoritesList.remove(at: delete)
+                }
+                else {
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell.filledHeart.image = image
+                    FavoritesList.append(indexPath.row)
+                    
+                }
+            }
+            
+            return cell!
+            
         }
         else {
-            cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
-        }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search2CollectionViewCell",
+                                                          for: indexPath) as? Search2CollectionViewCell
+            
+            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+            if potentialRecipe[indexPath.row].ingredList.count == 0 {
+                cell?.moreIngredients.text = "You have all the ingredients to make this!"
+            }
+            else {
+                cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
+            }
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
-            setShadow(UICollectionViewCell: cell!)
-        
+//            setShadow(UICollectionViewCell: cell!)
+            
         if FavoritesList.count != 0 {
             if FavoritesList.contains(indexPath.row) {
                 let image = UIImage(named: "icons8-heart-30.png")
@@ -67,7 +107,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         }
         
             return cell!
-
+        }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         index = potentialRecipe[indexPath.row].index
@@ -122,7 +162,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,31 +173,59 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     func tableView(tableView: UITableView,
                    willDisplayCell cell: UITableViewCell,
                    forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 {
+            guard let tableViewCell = cell as? SearchTableViewCell else { return }
         
-        guard let tableViewCell = cell as? SearchTableViewCell else { return }
-        
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            
+            section = 0
+        }
+        else {
+            guard let tableViewCell = cell as? Search2TableViewCell else { return }
+            
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            
+            section = 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Table view cells are reused and should be dequeued using a cell identifier.
 
+        if indexPath.section == 0 {
+                let cellIdentifier = "SearchTableViewCell"
+        
+        
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SearchTableViewCell  else {
+                    fatalError("The dequeued cell is not an instance of SearchTableViewCell.")
+                }
+                guard let tableViewCell = cell as? SearchTableViewCell else { return cell }
+        
+                tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+        
+                tableView.rowHeight = 375
+                tableView.estimatedRowHeight = 375
+        
+        section = 0
+                return cell
+        }
+        else {
+            let cellIdentifier = "Search2TableViewCell"
             
-            let cellIdentifier = "SearchTableViewCell"
             
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SearchTableViewCell  else {
-                fatalError("The dequeued cell is not an instance of SearchTableViewCell.")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Search2TableViewCell  else {
+                fatalError("The dequeued cell is not an instance of Search2TableViewCell.")
             }
-            guard let tableViewCell = cell as? SearchTableViewCell else { return cell }
+            guard let tableViewCell = cell as? Search2TableViewCell else { return cell }
             
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
-            tableView.rowHeight = 375
-            tableView.estimatedRowHeight = 375
-        
-        
+            tableView.rowHeight = 248
+            tableView.estimatedRowHeight = 248
+            
+            section = 1
             return cell
+        }
         }
 
 
