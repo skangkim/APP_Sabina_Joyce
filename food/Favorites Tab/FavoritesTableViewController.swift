@@ -56,24 +56,14 @@ class FavoritesTableViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         
-//        //get rid of bottom line of navigation
-//        let navigationBar = navigationController!.navigationBar
-//        navigationBar.isTranslucent = false
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar.shadowImage = UIImage()
-//
         if FavoritesList.count == 0 {
-            zeroLabel.text = "Your Favorite Recipies go here! \n click the heart on the recipie that you love"
-            zeroLabel.textAlignment = NSTextAlignment.center
+            TableViewHelper.EmptyMessage(message: "Your Favorite Recipies go here! \n Click the heart on the recipes that you love", viewController: self)
+        } else {
+            TableViewHelper.EmptyMessage(message: "", viewController: self)
         }
-        else {
-            zeroLabel.isHidden = true
-        }
+        
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
-        
         tableView.reloadData()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -186,5 +176,21 @@ class FavoritesTableViewController: UITableViewController {
         }
         
     }
-
+    
+}
+class TableViewHelper {
+    
+    class func EmptyMessage(message:String, viewController:UITableViewController) {
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
+        let messageLabel = UILabel(frame: rect)
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.darkGray
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        messageLabel.sizeToFit()
+        
+        viewController.tableView.backgroundView = messageLabel
+        
+    }
 }

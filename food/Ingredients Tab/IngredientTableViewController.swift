@@ -38,7 +38,6 @@ class IngredientTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         setUpNavBar()
-
     }
     
     func setUpNavBar() {
@@ -60,6 +59,14 @@ class IngredientTableViewController: UITableViewController {
 //        navigationBar.isTranslucent = false
 //        navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar.shadowImage = UIImage()
+        
+        if myFridge.count == 0 {
+            TableViewHelper.EmptyMessage(message: "Your fridge is empty!", viewController: self)
+        }
+        else {
+            TableViewHelper.EmptyMessage(message: "", viewController: self)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

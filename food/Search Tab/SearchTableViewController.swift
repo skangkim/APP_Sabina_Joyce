@@ -8,10 +8,8 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-
-    var section: Int?
     var index: Int?
     
     @IBOutlet weak var zeroLabel: UILabel!
@@ -29,19 +27,22 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if section == 0 {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
-                                                              for: indexPath) as? SearchCollectionViewCell
-
-                cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+        
+        if collectionView.tag == 0 {
+            print(collectionView.tag)
+            print("0", indexPath.section, indexPath.row)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
+                                                          for: indexPath) as? SearchCollectionViewCell
+            
+            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
             if potentialRecipe[indexPath.row].ingredList.count == 0 {
                 cell?.moreIngredients.text = "You have all the ingredients to make this!"
             }
             else {
                 cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
             }
-                //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
-                setShadow(UICollectionViewCell: cell!)
+            //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
+            setShadow(UICollectionViewCell: cell!)
             
             if FavoritesList.count != 0 {
                 if FavoritesList.contains(indexPath.row) {
@@ -70,6 +71,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             
         }
         else {
+            print(collectionView.tag)
+            print("1", indexPath.section, indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search2CollectionViewCell",
                                                           for: indexPath) as? Search2CollectionViewCell
             
@@ -81,31 +84,31 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
                 cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
             }
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
-//            setShadow(UICollectionViewCell: cell!)
+            setShadow2(UICollectionViewCell: cell!)
             
-        if FavoritesList.count != 0 {
-            if FavoritesList.contains(indexPath.row) {
-                let image = UIImage(named: "icons8-heart-30.png")
-                cell?.filledHeart.image = image
+            if FavoritesList.count != 0 {
+                if FavoritesList.contains(indexPath.row) {
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell?.filledHeart.image = image
+                }
             }
-        }
-        
-        //on checkbox click
-        cell?.onClick = { cell in
-            if FavoritesList.contains(indexPath.row) {
-                let image = UIImage(named: "")
-                cell.filledHeart.image = image
-                let delete = FavoritesList.index(of: indexPath.row) as! Int
-                FavoritesList.remove(at: delete)
+            
+            //on checkbox click
+            cell?.onClick = { cell in
+                if FavoritesList.contains(indexPath.row) {
+                    let image = UIImage(named: "")
+                    cell.filledHeart.image = image
+                    let delete = FavoritesList.index(of: indexPath.row) as! Int
+                    FavoritesList.remove(at: delete)
+                }
+                else {
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell.filledHeart.image = image
+                    FavoritesList.append(indexPath.row)
+                    
+                }
             }
-            else {
-                let image = UIImage(named: "icons8-heart-30.png")
-                cell.filledHeart.image = image
-                FavoritesList.append(indexPath.row)
-                
-            }
-        }
-        
+            
             return cell!
         }
     }
@@ -123,7 +126,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-//        setCardView(view: uiView)
+        //        setCardView(view: uiView)
         
         let layout = UICollectionViewFlowLayout()
         
@@ -140,14 +143,12 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("FFAF87")
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-
+        
         if potentialRecipe.count == 0 {
-//            self.tableView.isHidden = true
-            zeroLabel.text = "Add Ingredients to see recommended Recipes !!"
-            zeroLabel.textAlignment = NSTextAlignment.center
+            TableViewHelper.EmptyMessage(message: "Add Ingredients to see recommended Recipes !!", viewController: self)
         }
         else {
-            zeroLabel.isHidden = true
+            TableViewHelper.EmptyMessage(message: "Add Ingredients to see recommended Recipes !!", viewController: self)
         }
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         tableView.reloadData()
@@ -175,39 +176,37 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
                    forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             guard let tableViewCell = cell as? SearchTableViewCell else { return }
-        
+            
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
-            section = 0
         }
         else {
             guard let tableViewCell = cell as? Search2TableViewCell else { return }
             
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
-            section = 1
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Table view cells are reused and should be dequeued using a cell identifier.
-
+        
         if indexPath.section == 0 {
-                let cellIdentifier = "SearchTableViewCell"
-        
-        
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SearchTableViewCell  else {
-                    fatalError("The dequeued cell is not an instance of SearchTableViewCell.")
-                }
-                guard let tableViewCell = cell as? SearchTableViewCell else { return cell }
-        
-                tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-        
-                tableView.rowHeight = 375
-                tableView.estimatedRowHeight = 375
-        
-        section = 0
-                return cell
+            let cellIdentifier = "SearchTableViewCell"
+            
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SearchTableViewCell  else {
+                fatalError("The dequeued cell is not an instance of SearchTableViewCell.")
+            }
+            guard let tableViewCell = cell as? SearchTableViewCell else { return cell }
+            
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            
+            tableView.rowHeight = 397.5
+            tableView.estimatedRowHeight = 397.5
+            
+            cell.collectionView.tag = 0
+            return cell
         }
         else {
             let cellIdentifier = "Search2TableViewCell"
@@ -220,15 +219,20 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
-            tableView.rowHeight = 248
-            tableView.estimatedRowHeight = 248
+            tableView.rowHeight = 291.5
+            tableView.estimatedRowHeight = 291.5
             
-            section = 1
+            cell.collection2View.tag = 1
             return cell
         }
-        }
-
-
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("WHAT")
+        print("WHAT")
+        index = potentialRecipe[indexPath.row].index
+        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -266,18 +270,22 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
      */
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
+        //        super.prepare(for: segue, sender: sender)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let data = index
-
+        
         if let destinationViewController = segue.destination as? SearchViewController {
             destinationViewController.index = data
         }
-
+        
+    }
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        tableView.reloadData()
     }
     
 }
+

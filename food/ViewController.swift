@@ -858,6 +858,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+    @IBOutlet weak var addButton: UIView!
+    override func viewWillAppear(_ animated: Bool) {
+        addButton.layer.shadowOpacity = 0.7
+        addButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        addButton.layer.shadowRadius = 8.0
+        addButton.layer.shadowColor = UIColor.darkGray.cgColor
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

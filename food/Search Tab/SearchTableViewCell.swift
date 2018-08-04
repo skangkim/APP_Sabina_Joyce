@@ -10,7 +10,7 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet  weak var collectionView: UICollectionView!
+    @IBOutlet public var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -62,9 +62,18 @@ func setShadow(UICollectionViewCell: SearchCollectionViewCell) {
     UICollectionViewCell.layer.cornerRadius = 10
 }
 
+func setShadow2(UICollectionViewCell: Search2CollectionViewCell) {
+    UICollectionViewCell.layer.masksToBounds = false
+    UICollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 0)
+    UICollectionViewCell.layer.shadowRadius = 2
+    UICollectionViewCell.layer.shadowColor = UIColor("dddddd")?.cgColor
+    UICollectionViewCell.layer.shadowOpacity = 0.5
+    UICollectionViewCell.layer.cornerRadius = 10
+}
+
 class Search2TableViewCell: UITableViewCell {
     
-    @IBOutlet  weak var collection2View: UICollectionView!
+    @IBOutlet public var collection2View: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -14,10 +14,7 @@ var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
 class ShoppingListTableViewController: UITableViewController {
     
     var addedIngredient: String?
-    
-    @IBOutlet weak var zeroLabel: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +31,8 @@ class ShoppingListTableViewController: UITableViewController {
         navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationBar.isHidden = false
-
-                navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,21 +40,22 @@ class ShoppingListTableViewController: UITableViewController {
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("8CD600")
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor("8CD600")]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         
         self.navigationController?.toolbar.barTintColor = UIColor.white
         self.navigationController?.toolbar.tintColor = UIColor("#afafaf")
-
+        
         UIBarButtonItem.appearance().setTitleTextAttributes(
             [
                 NSAttributedStringKey.font : UIFont(name: "HelveticaNeue-Medium", size: 16)!,
                 NSAttributedStringKey.foregroundColor : UIColor("#565656"),
                 ], for: .normal)
         if shoppingListArray.count == 0 {
-            zeroLabel.text = "Your Shopping List!"
-            zeroLabel.textAlignment = NSTextAlignment.center
+            TableViewHelper.EmptyMessage(message: "Your Shopping List! \n Add from any recipe page, \n or click 'add' above!", viewController: self)
         }
-        
+        else {
+            TableViewHelper.EmptyMessage(message: "", viewController: self)
+        }
         self.navigationController?.isToolbarHidden = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
@@ -138,8 +136,8 @@ class ShoppingListTableViewController: UITableViewController {
         
         let image = UIImage(named: "shoppinglistbutton.jpg")
         cell.ring.image = image
-
-
+        
+        
         return cell
     }
     
@@ -150,36 +148,23 @@ class ShoppingListTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
         
-            let image = UIImage(named: "filledIn.jpg")
-            cell.filledInCircle.image = image
+        let image = UIImage(named: "filledIn.jpg")
+        cell.filledInCircle.image = image
         
-                performSegue(withIdentifier: "addToFridge", sender: addedIngredient)
-            
-            //MARK: TODO: add the checked item to fridge as an Ingrd(?) type (currently just passed as a String)
-            addedIngredient = cell.nameLabel.text
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
-                // Your code with delay
-                //                shoppingListArray.remove(at: indexPath.row)
-                //                tableView.deleteRows(at: [indexPath], with: .fade)
-                //switch status
-                
-                tableView.reloadData()
-            }
-            
-            deleteRecipes()
-            //switch status
-            tableView.reloadData()
+        performSegue(withIdentifier: "addToFridge", sender: addedIngredient)
+        
+        //MARK: TODO: add the checked item to fridge as an Ingrd(?) type (currently just passed as a String)
+        addedIngredient = cell.nameLabel.text
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            tableView.reloadData()
+//        }
+        
+        deleteRecipes()
+        //switch status
+        tableView.reloadData()
         
     }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -191,23 +176,6 @@ class ShoppingListTableViewController: UITableViewController {
             
         }
     }
-    
-    
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
     
     func deleteRecipes() {
         //MARK: TODO: function that deletes the recipe from the ShoppingListArray
@@ -223,15 +191,15 @@ class ShoppingListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let data = addedIngredient
         
-//        if let destinationViewController = segue.destination as? popupViewController {
-//            destinationViewController.addedIngredient = data
-//        }
+        //        if let destinationViewController = segue.destination as? popupViewController {
+        //            destinationViewController.addedIngredient = data
+        //        }
         
     }
     
-//    @IBAction func editTapped(_ sender: Any) {
-//        print("Edit")
-//    }
+    //    @IBAction func editTapped(_ sender: Any) {
+    //        print("Edit")
+    //    }
     
     @IBAction func clearAllTapped(_ sender: Any) {
         print("clear")
@@ -258,7 +226,7 @@ class ShoppingListTableViewController: UITableViewController {
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)
-                
+        
     }
     
     @IBAction func addToFridgeTapped(_ sender: Any) {
