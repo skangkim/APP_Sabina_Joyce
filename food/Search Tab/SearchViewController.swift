@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-var FavoritesList = [Int]() // keep track of the index
 class SearchViewController: UIViewController {
     
-    var index: Int?
+    var index: Int? // mark: assuming this as index at recipebook
     
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var steps: UILabel!
@@ -19,17 +19,17 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var filledHeart: UIImageView!
     @IBAction func heartTapped(_ sender: Any) {
         //delete from favorites
-        if FavoritesList.contains(index!) {
+        
+        if(RecipeBook[index!].isFav){
+            // if it's favorite, delete from fav
             let image = UIImage(named: "")
             filledHeart.image = image
-            let delete = FavoritesList.index(of: index!) as! Int
-            FavoritesList.remove(at: delete)
+            RecipeBook[index!].isFav = false
         }
-        else {
+        else{
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
-            FavoritesList.append(index!)
-            
+            RecipeBook[index!].isFav = true
         }
         
     }
@@ -64,20 +64,32 @@ class SearchViewController: UIViewController {
         //        navigationBar.shadowImage = UIImage()
         
         //setting the page info 
-        print(RecipeBook[index!].FoodName)
-        recipeName.text = RecipeBook[index!].FoodName
-        steps.text = RecipeBook[index!].Steps
-        if potentialRecipe[index!].ingredList.count == 0 {
+        // print(RecipeBook[index!].FoodName)
+        // recipeName.text = RecipeBook[index!].FoodName
+        
+        let recipe = RecipeBook[index!]
+        
+        recipeName.text = recipe.name
+        steps.text = recipe.steps
+        
+        
+        if(recipe.potRecipe != nil){
+            let pot_recipe = recipe.potRecipe
+            let count = pot_recipe?.need_Ingred?.count
+            if count == 0{
+                numIngredientsNeeded.text = ""
+                addButton.isHidden = true
+            }
+            else {
+                numIngredientsNeeded.text = "You need \(String(describing: count)) more ingredient!"
+            }
+        }
+        else{
             numIngredientsNeeded.text = ""
             addButton.isHidden = true
+            
         }
-        else if potentialRecipe[index!].ingredList.count == 1 {
-            numIngredientsNeeded.text = "You need 1 more ingredient!"
-        }
-        else {
-            numIngredientsNeeded.text = "You need " + String(potentialRecipe[index!].ingredList.count) + " more ingredients!"
-        }
-        if FavoritesList.contains(index!) {
+        if(recipe.isFav){
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
         }

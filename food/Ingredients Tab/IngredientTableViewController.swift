@@ -9,8 +9,10 @@
 
 import UIKit
 import os.log
+import CoreData
 
 
+var fridge = [Ingred]()
 // global variable
 // Limit to the number of ingredients that user need to buy to generate potential recipe
 let POT_REP_LIMIT = 2
@@ -24,12 +26,7 @@ class IngredientTableViewController: UITableViewController {
         super.viewDidLoad()
         
         //Load the sample data.
-        // loadSampleIngredients()
         
-        // Init ingredients
-        
-        init_IngredBook()
-        initRecipeBook()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -60,7 +57,7 @@ class IngredientTableViewController: UITableViewController {
 //        navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar.shadowImage = UIImage()
         
-        if myFridge.count == 0 {
+        if fridge.count == 0 {
             TableViewHelper.EmptyMessage(message: "Your fridge is empty!", viewController: self)
         }
         else {
@@ -76,29 +73,39 @@ class IngredientTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFridge.count
+        return fridge.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "IngredientTableViewCell"
-        
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientTableViewCell  else {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
-        
         //fetches appropriate ingredient for the data source layout
-        let ingredient = myFridge[indexPath.row].Name
-        // TODO: Find out how to fetch from dictionary
+        // fetch ingredients from fridge
         
-        cell.nameLabel.text = ingredient
+        AppDelegate.persistentContainer.performBackgroundTask{ context in
+            do{
+                let fetchFridge = NSFetchRequest<Ingred>(entityName: "Ingred")
+                fetchFridge.predicate = NSPredicate(format: "inFridge == %@", NSNumber(value: true))
+                do{
+                    fridge = try context.fetch(fetchFridge)
+                }
+                cell.nameLabel.text = fridge[indexPath.row].name
+            }
+            catch let error as NSError{
+                print(error)
+            }
+        }
+        // let ingredient = myFridge[indexPath.row].Name
+        // TODO: Find out how to fetch from dictionary
+        // cell.nameLabel.text = ingredient
         
         return cell
     }
@@ -110,294 +117,18 @@ class IngredientTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+        // MARK: Delete ingredient
         if editingStyle == .delete {
             // Delete the row from the data source
-            
-            // get the ingredient
-            let ingrd = myFridge[indexPath.row]
-            
-            // remove from myFridge
-            myFridge.remove(at: indexPath.row)
-            
-            // store the index of myRecipe which should be removed
-            var arr = [Int]()
-            
-            // update myRecipe
-            
-            // go through each recipe in Recipe
-            for (myRecipeIndex,recipeBookIndex) in myRecipe.enumerated(){
-                if(ingrd.Ingrd_Type == FoodType.Dairy){
-                    if(RecipeBook[recipeBookIndex].FTL.DairyList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
+            AppDelegate.persistentContainer.performBackgroundTask{ context in
+                do{
+                    let del = fridge[indexPath.row]
+                    del.inFridge = false
                 }
-                else if(ingrd.Ingrd_Type == FoodType.Fruits){
-                    if(RecipeBook[recipeBookIndex].FTL.FruitsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Veggie){
-                    if(RecipeBook[recipeBookIndex].FTL.VeggieList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.BakedNGrains){
-                    if(RecipeBook[recipeBookIndex].FTL.BakedNGrainsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Seasonings){
-                    if(RecipeBook[recipeBookIndex].FTL.SeasoningsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Meat){
-                    if(RecipeBook[recipeBookIndex].FTL.MeatList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Seafood){
-                    if(RecipeBook[recipeBookIndex].FTL.SeafoodList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Legume){
-                    if(RecipeBook[recipeBookIndex].FTL.LegumeList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Nut){
-                    if(RecipeBook[recipeBookIndex].FTL.NutList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Oils){
-                    if(RecipeBook[recipeBookIndex].FTL.OilsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Soup){
-                    if(RecipeBook[recipeBookIndex].FTL.SoupList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.DairyAlt){
-                    if(RecipeBook[recipeBookIndex].FTL.DairyAltList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
-                else {
-                    if(RecipeBook[recipeBookIndex].FTL.BeveragesList.keys.contains(ingrd)){
-                        // found the ingredient
-                        arr.append(myRecipeIndex)
-                    }
-                }
+                // don't forget to save
+                do{ try context.save() }
+                catch{ print(error) }
             }
-            
-            // delete from myRecipe
-            arr.sort()
-            arr.reverse()
-            for i in arr{
-                myRecipe.remove(at: i)
-            }
-            
-            // update potentialRecipe
-            
-            // stores index to delete
-            var arr1 = [Int]()
-            
-            for (i,PRType) in potentialRecipe.enumerated(){
-                if(ingrd.Ingrd_Type == FoodType.Dairy){
-                    if(RecipeBook[PRType.index].FTL.DairyList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Fruits){
-                    if(RecipeBook[PRType.index].FTL.FruitsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Veggie){
-                    if(RecipeBook[PRType.index].FTL.VeggieList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.BakedNGrains){
-                    if(RecipeBook[PRType.index].FTL.BakedNGrainsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Seasonings){
-                    if(RecipeBook[PRType.index].FTL.SeasoningsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Meat){
-                    if(RecipeBook[PRType.index].FTL.MeatList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Seafood){
-                    if(RecipeBook[PRType.index].FTL.SeafoodList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Legume){
-                    if(RecipeBook[PRType.index].FTL.LegumeList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Nut){
-                    if(RecipeBook[PRType.index].FTL.NutList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Oils){
-                    if(RecipeBook[PRType.index].FTL.OilsList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.Soup){
-                    if(RecipeBook[PRType.index].FTL.SoupList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else if(ingrd.Ingrd_Type == FoodType.DairyAlt){
-                    if(RecipeBook[PRType.index].FTL.DairyAltList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                else {
-                    if(RecipeBook[PRType.index].FTL .BeveragesList.keys.contains(ingrd)){
-                        // found the ingredient
-                        if(PRType.ingredList.count >= POT_REP_LIMIT){
-                            // need to remove from potential Recipe
-                            arr1.append(i)
-                        }
-                        else{
-                            // append to the ingredient list to make the potential recipe
-                            PRType.ingredList.append(ingrd)
-                        }
-                    }
-                }
-                
-                
-                arr1.sort()
-                arr1.reverse()
-                for i in arr1{
-                    potentialRecipe.remove(at: i)
-                }
-            }
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
     }

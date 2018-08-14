@@ -1,0 +1,624 @@
+Name,FT,inFridge
+butter,dairy,f
+egg,dairy,f
+milk,dairy,f
+parmesan,dairy,f
+cheddar,dairy,f
+american cheese,dairy,f
+sour cream,dairy,f
+cream cheese,dairy,f
+mozzarella,dairy,f
+yogurt,dairy,f
+cream,dairy,f
+evaporated milk,dairy,f
+whipped cream,dairy,f
+half and half,dairy,f
+feta,dairy,f
+monterey jack cheese,dairy,f
+condensed milk,dairy,f
+cottage cheese,dairy,f
+ice cream,dairy,f
+swiss cheese,dairy,f
+velveeta,dairy,f
+frosting,dairy,f
+buttermilk,dairy,f
+ricotta,dairy,f
+goat cheese,dairy,f
+provolone,dairy,f
+blue cheese,dairy,f
+powdered milk,dairy,f
+colby cheese,dairy,f
+pepper jack,dairy,f
+italian cheese,dairy,f
+soft cheese,dairy,f
+gouda,dairy,f
+pepperjack cheese,dairy,f
+romano,dairy,f
+brie,dairy,f
+pizza cheese,dairy,f
+ghee,dairy,f
+creme fraiche,dairy,f
+cheese soup,dairy,f
+gruyere,dairy,f
+pecorino cheese,dairy,f
+custard,dairy,f
+muenster,dairy,f
+queso fresco cheese,dairy,f
+hard cheese,dairy,f
+havarti cheese,dairy,f
+asiago,dairy,f
+mascarpone,dairy,f
+neufchatel,dairy,f
+halloumi,dairy,f
+paneer,dairy,f
+brick cheese,dairy,f
+camembert cheese,dairy,f
+goat milk,dairy,f
+garlic herb cheese,dairy,f
+edam cheese,dairy,f
+manchego,dairy,f
+fontina,dairy,f
+stilton cheese,dairy,f
+emmenthaler cheese,dairy,f
+red leicester cheese,dairy,f
+jarlsberg cheese,dairy,f
+bocconcini cheese,dairy,f
+farmer cheese,dairy,f
+creme de cassis,dairy,f
+wensleydale cheese,dairy,f
+longhorn cheese,dairy,f
+double gloucester cheese,dairy,f
+raclette cheese,dairy,f
+lancashire cheese,dairy,f
+cheshire cheese,dairy,f
+onion,veg,f
+garlic,veg,f
+tomato,veg,f
+potato,veg,f
+carrot,veg,f
+bell pepper,veg,f
+basil,veg,f
+parsley,veg,f
+broccoli,veg,f
+corn,veg,f
+spinach,veg,f
+mushroom,veg,f
+green beans,veg,f
+ginger,veg,f
+chili pepper,veg,f
+celery,veg,f
+rosemary,veg,f
+salad greens,veg,f
+red onion,veg,f
+cucumber,veg,f
+sweet potato,veg,f
+pickle,veg,f
+avocado,veg,f
+zucchini,veg,f
+cilantro,veg,f
+frozen vegetables,veg,f
+olive,veg,f
+asparagus,veg,f
+cabbage,veg,f
+cauliflower,veg,f
+dill,veg,f
+kale,veg,f
+mixed vegetable,veg,f
+pumpkin,veg,f
+squash,veg,f
+mint,veg,f
+scallion,veg,f
+sun dried tomato,veg,f
+shallot,veg,f
+eggplant,veg,f
+beet,veg,f
+butternut squash,veg,f
+horseradish,veg,f
+leek,veg,f
+caper,veg,f
+brussels sprout,veg,f
+artichoke heart,veg,f
+chia seeds,veg,f
+radish,veg,f
+sauerkraut,veg,f
+artichoke,veg,f
+portobello mushroom,veg,f
+sweet pepper,veg,f
+arugula,veg,f
+spaghetti squash,veg,f
+capsicum,veg,f
+bok choy,veg,f
+parsnip,veg,f
+okra,veg,f
+yam,veg,f
+fennel,veg,f
+turnip,veg,f
+snow peas,veg,f
+bean sprouts,veg,f
+seaweed,veg,f
+chard,veg,f
+collard,veg,f
+canned tomato,veg,f
+pimiento,veg,f
+watercress,veg,f
+tomatillo,veg,f
+rocket,veg,f
+mustard greens,veg,f
+bamboo shoot,veg,f
+rutabaga,veg,f
+endive,veg,f
+broccoli rabe,veg,f
+jicama,veg,f
+kohlrabi,veg,f
+hearts of palm,veg,f
+butternut,veg,f
+celery root,veg,f
+daikon,veg,f
+radicchio,veg,f
+porcini,veg,f
+chinese broccoli,veg,f
+jerusalem artichoke,veg,f
+cress,veg,f
+water chestnut,veg,f
+dulse,veg,f
+micro greens,veg,f
+burdock,veg,f
+chayote,veg,f
+lemon,fruits,f
+apple,fruits,f
+banana,fruits,f
+lime,fruits,f
+strawberry,fruits,f
+orange,fruits,f
+pineapple,fruits,f
+blueberry,fruits,f
+raisin,fruits,f
+coconut,fruits,f
+grape,fruits,f
+peach,fruits,f
+raspberry,fruits,f
+cranberry,fruits,f
+mango,fruits,f
+pear,fruits,f
+blackberry,fruits,f
+cherry,fruits,f
+date,fruits,f
+watermelon,fruits,f
+berries,fruits,f
+kiwi,fruits,f
+grapefruit,fruits,f
+mandarin,fruits,f
+craisins,fruits,f
+cantaloupe,fruits,f
+plum,fruits,f
+apricot,fruits,f
+clementine,fruits,f
+prunes,fruits,f
+apple butter,fruits,f
+pomegranate,fruits,f
+nectarine,fruits,f
+fig,fruits,f
+tangerine,fruits,f
+papaya,fruits,f
+rhubarb,fruits,f
+sultanas,fruits,f
+plantain,fruits,f
+currant,fruits,f
+passion fruit,fruits,f
+guava,fruits,f
+persimmons,fruits,f
+lychee,fruits,f
+lingonberry,fruits,f
+tangelos,fruits,f
+kumquat,fruits,f
+boysenberry,fruits,f
+star fruit,fruits,f
+quince,fruits,f
+honeydew,fruits,f
+crabapples,fruits,f
+rice,baking,f
+pasta,baking,f
+flour,baking,f
+bread,baking,f
+baking powder,baking,f
+baking soda,baking,f
+bread crumbs,baking,f
+cornstarch,baking,f
+rolled oats,baking,f
+noodle,baking,f
+flour tortillas,baking,f
+pancake mix,baking,f
+yeast,baking,f
+cracker,baking,f
+quinoa,baking,f
+brown rice,baking,f
+cornmeal,baking,f
+self rising flour,baking,f
+cake mix,baking,f
+saltines,baking,f
+popcorn,baking,f
+macaroni cheese mix,baking,f
+corn tortillas,baking,f
+ramen,baking,f
+cereal,baking,f
+biscuits,baking,f
+stuffing mix,baking,f
+couscous,baking,f
+pie crust,baking,f
+bisquick,baking,f
+chips,baking,f
+angel hair,baking,f
+coconut flake,baking,f
+bread flour,baking,f
+croutons,baking,f
+lasagne,baking,f
+pizza dough,baking,f
+bagel,baking,f
+puff pastry,baking,f
+hot dog bun,baking,f
+barley,baking,f
+multigrain bread,baking,f
+potato flakes,baking,f
+pretzel,baking,f
+cornbread,baking,f
+english muffin,baking,f
+cornflour,baking,f
+crescent roll dough,baking,f
+cream of wheat,baking,f
+coconut flour,baking,f
+pita,baking,f
+risotto,baking,f
+muffin mix,baking,f
+bicarbonate of soda,baking,f
+ravioli,baking,f
+wheat,baking,f
+rice flour,baking,f
+polenta,baking,f
+baguette,baking,f
+gnocchi,baking,f
+vermicelli,baking,f
+semolina,baking,f
+wheat germ,baking,f
+buckwheat,baking,f
+croissants,baking,f
+bread dough,baking,f
+filo dough,baking,f
+yeast flake,baking,f
+pierogi,baking,f
+matzo meal,baking,f
+rye,baking,f
+tapioca flour,baking,f
+shortcrust pastry,baking,f
+potato starch,baking,f
+breadsticks,baking,f
+ciabatta,baking,f
+spelt,baking,f
+starch,baking,f
+whole wheat flour,baking,f
+gram flour,baking,f
+wafer,baking,f
+sponge cake,baking,f
+malt extract,baking,f
+sugar,seasonings,f
+brown sugar,seasonings,f
+honey,seasonings,f
+maple syrup,seasonings,f
+corn syrup,seasonings,f
+artificial sweetener,seasonings,f
+cinnamon,seasonings,f
+vanilla,seasonings,f
+garlic powder,seasonings,f
+paprika,seasonings,f
+oregano,seasonings,f
+chili powder,seasonings,f
+red pepper flake,seasonings,f
+cumin,seasonings,f
+cayenne,seasonings,f
+italian seasoning,seasonings,f
+thyme,seasonings,f
+onion powder,seasonings,f
+nutmeg,seasonings,f
+ground nutmeg,seasonings,f
+curry powder,seasonings,f
+bay leaf,seasonings,f
+taco seasoning,seasonings,f
+sage,seasonings,f
+clove,seasonings,f
+allspice,seasonings,f
+turmeric,seasonings,f
+chive,seasonings,f
+peppercorn,seasonings,f
+ground coriander,seasonings,f
+cajun seasoning,seasonings,f
+coriander,seasonings,f
+celery salt,seasonings,f
+vanilla essence,seasonings,f
+herbs,seasonings,f
+steak seasoning,seasonings,f
+poultry seasoning,seasonings,f
+chile powder,seasonings,f
+cardamom,seasonings,f
+italian herbs,seasonings,f
+tarragon,seasonings,f
+garam masala,seasonings,f
+marjoram,seasonings,f
+mustard seed,seasonings,f
+celery seed,seasonings,f
+chinese five spice,seasonings,f
+italian spice,seasonings,f
+saffron,seasonings,f
+onion flake,seasonings,f
+herbes de provence,seasonings,f
+chipotle,seasonings,f
+dill seed,seasonings,f
+fennel seed,seasonings,f
+caraway,seasonings,f
+cacao,seasonings,f
+star anise,seasonings,f
+savory,seasonings,f
+chili paste,seasonings,f
+tamarind,seasonings,f
+aniseed,seasonings,f
+fenugreek,seasonings,f
+lavender,seasonings,f
+old bay seasoning,seasonings,f
+lemon balm,seasonings,f
+chicken tenders,meat,f
+pastrmi,meat,f
+sliced turkey,meat,f
+chicken breast,meat,f
+ground beef,meat,f
+bacon,meat,f
+sausage,meat,f
+beef steak,meat,f
+ham,meat,f
+hot dog,meat,f
+pork chops,meat,f
+chicken thighs,meat,f
+ground turkey,meat,f
+cooked chicken,meat,f
+turkey,meat,f
+pork,meat,f
+pepperoni,meat,f
+whole chicken,meat,f
+chicken leg,meat,f
+ground pork,meat,f
+chorizo,meat,f
+chicken wings,meat,f
+beef roast,meat,f
+polish sausage,meat,f
+salami,meat,f
+pork roast,meat,f
+ground chicken,meat,f
+pork ribs,meat,f
+spam,meat,f
+venison,meat,f
+pork shoulder,meat,f
+bologna,meat,f
+bratwurst,meat,f
+prosciutto,meat,f
+lamb,meat,f
+corned beef,meat,f
+chicken roast,meat,f
+lamb chops,meat,f
+pancetta,meat,f
+ground lamb,meat,f
+beef ribs,meat,f
+duck,meat,f
+pork belly,meat,f
+canned tuna,seafood,f
+salmon,seafood,f
+tilapia,seafood,f
+fish fillets,seafood,f
+cod,seafood,f
+canned salmon,seafood,f
+anchovy,seafood,f
+smoked salmon,seafood,f
+sardines,seafood,f
+tuna steak,seafood,f
+whitefish,seafood,f
+caviar,seafood,f
+shrimp,seafood,f
+crab,seafood,f
+prawns,seafood,f
+scallop,seafood,f
+clam,seafood,f
+lobster,seafood,f
+mussel,seafood,f
+oyster,seafood,f
+squid,seafood,f
+mayonnaise,seasonings,f
+ketchup,seasonings,f
+mustard,seasonings,f
+vinegar,seasonings,f
+soy sauce,seasonings,f
+balsamic vinegar,seasonings,f
+worcestershire,seasonings,f
+hot sauce,seasonings,f
+barbecue sauce,seasonings,f
+ranch dressing,seasonings,f
+wine vinegar,seasonings,f
+apple cider vinegar,seasonings,f
+cider vinegar,seasonings,f
+italian dressing,seasonings,f
+rice vinegar,seasonings,f
+salad dressing,seasonings,f
+tabasco,seasonings,f
+fish sauce,seasonings,f
+teriyaki,seasonings,f
+steak sauce,seasonings,f
+tahini,seasonings,f
+enchilada sauce,seasonings,f
+vinaigrette dressing,seasonings,f
+oyster sauce,seasonings,f
+honey mustard,seasonings,f
+sriracha,seasonings,f
+caesar dressing,seasonings,f
+taco sauce,seasonings,f
+mirin,seasonings,f
+blue cheese dressing,seasonings,f
+sweet and sour sauce,seasonings,f
+thousand island,seasonings,f
+picante sauce,seasonings,f
+buffalo sauce,seasonings,f
+french dressing,seasonings,f
+tartar sauce,seasonings,f
+cocktail sauce,seasonings,f
+marsala,seasonings,f
+adobo sauce,seasonings,f
+tzatziki sauce,seasonings,f
+sesame dressing,seasonings,f
+ponzu,seasonings,f
+duck sauce,seasonings,f
+pickapeppa sauce,seasonings,f
+yuzu juice,seasonings,f
+cream sauce,seasonings,f
+bouillon,seasonings,f
+ground ginger,seasonings,f
+sesame seed,seasonings,f
+cream of tartar,seasonings,f
+chili sauce,seasonings,f
+soya sauce,seasonings,f
+apple cider,seasonings,f
+hoisin sauce,seasonings,f
+liquid smoke,seasonings,f
+rice wine,seasonings,f
+vegetable bouillon,seasonings,f
+poppy seed,seasonings,f
+balsamic glaze,seasonings,f
+miso,seasonings,f
+wasabi,seasonings,f
+fish stock,seasonings,f
+rose water,seasonings,f
+pickling salt,seasonings,f
+champagne vinegar,seasonings,f
+bbq rub,seasonings,f
+jamaican jerk spice,seasonings,f
+accent seasoning,seasonings,f
+pickling spice,seasonings,f
+mustard powder,seasonings,f
+mango powder,seasonings,f
+adobo seasoning,seasonings,f
+kasuri methi,seasonings,f
+caribbean jerk seasoning,seasonings,f
+brine,seasonings,f
+matcha powder,seasonings,f
+cassia,seasonings,f
+olive oil,oils,f
+vegetable oil,oils,f
+cooking spray,oils,f
+canola oil,oils,f
+shortening,oils,f
+sesame oil,oils,f
+coconut oil,oils,f
+peanut oil,oils,f
+sunflower oil,oils,f
+lard,oils,f
+grape seed oil,oils,f
+corn oil,oils,f
+almond oil,oils,f
+avocado oil,oils,f
+safflower oil,oils,f
+walnut oil,oils,f
+hazelnut oil,oils,f
+palm oil,oils,f
+soybean oil,oils,f
+mustard oil,oils,f
+pistachio oil,oils,f
+soya oil,oils,f
+tomato sauce,seasonings,f
+tomato paste,seasonings,f
+salsa,seasonings,f
+pesto,seasonings,f
+alfredo sauce,seasonings,f
+beef gravy,seasonings,f
+curry paste,seasonings,f
+chicken gravy,seasonings,f
+cranberry sauce,seasonings,f
+turkey gravy,seasonings,f
+mushroom gravy,seasonings,f
+sausage gravy,seasonings,f
+onion gravy,seasonings,f
+cream gravy,seasonings,f
+pork gravy,seasonings,f
+tomato gravy,seasonings,f
+giblet gravy,seasonings,f
+green beans,legume,f
+peas,legume,f
+black beans,legume,f
+chickpea,legume,f
+lentil,legume,f
+refried beans,legume,f
+hummus,legume,f
+chili beans,legume,f
+lima beans,legume,f
+kidney beans,legume,f
+pinto beans,legume,f
+edamame,legume,f
+split peas,legume,f
+snap peas,legume,f
+soybeans,legume,f
+cannellini beans,legume,f
+navy beans,legume,f
+french beans,legume,f
+red beans,legume,f
+great northern beans,legume,f
+fava beans,legume,f
+chicken broth,soup,f
+mushroom soup,soup,f
+beef broth,soup,f
+tomato soup,soup,f
+vegetable stock,soup,f
+chicken soup,soup,f
+onion soup,soup,f
+vegetable soup,soup,f
+celery soup,soup,f
+dashi,soup,f
+lamb stock,soup,f
+pork stock,soup,f
+veal stock,soup,f
+peanut butter,nuts,f
+almond,nuts,f
+walnut,nuts,f
+pecan,nuts,f
+peanut,nuts,f
+cashew,nuts,f
+flax,nuts,f
+pine nut,nuts,f
+pistachio,nuts,f
+almond meal,nuts,f
+hazelnut,nuts,f
+macadamia,nuts,f
+almond paste,nuts,f
+chestnut,nuts,f
+praline,nuts,f
+macaroon,nuts,f
+margarine,dairyAlt,f
+coconut milk,dairyAlt,f
+almond milk,dairyAlt,f
+soy milk,dairyAlt,f
+rice milk,dairyAlt,f
+hemp milk,dairyAlt,f
+non dairy creamer,dairyAlt,f
+coffee,beverages,f
+orange juice,beverages,f
+tea,beverages,f
+green tea,beverages,f
+apple juice,beverages,f
+tomato juice,beverages,f
+coke,beverages,f
+chocolate milk,beverages,f
+pineapple juice,beverages,f
+lemonade,beverages,f
+cranberry juice,beverages,f
+espresso,beverages,f
+fruit juice,beverages,f
+ginger ale,beverages,f
+club soda,beverages,f
+sprite,beverages,f
+kool aid,beverages,f
+grenadine,beverages,f
+margarita mix,beverages,f
+cherry juice,beverages,f
+pepsi,beverages,f
+mountain dew,beverages,f

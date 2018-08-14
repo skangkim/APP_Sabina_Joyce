@@ -85,7 +85,7 @@ class ShoppingListTableViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 30))
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textColor = UIColor.black
-        if let group = FoodType(rawValue: section) {
+        if let group = Ingred.FoodType(rawValue: Int32(section)) {
             switch group {
             case .Dairy:
                 label.text = "Dairy"

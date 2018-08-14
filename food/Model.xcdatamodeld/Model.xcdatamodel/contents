@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Ingred" representedClassName=".Ingred" syncable="YES">
+        <attribute name="inFridge" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingredInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IngredInfo" inverseName="ingredients" inverseEntity="IngredInfo" syncable="YES"/>
+        <relationship name="potRecipe" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PotRecipe" inverseName="need_Ingred" inverseEntity="PotRecipe" syncable="YES"/>
+    </entity>
+    <entity name="IngredInfo" representedClassName=".IngredInfo" syncable="YES">
+        <attribute name="isSL" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingred" inverseName="ingredInfo" inverseEntity="Ingred" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="PotRecipe" representedClassName=".PotRecipe" syncable="YES">
+        <relationship name="need_Ingred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingred" inverseName="potRecipe" inverseEntity="Ingred" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="potRecipe" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Recipe" representedClassName=".Recipe" syncable="YES">
+        <attribute name="isFav" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="myRecipe" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="steps" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IngredInfo" inverseName="recipe" inverseEntity="IngredInfo" syncable="YES"/>
+        <relationship name="potRecipe" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PotRecipe" inverseName="recipe" inverseEntity="PotRecipe" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Ingred" positionX="-342" positionY="-225" width="128" height="103"/>
+        <element name="IngredInfo" positionX="-369" positionY="-60" width="128" height="103"/>
+        <element name="PotRecipe" positionX="-162" positionY="-261" width="126" height="73"/>
+        <element name="Recipe" positionX="-180" positionY="-117" width="128" height="133"/>
+    </elements>
+</model>

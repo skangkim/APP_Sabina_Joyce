@@ -7,6 +7,72 @@
 //
 
 import UIKit
+import CoreData
+
+var PotRecipeArr = [PotRecipe]() // TODO: potRecipe datastructure
+var MyRecipeArr = [Recipe]() // TODO: MyRecipeArr
+
+func update_my_and_pot_Recipe(){
+    // remove everything
+    MyRecipeArr = []
+    PotRecipeArr = []
+    
+    // get Set of ingredients in fridge
+    var ingredInfoarr = [IngredInfo]()
+    for i in fridge{
+        ingredInfoarr.append(i.ingredInfo!)
+    }
+    let fridgeSet = Set(fridge)
+    
+    
+    
+    AppDelegate.persistentContainer.performBackgroundTask{ context in
+        do{
+            // get all recipe
+            let fetchRecipe = NSFetchRequest<Recipe>(entityName: "Recipe")
+            fetchRecipe.predicate = NSPredicate(format: "ALL")
+            let fridgeIngredInfoSet = Set(ingredInfoarr)
+            let recipes = try context.fetch(fetchRecipe)
+            
+            for recipe in recipes{
+                if(recipe.ingredients.isSubset(of: fridgeIngredInfoSet)){
+                    MyRecipeArr.append(recipe)
+                }
+                else{
+                    // check for potential recipes
+                    let arr = recipe.ingredients.allObjects as? [Ingred]
+                    var count = 0
+                    var arr_need_ingred = [Ingred]()
+                    for ingred in arr! {
+                        if count > 3 { break }
+                        if !fridgeSet.contains(ingred) {
+                            count += 1
+                            arr_need_ingred.append(ingred)
+                        }
+                    }
+                    if count <= 2{
+                        // found 
+                        let e_recipe = NSEntityDescription.entity(forEntityName: "PotRecipe", in: context)
+                        let new_pot_recipe = PotRecipe(entity: e_recipe!, insertInto: context)
+                        new_pot_recipe.recipe = recipe
+                        new_pot_recipe.addToNeed_Ingred(NSSet(array: arr_need_ingred))
+                    }
+                }
+                
+            }
+        }
+        catch let error as NSError{
+            print("error in update myRecipe")
+            print(error)
+        }
+        catch{
+            print("in update: \(error)")
+        }
+        // don't forget to save
+        do{ try context.save() }
+        catch{ print(error) }
+    }
+}
 
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -20,9 +86,10 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         }
     }
     
+    // myRecipe
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return potentialRecipe.count
+        return MyRecipeArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -34,36 +101,39 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
                                                           for: indexPath) as? SearchCollectionViewCell
             
-            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
-            if potentialRecipe[indexPath.row].ingredList.count == 0 {
+            cell?.recipeName.text = MyRecipeArr[indexPath.row].name
+            // cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+            cell?.moreIngredients.text = "You need \(MyRecipeArr[indexPath.row].ingredients.count) more ingredients!"
+            /*
+            if MyRecipeArr[indexPath.row].ingredList.count == 0 {
                 cell?.moreIngredients.text = "You have all the ingredients to make this!"
             }
             else {
-                cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
-            }
+                cell?.moreIngredients.text = "You need " + String(MyRecipeArr[indexPath.row].ingredList.count) + " more ingredients!"
+            }*/
+            
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow(UICollectionViewCell: cell!)
             
-            if FavoritesList.count != 0 {
-                if FavoritesList.contains(indexPath.row) {
-                    let image = UIImage(named: "icons8-heart-30.png")
-                    cell?.filledHeart.image = image
-                }
+            // show red heart if favorites
+            if(MyRecipeArr[indexPath.row].isFav){
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
             }
             
             //on checkbox click
             cell?.onClick = { cell in
-                if FavoritesList.contains(indexPath.row) {
+                if(MyRecipeArr[indexPath.row].isFav){
+                    // remove from fav list
                     let image = UIImage(named: "")
                     cell.filledHeart.image = image
-                    let delete = FavoritesList.index(of: indexPath.row) as! Int
-                    FavoritesList.remove(at: delete)
+                    MyRecipeArr[indexPath.row].isFav = false
                 }
-                else {
+                else{
+                    // add to fav list
                     let image = UIImage(named: "icons8-heart-30.png")
                     cell.filledHeart.image = image
-                    FavoritesList.append(indexPath.row)
-                    
+                    MyRecipeArr[indexPath.row].isFav = true
                 }
             }
             
@@ -76,36 +146,32 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search2CollectionViewCell",
                                                           for: indexPath) as? Search2CollectionViewCell
             
-            cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
-            if potentialRecipe[indexPath.row].ingredList.count == 0 {
-                cell?.moreIngredients.text = "You have all the ingredients to make this!"
-            }
-            else {
-                cell?.moreIngredients.text = "You need " + String(potentialRecipe[indexPath.row].ingredList.count) + " more ingredients!"
-            }
+            cell?.recipeName.text = MyRecipeArr[indexPath.row].name
+            // cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
+            cell?.moreIngredients.text = "You need \(MyRecipeArr[indexPath.row].ingredients.count) more ingredients!"
+            
             //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
             setShadow2(UICollectionViewCell: cell!)
             
-            if FavoritesList.count != 0 {
-                if FavoritesList.contains(indexPath.row) {
-                    let image = UIImage(named: "icons8-heart-30.png")
-                    cell?.filledHeart.image = image
-                }
+            // show red heart if favorites
+            if(MyRecipeArr[indexPath.row].isFav){
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
             }
-            
+
             //on checkbox click
             cell?.onClick = { cell in
-                if FavoritesList.contains(indexPath.row) {
+                if(MyRecipeArr[indexPath.row].isFav){
+                    // remove from fav list
                     let image = UIImage(named: "")
                     cell.filledHeart.image = image
-                    let delete = FavoritesList.index(of: indexPath.row) as! Int
-                    FavoritesList.remove(at: delete)
+                    MyRecipeArr[indexPath.row].isFav = false
                 }
-                else {
+                else{
+                    // add to fav list
                     let image = UIImage(named: "icons8-heart-30.png")
                     cell.filledHeart.image = image
-                    FavoritesList.append(indexPath.row)
-                    
+                    MyRecipeArr[indexPath.row].isFav = true
                 }
             }
             
@@ -113,12 +179,16 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        index = potentialRecipe[indexPath.row].index
+        let recipe = MyRecipeArr[indexPath.row]
+        index = RecipeBook.index(of: recipe)
         performSegue(withIdentifier: "showDaFullRecipe", sender: index)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // update potRecipe and myRecipe
+        // update_my_and_pot_Recipe()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -135,6 +205,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor("#f7f7f7")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,7 +215,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.tintColor = UIColor("FFAF87")
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        if potentialRecipe.count == 0 {
+        if MyRecipeArr.count == 0 {
             TableViewHelper.EmptyMessage(message: "Add Ingredients to see recommended Recipes !!", viewController: self)
         }
         else {
@@ -228,9 +299,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("WHAT")
-        print("WHAT")
-        index = potentialRecipe[indexPath.row].index
+        let recipe = MyRecipeArr[indexPath.row]
+        index = RecipeBook.index(of: recipe)
         performSegue(withIdentifier: "showDaFullRecipe", sender: index)
     }
     

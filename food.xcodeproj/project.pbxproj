@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C64F33221165F930027AC33 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C64F33021165F930027AC33 /* Model.xcdatamodeld */; };
+		0C8581282117A147001088D5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8581272117A147001088D5 /* CoreDataStack.swift */; };
 		0C9BC94C20F7DE3200D458C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BC94120F7DE3200D458C4 /* ViewController.swift */; };
 		0C9BC94D20F7DE3200D458C4 /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BC94220F7DE3200D458C4 /* IngredientTableViewController.swift */; };
 		0C9BC94E20F7DE3200D458C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BC94320F7DE3200D458C4 /* Assets.xcassets */; };
@@ -16,6 +18,14 @@
 		0C9BC95220F7DE3200D458C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BC94920F7DE3200D458C4 /* TabBarViewController.swift */; };
 		0C9BC95320F7DE3200D458C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9BC94A20F7DE3200D458C4 /* AppDelegate.swift */; };
 		0C9BC95420F7DE3200D458C4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9BC94B20F7DE3200D458C4 /* Info.plist */; };
+		0CD5DD242118B7BE00CB6A8D /* Ingred+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD1C2118B7BE00CB6A8D /* Ingred+CoreDataClass.swift */; };
+		0CD5DD252118B7BE00CB6A8D /* Ingred+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD1D2118B7BE00CB6A8D /* Ingred+CoreDataProperties.swift */; };
+		0CD5DD282118B7BE00CB6A8D /* IngredInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD202118B7BE00CB6A8D /* IngredInfo+CoreDataClass.swift */; };
+		0CD5DD292118B7BE00CB6A8D /* IngredInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD212118B7BE00CB6A8D /* IngredInfo+CoreDataProperties.swift */; };
+		0CD5DD2A2118B7BE00CB6A8D /* PotRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD222118B7BE00CB6A8D /* PotRecipe+CoreDataClass.swift */; };
+		0CD5DD2B2118B7BE00CB6A8D /* PotRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD232118B7BE00CB6A8D /* PotRecipe+CoreDataProperties.swift */; };
+		0CD5DD2E2118B83900CB6A8D /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD2C2118B83900CB6A8D /* Recipe+CoreDataClass.swift */; };
+		0CD5DD2F2118B83900CB6A8D /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5DD2D2118B83900CB6A8D /* Recipe+CoreDataProperties.swift */; };
 		5477B212E67CC76511D06CE6 /* Pods_food.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41CC7A19D943AE0C0FAC85E /* Pods_food.framework */; };
 		7A275B412107BDC70057C92C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A275B402107BDC70057C92C /* SearchViewController.swift */; };
 		7A275B432107C83C0057C92C /* icons8-ingredients-50 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 7A275B422107C83C0057C92C /* icons8-ingredients-50 (1).png */; };
@@ -67,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		0873A74135B059E8655365D8 /* Pods-foodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodTests/Pods-foodTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C64F33121165F930027AC33 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0C8581272117A147001088D5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0C9BC94120F7DE3200D458C4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C9BC94220F7DE3200D458C4 /* IngredientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
 		0C9BC94320F7DE3200D458C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +88,14 @@
 		0C9BC94920F7DE3200D458C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0C9BC94A20F7DE3200D458C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9BC94B20F7DE3200D458C4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD5DD1C2118B7BE00CB6A8D /* Ingred+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingred+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CD5DD1D2118B7BE00CB6A8D /* Ingred+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingred+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0CD5DD202118B7BE00CB6A8D /* IngredInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IngredInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CD5DD212118B7BE00CB6A8D /* IngredInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IngredInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0CD5DD222118B7BE00CB6A8D /* PotRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CD5DD232118B7BE00CB6A8D /* PotRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0CD5DD2C2118B83900CB6A8D /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CD5DD2D2118B83900CB6A8D /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2470EF269BA1BAD22621A6AA /* Pods-food.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-food.release.xcconfig"; path = "Pods/Target Support Files/Pods-food/Pods-food.release.xcconfig"; sourceTree = "<group>"; };
 		257F3BCB306E63B5BAE17953 /* Pods_foodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A275B402107BDC70057C92C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -129,19 +149,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0617E02117504600C4EC85 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0CD5DD2C2118B83900CB6A8D /* Recipe+CoreDataClass.swift */,
+				0CD5DD2D2118B83900CB6A8D /* Recipe+CoreDataProperties.swift */,
+				0CD5DD1C2118B7BE00CB6A8D /* Ingred+CoreDataClass.swift */,
+				0CD5DD1D2118B7BE00CB6A8D /* Ingred+CoreDataProperties.swift */,
+				0CD5DD202118B7BE00CB6A8D /* IngredInfo+CoreDataClass.swift */,
+				0CD5DD212118B7BE00CB6A8D /* IngredInfo+CoreDataProperties.swift */,
+				0CD5DD222118B7BE00CB6A8D /* PotRecipe+CoreDataClass.swift */,
+				0CD5DD232118B7BE00CB6A8D /* PotRecipe+CoreDataProperties.swift */,
+			);
+			name = Entities;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		0C9BC94020F7DE3200D458C4 /* food */ = {
 			isa = PBXGroup;
 			children = (
+				0C0617E02117504600C4EC85 /* Entities */,
 				7ACA1C942106DD8A000658C5 /* Search Tab */,
 				7ACA1C952106DDBE000658C5 /* Ingredients Tab */,
 				7ACA1C9D2106DE27000658C5 /* Shopping List Tab */,
 				7ACA1C9C2106DE16000658C5 /* Favorites Tab */,
 				7ACA1C962106DDD2000658C5 /* Images */,
-				0C9BC94120F7DE3200D458C4 /* ViewController.swift */,
+				0C64F33021165F930027AC33 /* Model.xcdatamodeld */,
 				0C9BC94320F7DE3200D458C4 /* Assets.xcassets */,
 				0C9BC94420F7DE3200D458C4 /* LaunchScreen.storyboard */,
 				0C9BC94620F7DE3200D458C4 /* Main.storyboard */,
 				0C9BC94920F7DE3200D458C4 /* TabBarViewController.swift */,
+				0C8581272117A147001088D5 /* CoreDataStack.swift */,
 				0C9BC94A20F7DE3200D458C4 /* AppDelegate.swift */,
 				7A8D547120FBF21400EA2CB7 /* possibleIngredients.json */,
 				0C9BC94B20F7DE3200D458C4 /* Info.plist */,
@@ -202,10 +240,10 @@
 		7ACA1C942106DD8A000658C5 /* Search Tab */ = {
 			isa = PBXGroup;
 			children = (
+				7ACA1CA02106E067000658C5 /* SearchTableViewController.swift */,
+				7ACA1C9E2106E04F000658C5 /* SearchTableViewCell.swift */,
 				7A33685F2109116D000B02D9 /* FullSearchTableViewController.swift */,
 				7A3368612109117E000B02D9 /* FullSearchTableViewCell.swift */,
-				7ACA1C9E2106E04F000658C5 /* SearchTableViewCell.swift */,
-				7ACA1CA02106E067000658C5 /* SearchTableViewController.swift */,
 				7A275B402107BDC70057C92C /* SearchViewController.swift */,
 			);
 			path = "Search Tab";
@@ -216,6 +254,7 @@
 			children = (
 				0C9BC94220F7DE3200D458C4 /* IngredientTableViewController.swift */,
 				0C9BC94820F7DE3200D458C4 /* IngredientTableViewCell.swift */,
+				0C9BC94120F7DE3200D458C4 /* ViewController.swift */,
 			);
 			path = "Ingredients Tab";
 			sourceTree = "<group>";
@@ -445,15 +484,25 @@
 				0C9BC95220F7DE3200D458C4 /* TabBarViewController.swift in Sources */,
 				7A29249321123E3A00A29B4F /* AddToListViewController.swift in Sources */,
 				7ACA1C932106DD7C000658C5 /* FavoritesTableViewCell.swift in Sources */,
+				0CD5DD252118B7BE00CB6A8D /* Ingred+CoreDataProperties.swift in Sources */,
+				0C8581282117A147001088D5 /* CoreDataStack.swift in Sources */,
+				0CD5DD242118B7BE00CB6A8D /* Ingred+CoreDataClass.swift in Sources */,
 				0C9BC94D20F7DE3200D458C4 /* IngredientTableViewController.swift in Sources */,
+				0CD5DD2A2118B7BE00CB6A8D /* PotRecipe+CoreDataClass.swift in Sources */,
 				0C9BC94C20F7DE3200D458C4 /* ViewController.swift in Sources */,
 				7ACA1C912106DD65000658C5 /* FavoritesTableViewController.swift in Sources */,
+				0CD5DD2B2118B7BE00CB6A8D /* PotRecipe+CoreDataProperties.swift in Sources */,
 				7A576CC720FFFC3D003F49C3 /* ShoppingListTableViewCell.swift in Sources */,
+				0CD5DD2E2118B83900CB6A8D /* Recipe+CoreDataClass.swift in Sources */,
 				7A275B412107BDC70057C92C /* SearchViewController.swift in Sources */,
 				7A3368602109116D000B02D9 /* FullSearchTableViewController.swift in Sources */,
 				7A3368622109117E000B02D9 /* FullSearchTableViewCell.swift in Sources */,
 				0C9BC95320F7DE3200D458C4 /* AppDelegate.swift in Sources */,
+				0C64F33221165F930027AC33 /* Model.xcdatamodeld in Sources */,
+				0CD5DD282118B7BE00CB6A8D /* IngredInfo+CoreDataClass.swift in Sources */,
 				0C9BC95120F7DE3200D458C4 /* IngredientTableViewCell.swift in Sources */,
+				0CD5DD2F2118B83900CB6A8D /* Recipe+CoreDataProperties.swift in Sources */,
+				0CD5DD292118B7BE00CB6A8D /* IngredInfo+CoreDataProperties.swift in Sources */,
 				7ACA1CA12106E067000658C5 /* SearchTableViewController.swift in Sources */,
 				7A576CC620FFFC3D003F49C3 /* ShoppingListTableViewController.swift in Sources */,
 				7ACA1C9F2106E04F000658C5 /* SearchTableViewCell.swift in Sources */,
@@ -704,6 +753,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0C64F33021165F930027AC33 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0C64F33121165F930027AC33 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0C64F33121165F930027AC33 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7AC1B24E20F17C70001EB067 /* Project object */;
 }

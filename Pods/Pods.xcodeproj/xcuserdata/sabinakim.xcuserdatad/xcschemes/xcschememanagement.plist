@@ -18,10 +18,15 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>HexColors.xcscheme</key>
+		<key>DynamicBlurView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>8</integer>
+		</dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>NotificationBanner.xcscheme</key>
 		<dict>
@@ -43,6 +48,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>PopupDialog.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>SQLite.swift.xcscheme</key>
 		<dict>

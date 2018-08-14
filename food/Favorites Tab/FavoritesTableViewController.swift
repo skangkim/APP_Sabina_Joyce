@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import CoreData
 
 
 class FavoritesTableViewController: UITableViewController {
     var index = 0
+    var FavList = [Recipe]()
     
+    func updateFavList(){
+        FavList = []
+        AppDelegate.persistentContainer.performBackgroundTask{ context in
+            do{
+                let fetchFav = NSFetchRequest<Recipe>(entityName: "Recipe")
+                fetchFav.predicate = NSPredicate(format: "isFav == %@", NSNumber(value: true))
+                self.FavList = try context.fetch(fetchFav)
+            }
+            catch let error as NSError{
+                print(error)
+            }
+        }
+    }
 
     @IBOutlet weak var zeroLabel: UILabel!
 //    @IBAction func favoritesTapped(_ sender: Any) {
@@ -30,6 +45,10 @@ class FavoritesTableViewController: UITableViewController {
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // update favorites list
+        updateFavList()
+        
         tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,7 +75,7 @@ class FavoritesTableViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         
-        if FavoritesList.count == 0 {
+        if FavList.count == 0 {
             TableViewHelper.EmptyMessage(message: "Your Favorite Recipies go here! \n Click the heart on the recipes that you love", viewController: self)
         } else {
             TableViewHelper.EmptyMessage(message: "", viewController: self)
@@ -80,7 +99,7 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return FavoritesList.count
+        return FavList.count
     }
 
     
@@ -90,26 +109,29 @@ class FavoritesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
-        cell.recipeTitle.text! = RecipeBook[FavoritesList[indexPath.row]].FoodName
+        cell.recipeTitle.text! = FavList[indexPath.row].name
         
+        print("in FavTable: at \(indexPath.row), it's \(RecipeBook[indexPath.row].name) in RecipeBook\n but it's \(FavList[indexPath.row]) in Fav list")
         //when favorites heart clicked
         cell.onClick = { cell in
-            if FavoritesList.contains(indexPath.row) {
+            
+            if RecipeBook[indexPath.row].isFav{
                 let image = UIImage(named: "")
                 cell.filledHeart.image = image
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    let delete = FavoritesList.index(of: indexPath.row) as! Int
-                    FavoritesList.remove(at: delete)
+                    RecipeBook[indexPath.row].isFav=false
                     tableView.reloadData()
                 }
             }
-            else {
+            else{
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
-                FavoritesList.append(indexPath.row)
+                RecipeBook[indexPath.row].isFav = true
             }
         }
-            if FavoritesList.contains(indexPath.row) {
+        
+        
+            if RecipeBook[indexPath.row].isFav {
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
         }

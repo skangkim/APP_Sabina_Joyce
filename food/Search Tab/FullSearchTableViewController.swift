@@ -37,7 +37,7 @@ class FullSearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myRecipe.count
+        return MyRecipeArr.count
     }
 
     
@@ -47,7 +47,7 @@ class FullSearchTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FullSearchTableViewCell", for: indexPath) as? FullSearchTableViewCell  else {
             fatalError("The dequeued cell is not an instance of FullSearchTableViewCell.")
         }
-        cell.recipeTitle.text! = RecipeBook[myRecipe[indexPath.row]].FoodName
+        cell.recipeTitle.text! = MyRecipeArr[indexPath.row].name
         return cell
     }
     
