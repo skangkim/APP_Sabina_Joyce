@@ -1,0 +1,3117 @@
+[
+ {
+   "Name": "butter",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "egg",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "milk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "parmesan",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cheddar",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "american cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sour cream",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mozzarella",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "yogurt",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "evaporated milk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "whipped cream",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "half and half",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "feta",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "monterey jack cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "condensed milk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cottage cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ice cream",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "swiss cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "velveeta",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "frosting",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "buttermilk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ricotta",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "goat cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "provolone",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "blue cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "powdered milk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "colby cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pepper jack",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "italian cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soft cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "gouda",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pepperjack cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "romano",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brie",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pizza cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ghee",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "creme fraiche",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cheese soup",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "gruyere",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pecorino cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "custard",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "muenster",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "queso fresco cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hard cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "havarti cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "asiago",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mascarpone",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "neufchatel",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "halloumi",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "paneer",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brick cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "camembert cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "goat milk",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "garlic herb cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "edam cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "manchego",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fontina",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "stilton cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "emmenthaler cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "red leicester cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "jarlsberg cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bocconcini cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "farmer cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "creme de cassis",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wensleydale cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "longhorn cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "double gloucester cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "raclette cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lancashire cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cheshire cheese",
+   "FT": "dairy",
+   "inFridge": "f"
+ },
+ {
+   "Name": "onion",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "garlic",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "potato",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "carrot",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bell pepper",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "basil",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "parsley",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "broccoli",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "corn",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "spinach",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mushroom",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "green beans",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ginger",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chili pepper",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "celery",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rosemary",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "salad greens",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "red onion",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cucumber",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sweet potato",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pickle",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "avocado",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "zucchini",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cilantro",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "frozen vegetables",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "olive",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "asparagus",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cabbage",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cauliflower",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "dill",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kale",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mixed vegetable",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pumpkin",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "squash",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mint",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "scallion",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sun dried tomato",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "shallot",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "eggplant",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beet",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "butternut squash",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "horseradish",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "leek",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "caper",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brussels sprout",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "artichoke heart",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chia seeds",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "radish",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sauerkraut",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "artichoke",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "portobello mushroom",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sweet pepper",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "arugula",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "spaghetti squash",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "capsicum",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bok choy",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "parsnip",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "okra",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "yam",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fennel",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "turnip",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "snow peas",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bean sprouts",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "seaweed",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chard",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "collard",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "canned tomato",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pimiento",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "watercress",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomatillo",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rocket",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mustard greens",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bamboo shoot",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rutabaga",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "endive",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "broccoli rabe",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "jicama",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kohlrabi",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hearts of palm",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "butternut",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "celery root",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "daikon",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "radicchio",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "porcini",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chinese broccoli",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "jerusalem artichoke",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cress",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "water chestnut",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "dulse",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "micro greens",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "burdock",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chayote",
+   "FT": "veg",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lemon",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apple",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "banana",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lime",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "strawberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "orange",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pineapple",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "blueberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "raisin",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coconut",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "grape",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peach",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "raspberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cranberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mango",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pear",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "blackberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cherry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "date",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "watermelon",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "berries",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kiwi",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "grapefruit",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mandarin",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "craisins",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cantaloupe",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "plum",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apricot",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "clementine",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "prunes",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apple butter",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pomegranate",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "nectarine",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fig",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tangerine",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "papaya",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rhubarb",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sultanas",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "plantain",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "currant",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "passion fruit",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "guava",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "persimmons",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lychee",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lingonberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tangelos",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kumquat",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "boysenberry",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "star fruit",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "quince",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "honeydew",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "crabapples",
+   "FT": "fruits",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rice",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pasta",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bread",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "baking powder",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "baking soda",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bread crumbs",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cornstarch",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rolled oats",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "noodle",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "flour tortillas",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pancake mix",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "yeast",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cracker",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "quinoa",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brown rice",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cornmeal",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "self rising flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cake mix",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "saltines",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "popcorn",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "macaroni cheese mix",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "corn tortillas",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ramen",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cereal",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "biscuits",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "stuffing mix",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "couscous",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pie crust",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bisquick",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chips",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "angel hair",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coconut flake",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bread flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "croutons",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lasagne",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pizza dough",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bagel",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "puff pastry",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hot dog bun",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "barley",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "multigrain bread",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "potato flakes",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pretzel",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cornbread",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "english muffin",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cornflour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "crescent roll dough",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream of wheat",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coconut flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pita",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "risotto",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "muffin mix",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bicarbonate of soda",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ravioli",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wheat",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rice flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "polenta",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "baguette",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "gnocchi",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vermicelli",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "semolina",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wheat germ",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "buckwheat",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "croissants",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bread dough",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "filo dough",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "yeast flake",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pierogi",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "matzo meal",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rye",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tapioca flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "shortcrust pastry",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "potato starch",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "breadsticks",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ciabatta",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "spelt",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "starch",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "whole wheat flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "gram flour",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wafer",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sponge cake",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "malt extract",
+   "FT": "baking",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sugar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brown sugar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "honey",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "maple syrup",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "corn syrup",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "artificial sweetener",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cinnamon",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vanilla",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "garlic powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "paprika",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "oregano",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chili powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "red pepper flake",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cumin",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cayenne",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "italian seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "thyme",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "onion powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "nutmeg",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground nutmeg",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "curry powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bay leaf",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "taco seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sage",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "clove",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "allspice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "turmeric",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chive",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peppercorn",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground coriander",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cajun seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coriander",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "celery salt",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vanilla essence",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "herbs",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "steak seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "poultry seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chile powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cardamom",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "italian herbs",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tarragon",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "garam masala",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "marjoram",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mustard seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "celery seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chinese five spice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "italian spice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "saffron",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "onion flake",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "herbes de provence",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chipotle",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "dill seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fennel seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "caraway",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cacao",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "star anise",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "savory",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chili paste",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tamarind",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "aniseed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fenugreek",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lavender",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "old bay seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lemon balm",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken tenders",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pastrmi",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sliced turkey",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken breast",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground beef",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bacon",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sausage",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beef steak",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ham",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hot dog",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork chops",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken thighs",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground turkey",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cooked chicken",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "turkey",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pepperoni",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "whole chicken",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken leg",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground pork",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chorizo",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken wings",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beef roast",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "polish sausage",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "salami",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork roast",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground chicken",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork ribs",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "spam",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "venison",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork shoulder",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bologna",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bratwurst",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "prosciutto",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lamb",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "corned beef",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken roast",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lamb chops",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pancetta",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground lamb",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beef ribs",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "duck",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork belly",
+   "FT": "meat",
+   "inFridge": "f"
+ },
+ {
+   "Name": "canned tuna",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "salmon",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tilapia",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fish fillets",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cod",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "canned salmon",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "anchovy",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "smoked salmon",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sardines",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tuna steak",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "whitefish",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "caviar",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "shrimp",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "crab",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "prawns",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "scallop",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "clam",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lobster",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mussel",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "oyster",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "squid",
+   "FT": "seafood",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mayonnaise",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ketchup",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mustard",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soy sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "balsamic vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "worcestershire",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hot sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "barbecue sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ranch dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wine vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apple cider vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cider vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "italian dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rice vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "salad dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tabasco",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fish sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "teriyaki",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "steak sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tahini",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "enchilada sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vinaigrette dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "oyster sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "honey mustard",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sriracha",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "caesar dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "taco sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mirin",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "blue cheese dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sweet and sour sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "thousand island",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "picante sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "buffalo sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "french dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tartar sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cocktail sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "marsala",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "adobo sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tzatziki sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sesame dressing",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ponzu",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "duck sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pickapeppa sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "yuzu juice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bouillon",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ground ginger",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sesame seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream of tartar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chili sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soya sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apple cider",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hoisin sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "liquid smoke",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rice wine",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vegetable bouillon",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "poppy seed",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "balsamic glaze",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "miso",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "wasabi",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fish stock",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rose water",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pickling salt",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "champagne vinegar",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "bbq rub",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "jamaican jerk spice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "accent seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pickling spice",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mustard powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mango powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "adobo seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kasuri methi",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "caribbean jerk seasoning",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "brine",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "matcha powder",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cassia",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "olive oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vegetable oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cooking spray",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "canola oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "shortening",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sesame oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coconut oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peanut oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sunflower oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lard",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "grape seed oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "corn oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "almond oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "avocado oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "safflower oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "walnut oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hazelnut oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "palm oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soybean oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mustard oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pistachio oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soya oil",
+   "FT": "oils",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato paste",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "salsa",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pesto",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "alfredo sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beef gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "curry paste",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cranberry sauce",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "turkey gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mushroom gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sausage gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "onion gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cream gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "giblet gravy",
+   "FT": "seasonings",
+   "inFridge": "f"
+ },
+ {
+   "Name": "green beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peas",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "black beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chickpea",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lentil",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "refried beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hummus",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chili beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lima beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kidney beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pinto beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "edamame",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "split peas",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "snap peas",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soybeans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cannellini beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "navy beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "french beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "red beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "great northern beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fava beans",
+   "FT": "legume",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken broth",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mushroom soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "beef broth",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vegetable stock",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chicken soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "onion soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "vegetable soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "celery soup",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "dashi",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lamb stock",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pork stock",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "veal stock",
+   "FT": "soup",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peanut butter",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "almond",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "walnut",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pecan",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "peanut",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cashew",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "flax",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pine nut",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pistachio",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "almond meal",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hazelnut",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "macadamia",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "almond paste",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chestnut",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "praline",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "macaroon",
+   "FT": "nuts",
+   "inFridge": "f"
+ },
+ {
+   "Name": "margarine",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coconut milk",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "almond milk",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "soy milk",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "rice milk",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "hemp milk",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "non dairy creamer",
+   "FT": "dairyAlt",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coffee",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "orange juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tea",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "green tea",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "apple juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "tomato juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "coke",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "chocolate milk",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pineapple juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "lemonade",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cranberry juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "espresso",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "fruit juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "ginger ale",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "club soda",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "sprite",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "kool aid",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "grenadine",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "margarita mix",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "cherry juice",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "pepsi",
+   "FT": "beverages",
+   "inFridge": "f"
+ },
+ {
+   "Name": "mountain dew",
+   "FT": "beverages",
+   "inFridge": "f"
+ }
+]

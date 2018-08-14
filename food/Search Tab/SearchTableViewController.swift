@@ -9,70 +9,67 @@
 import UIKit
 import CoreData
 
-var PotRecipeArr = [PotRecipe]() // TODO: potRecipe datastructure
-var MyRecipeArr = [Recipe]() // TODO: MyRecipeArr
+var PotRecipeArr = [NSManagedObject]()
+var MyRecipeArr = [NSManagedObject]()
 
-func update_my_and_pot_Recipe(){
+
+func generate_my_and_pot_Recipe(){
     // remove everything
     MyRecipeArr = []
     PotRecipeArr = []
     
-    // get Set of ingredients in fridge
-    var ingredInfoarr = [IngredInfo]()
-    for i in fridge{
-        ingredInfoarr.append(i.ingredInfo!)
-    }
-    let fridgeSet = Set(fridge)
-    
-    
-    
-    AppDelegate.persistentContainer.performBackgroundTask{ context in
-        do{
-            // get all recipe
-            let fetchRecipe = NSFetchRequest<Recipe>(entityName: "Recipe")
-            fetchRecipe.predicate = NSPredicate(format: "ALL")
-            let fridgeIngredInfoSet = Set(ingredInfoarr)
-            let recipes = try context.fetch(fetchRecipe)
-            
-            for recipe in recipes{
-                if(recipe.ingredients.isSubset(of: fridgeIngredInfoSet)){
-                    MyRecipeArr.append(recipe)
+    let context = AppDelegate.persistentContainer.viewContext
+    let e_potRecipe = NSEntityDescription.entity(forEntityName: "PotRecipe", in: context)
+    do{
+        // get all recipe
+        let fetchRecipe = NSFetchRequest<Recipe>(entityName: "Recipe")
+        let recipes = try context.fetch(fetchRecipe)
+        
+        // TODO: print contains[c] when? aka variation of milk
+        for r in recipes{
+            var count = 0;
+            let all_ingred = r.ingredients.allObjects as? [IngredInfo] // get all the ingredients that this recipe needs
+            print(all_ingred?.count)
+            let fetchIngred = NSFetchRequest<Ingred>(entityName: "Ingred") // fetch in Ingred
+            let inFridgePred = NSPredicate(format: "inFridge == %@" , NSNumber(value: true)) // those in fridge
+            var need_ingred = [Ingred]()
+            for i in all_ingred!{
+                print(i.ingredients.name)
+                let hasInfoPred = NSPredicate(format: "ingredInfo == %@", i) // AND the ones that match this recipe
+                fetchIngred.predicate = NSCompoundPredicate(type: .and, subpredicates: [inFridgePred, hasInfoPred])
+                let result = try context.fetch(fetchIngred)
+                assert(result.count <= 1, "asserting that there's only one or none")
+                if(result.count == 0){
+                    // this ingredient does not exists - for PotRecipe
+                    count += 1
+                    need_ingred.append(i.ingredients)
                 }
-                else{
-                    // check for potential recipes
-                    let arr = recipe.ingredients.allObjects as? [Ingred]
-                    var count = 0
-                    var arr_need_ingred = [Ingred]()
-                    for ingred in arr! {
-                        if count > 3 { break }
-                        if !fridgeSet.contains(ingred) {
-                            count += 1
-                            arr_need_ingred.append(ingred)
-                        }
-                    }
-                    if count <= 2{
-                        // found 
-                        let e_recipe = NSEntityDescription.entity(forEntityName: "PotRecipe", in: context)
-                        let new_pot_recipe = PotRecipe(entity: e_recipe!, insertInto: context)
-                        new_pot_recipe.recipe = recipe
-                        new_pot_recipe.addToNeed_Ingred(NSSet(array: arr_need_ingred))
-                    }
-                }
-                
+                if(count > 2) { break; }
+            }
+            if count == 0 {
+                MyRecipeArr.append(r)
+            }
+            else if count <= 2{
+                // make new pot recipe
+                let pot = PotRecipe(entity: e_potRecipe!, insertInto: context)
+                pot.setValue(NSSet(array: need_ingred), forKey: "need_Ingred")
+                pot.setValue(r, forKey: "recipe")
+                // append to PotRecipe Arr
+                PotRecipeArr.append(pot)
             }
         }
-        catch let error as NSError{
-            print("error in update myRecipe")
-            print(error)
-        }
-        catch{
-            print("in update: \(error)")
-        }
-        // don't forget to save
-        do{ try context.save() }
-        catch{ print(error) }
+        
     }
+    catch let error as NSError{
+        print("update my_and_pot_recipe ERROR: \(error)")
+    }
+    
+    do{ try context.save() }
+    catch { print("failed saving my_and_pot_recipe") }
 }
+
+
+
 
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -86,110 +83,116 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         }
     }
     
-    // myRecipe
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return MyRecipeArr.count
     }
-    
+    // myRecipe
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
+        let context = AppDelegate.persistentContainer.viewContext
+        
         if collectionView.tag == 0 {
-            print(collectionView.tag)
-            print("0", indexPath.section, indexPath.row)
+            // print(collectionView.tag)
+            // print("0", indexPath.section, indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell",
                                                           for: indexPath) as? SearchCollectionViewCell
             
-            cell?.recipeName.text = MyRecipeArr[indexPath.row].name
-            // cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
-            cell?.moreIngredients.text = "You need \(MyRecipeArr[indexPath.row].ingredients.count) more ingredients!"
-            /*
-            if MyRecipeArr[indexPath.row].ingredList.count == 0 {
-                cell?.moreIngredients.text = "You have all the ingredients to make this!"
-            }
-            else {
-                cell?.moreIngredients.text = "You need " + String(MyRecipeArr[indexPath.row].ingredList.count) + " more ingredients!"
-            }*/
+            cell?.recipeName.text = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
             
-            //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
+            
+             let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
+            /*
+             cell?.moreIngredients.text = "You need \(this_recipe.ingredients.count) more ingredients!"*/
+            cell?.moreIngredients.text = "this is not fore myRecipe"
             setShadow(UICollectionViewCell: cell!)
             
             // show red heart if favorites
-            if(MyRecipeArr[indexPath.row].isFav){
+            if(this_recipe.isFav){
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell?.filledHeart.image = image
             }
-            
             //on checkbox click
             cell?.onClick = { cell in
-                if(MyRecipeArr[indexPath.row].isFav){
+                if(this_recipe.isFav){
                     // remove from fav list
                     let image = UIImage(named: "")
                     cell.filledHeart.image = image
-                    MyRecipeArr[indexPath.row].isFav = false
+                    this_recipe.setValue(false, forKey: "isFav")
                 }
                 else{
                     // add to fav list
                     let image = UIImage(named: "icons8-heart-30.png")
                     cell.filledHeart.image = image
-                    MyRecipeArr[indexPath.row].isFav = true
+                    this_recipe.setValue(true, forKey: "isFav")
                 }
             }
             
+            do{ try context.save() }
+            catch { print("failed saving @ 1st part of collectionview in searchtableviewcontroller") }
             return cell!
             
         }
         else {
-            print(collectionView.tag)
-            print("1", indexPath.section, indexPath.row)
+            // print(collectionView.tag)
+            // print("1", indexPath.section, indexPath.row)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search2CollectionViewCell",
                                                           for: indexPath) as? Search2CollectionViewCell
             
-            cell?.recipeName.text = MyRecipeArr[indexPath.row].name
-            // cell?.recipeName.text = RecipeBook[potentialRecipe[indexPath.row].index].FoodName
-            cell?.moreIngredients.text = "You need \(MyRecipeArr[indexPath.row].ingredients.count) more ingredients!"
             
-            //cell?.StepsLabel.text = RecipeBook[indexPath.row].Steps
+            cell?.recipeName.text = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
+            let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
+            /*
+            cell?.moreIngredients.text = " \(this_recipe.ingredients.count) more ingredients!"*/
+            cell?.moreIngredients.text = "this is not fore myRecipe"
             setShadow2(UICollectionViewCell: cell!)
             
+            
             // show red heart if favorites
-            if(MyRecipeArr[indexPath.row].isFav){
+            if(this_recipe.isFav){
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell?.filledHeart.image = image
             }
-
+            
             //on checkbox click
             cell?.onClick = { cell in
-                if(MyRecipeArr[indexPath.row].isFav){
-                    // remove from fav list
+                if(this_recipe.isFav){
                     let image = UIImage(named: "")
                     cell.filledHeart.image = image
-                    MyRecipeArr[indexPath.row].isFav = false
+                    this_recipe.setValue(false, forKey: "isFav")
                 }
                 else{
                     // add to fav list
                     let image = UIImage(named: "icons8-heart-30.png")
                     cell.filledHeart.image = image
-                    MyRecipeArr[indexPath.row].isFav = true
+                    this_recipe.setValue(true, forKey: "isFav")
                 }
             }
+            
+            do{ try context.save() }
+            catch { print("failed saving @ 2nd part of collectionview in searchtableviewcontroller ") }
             
             return cell!
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = MyRecipeArr[indexPath.row]
-        index = RecipeBook.index(of: recipe)
-        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
+        index = indexPath.row // index is MyRecipeArr's index not RecipeBook's ..
+        print(recipe.value(forKey: "name") as! String)
+        // index = RecipeBook.index(of: recipe)
+        // print(index)
+        
+        // print(RecipeBook[index!].value(forKey: "name") as! String)
+        
+        performSegue(withIdentifier: "showDaFullRecipe", sender: index) // sending myRecipeArr's index 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // update potRecipe and myRecipe
-        // update_my_and_pot_Recipe()
-        
+        generate_my_and_pot_Recipe()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -205,11 +208,13 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         let navigationBar = navigationController!.navigationBar
         navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor("#f7f7f7")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        generate_my_and_pot_Recipe()
+        
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("FFAF87")

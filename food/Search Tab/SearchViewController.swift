@@ -8,10 +8,9 @@
 
 import UIKit
 import CoreData
-
 class SearchViewController: UIViewController {
     
-    var index: Int? // mark: assuming this as index at recipebook
+    var index: Int?
     
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var steps: UILabel!
@@ -20,27 +19,53 @@ class SearchViewController: UIViewController {
     @IBAction func heartTapped(_ sender: Any) {
         //delete from favorites
         
-        if(RecipeBook[index!].isFav){
+        let context = AppDelegate.persistentContainer.viewContext
+        if(MyRecipeArr[index!].value(forKey: "isFav") as! Bool){
             // if it's favorite, delete from fav
             let image = UIImage(named: "")
             filledHeart.image = image
-            RecipeBook[index!].isFav = false
+            MyRecipeArr[index!].setValue(false, forKey: "isFav")
         }
         else{
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
-            RecipeBook[index!].isFav = true
+            MyRecipeArr[index!].setValue(true, forKey: "isFav")
         }
+        
+        
+        // context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        // save changes
+        do{ try context.save() }
+        catch let error as NSError{ print("couldnt delete @ searchviewcontroller. Error: \(error)") }
         
     }
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var numIngredientsNeeded: UILabel!
     
-    // assuming that index (index of RecipeBook) is in potential recipe
     
     @IBAction func addShoppingListTapped(_ sender: UIButton) {
-        // MARK: TODO: need to ask questions at the meeting
+        // MARK: TODO: need to implement shopping list tapped
+        // MARK: just for now, add all
         
+        let context = AppDelegate.persistentContainer.viewContext
+        let r = MyRecipeArr[index!]
+        
+        do{
+            let fetchIngred = NSFetchRequest<IngredInfo>(entityName: "IngredInfo")
+            fetchIngred.predicate = NSPredicate(format: "recipe == %@", r)
+            let ingreds = try context.fetch(fetchIngred)
+            for i in ingreds{
+                i.setValue(true, forKey: "isSL")
+            }
+            
+        }
+        catch let error as NSError{
+            print("addSL failed: \(error)")
+        }
+        // save changes
+
+        do{ try context.save() }
+        catch { print("failed saving addSL") }
         
     }
     
@@ -63,33 +88,17 @@ class SearchViewController: UIViewController {
         //        navigationBar.setBackgroundImage(UIImage(), for: .default)
         //        navigationBar.shadowImage = UIImage()
         
-        //setting the page info 
-        // print(RecipeBook[index!].FoodName)
-        // recipeName.text = RecipeBook[index!].FoodName
+        //setting the page info
         
-        let recipe = RecipeBook[index!]
-        
-        recipeName.text = recipe.name
-        steps.text = recipe.steps
+        let recipe = MyRecipeArr[index!]
+        recipeName.text = recipe.value(forKey: "name") as! String
+        steps.text = recipe.value(forKey: "steps") as! String
         
         
-        if(recipe.potRecipe != nil){
-            let pot_recipe = recipe.potRecipe
-            let count = pot_recipe?.need_Ingred?.count
-            if count == 0{
-                numIngredientsNeeded.text = ""
-                addButton.isHidden = true
-            }
-            else {
-                numIngredientsNeeded.text = "You need \(String(describing: count)) more ingredient!"
-            }
-        }
-        else{
-            numIngredientsNeeded.text = ""
-            addButton.isHidden = true
-            
-        }
-        if(recipe.isFav){
+        numIngredientsNeeded.text = ""
+        addButton.isHidden = true
+        
+        if(recipe.value(forKey: "isFav") as! Bool){
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
         }

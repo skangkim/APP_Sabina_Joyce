@@ -32,10 +32,11 @@ extension Ingred {
         case Beverages
     }
     
-    @NSManaged public var foodType: FoodType
+    @NSManaged public var foodType: Int32
     @NSManaged public var inFridge: Bool
     @NSManaged public var name: String
-    @NSManaged public var potRecipe: PotRecipe?
     @NSManaged public var ingredInfo: IngredInfo?
+    @NSManaged public var potRecipe: PotRecipe?
+    
 
 }

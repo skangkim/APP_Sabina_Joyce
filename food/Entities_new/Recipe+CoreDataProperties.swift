@@ -17,10 +17,9 @@ extension Recipe {
         return NSFetchRequest<Recipe>(entityName: "Recipe")
     }
 
+    @NSManaged public var isFav: Bool
     @NSManaged public var name: String
     @NSManaged public var steps: String
-    @NSManaged public var isFav: Bool
-    @NSManaged public var myRecipe: Bool
     @NSManaged public var ingredients: NSSet
     @NSManaged public var potRecipe: PotRecipe?
 

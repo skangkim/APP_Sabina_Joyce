@@ -47,7 +47,7 @@ class FullSearchTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FullSearchTableViewCell", for: indexPath) as? FullSearchTableViewCell  else {
             fatalError("The dequeued cell is not an instance of FullSearchTableViewCell.")
         }
-        cell.recipeTitle.text! = MyRecipeArr[indexPath.row].name
+        cell.recipeTitle.text! = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
         return cell
     }
     

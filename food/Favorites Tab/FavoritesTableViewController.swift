@@ -9,21 +9,23 @@
 import UIKit
 import CoreData
 
-
 class FavoritesTableViewController: UITableViewController {
     var index = 0
     var FavList = [Recipe]()
     
     func updateFavList(){
         FavList = []
-        AppDelegate.persistentContainer.performBackgroundTask{ context in
-            do{
-                let fetchFav = NSFetchRequest<Recipe>(entityName: "Recipe")
-                fetchFav.predicate = NSPredicate(format: "isFav == %@", NSNumber(value: true))
-                self.FavList = try context.fetch(fetchFav)
-            }
-            catch let error as NSError{
-                print(error)
+        
+        DispatchQueue.main.async {
+            AppDelegate.persistentContainer.performBackgroundTask{ context in
+                do{
+                    let fetchFav = NSFetchRequest<Recipe>(entityName: "Recipe")
+                    fetchFav.predicate = NSPredicate(format: "isFav == %@", NSNumber(value: true))
+                    self.FavList = try context.fetch(fetchFav)
+                }
+                catch let error as NSError{
+                    print(error)
+                }
             }
         }
     }
@@ -46,9 +48,7 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // update favorites list
         updateFavList()
-        
         tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -109,31 +109,38 @@ class FavoritesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
-        cell.recipeTitle.text! = FavList[indexPath.row].name
-        
-        print("in FavTable: at \(indexPath.row), it's \(RecipeBook[indexPath.row].name) in RecipeBook\n but it's \(FavList[indexPath.row]) in Fav list")
+        cell.recipeTitle.text! = self.FavList[indexPath.row].value(forKey: "name") as! String
+        // print("in FavTable: at \(indexPath.row), it's \(RecipeBook[indexPath.row].name) in RecipeBook\n but it's \(self.FavList[indexPath.row]) in Fav list")
+
         //when favorites heart clicked
         cell.onClick = { cell in
             
-            if RecipeBook[indexPath.row].isFav{
+            let context = AppDelegate.persistentContainer.viewContext
+            
+            if RecipeBook[indexPath.row].value(forKey: "isFav") as! Bool{
                 let image = UIImage(named: "")
                 cell.filledHeart.image = image
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    RecipeBook[indexPath.row].isFav=false
+                    RecipeBook[indexPath.row].setValue(false, forKey: "isFav")
+                    self.updateFavList()
                     tableView.reloadData()
                 }
             }
             else{
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
-                RecipeBook[indexPath.row].isFav = true
+                RecipeBook[indexPath.row].setValue(true, forKey: "isFav")
             }
+            
+            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            // save changes
+            do{ try context.save() }
+            catch let error as NSError{ print("couldnt set isFav @ tableview at FavTVC. Error: \(error)") }
         }
         
-        
-            if RecipeBook[indexPath.row].isFav {
-                let image = UIImage(named: "icons8-heart-30.png")
-                cell.filledHeart.image = image
+        if RecipeBook[indexPath.row].value(forKey: "isFav") as! Bool {
+            let image = UIImage(named: "icons8-heart-30.png")
+            cell.filledHeart.image = image
         }
         
         //set shadow

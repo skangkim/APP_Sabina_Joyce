@@ -13,194 +13,14 @@ import Alamofire
 import HexColors
 import CoreData
 
-
-var IngredBook = [Ingred]()
-var RecipeBook = [Recipe]()
-
-func init_RecipeBook(){
-    
-    // TODO: make an excel file and store recipe -> parse JSON
-    let context = AppDelegate.viewContext
-    let e_recipe = NSEntityDescription.entity(forEntityName: "RecipeBook", in: context)
-    
-
-    let banana = "banana"
-    let milk = "milk"
-    let bluberry = "blueberry"
-    
-    AppDelegate.persistentContainer.performBackgroundTask{ context in
-        do{
-            // banana smoothie
-            let banana_smoothie = Recipe(entity: e_recipe!, insertInto: context)
-            banana_smoothie.name = "banana smoothie"
-            banana_smoothie.steps = "grind banana and milk"
-            let fetchIngred = NSFetchRequest<Ingred>(entityName: "Ingred")
-            fetchIngred.predicate = NSPredicate(format: "name contains [c] %@", banana)
-            // for each ingredients
-            // banana
-            let e_banana = NSEntityDescription.entity(forEntityName: "IngredInfo", in: context)
-            let banana_info = IngredInfo(entity: e_banana!, insertInto: context)
-            try banana_info.ingredients = context.fetch(fetchIngred)[0] // only one banana type
-            banana_info.quantity = 1
-            banana_info.unit = IngredInfo.Unit.count
-            banana_smoothie.addToIngredients(banana_info)
-            // milk
-            fetchIngred.predicate = NSPredicate(format: "name contains [c] %@", milk)
-            let e_milk = NSEntityDescription.entity(forEntityName: "IngredInfo", in: context)
-            let milk_info = IngredInfo(entity: e_milk!, insertInto: context)
-            try milk_info.ingredients = context.fetch(fetchIngred)[0] // TODO: remove "soy" milk etc
-            milk_info.quantity = 3
-            milk_info.unit = IngredInfo.Unit.oz
-            banana_smoothie.addToIngredients(milk_info)
-        }
-        catch let error as NSError{
-            print(error)
-        }
-        // MARK: edit this
-        // don't forget to save
-        // do{ try context.save() }
-        // catch{ print(error) }
-    }
-    
-    
-
-    
-    AppDelegate.persistentContainer.performBackgroundTask{ context in
-        do{
-            // bluberry smoothie
-            let blueberry_smoothie = Recipe(entity: e_recipe!, insertInto: context)
-            blueberry_smoothie.name = "blueberry smoothie"
-            blueberry_smoothie.steps = "grind bluberry and milk"
-            let fetchIngred = NSFetchRequest<Ingred>(entityName: "Ingred")
-            fetchIngred.predicate = NSPredicate(format: "name contains [c] %@", bluberry)
-            // for each ingredients
-            // banana
-            let e_bluberry = NSEntityDescription.entity(forEntityName: "IngredInfo", in: context)
-            let bluberry_info = IngredInfo(entity: e_bluberry!, insertInto: context)
-            try bluberry_info.ingredients = context.fetch(fetchIngred)[0]
-            bluberry_info.quantity = 1
-            bluberry_info.unit = IngredInfo.Unit.count
-            blueberry_smoothie.addToIngredients(bluberry_info)
-            // milk
-            fetchIngred.predicate = NSPredicate(format: "name contains [c] %@", milk)
-            let e_milk = NSEntityDescription.entity(forEntityName: "IngredInfo", in: context)
-            let milk_info = IngredInfo(entity: e_milk!, insertInto: context)
-            try milk_info.ingredients = context.fetch(fetchIngred)[0]
-            milk_info.quantity = 3
-            milk_info.unit = IngredInfo.Unit.oz
-            blueberry_smoothie.addToIngredients(milk_info)
-        }
-        catch let error as NSError{
-            print(error)
-        }
-        // TODO: edit saving
-        // don't forget to save
-        // do{ try context.save() }
-        // catch{ print(error) }
-    }
-    
-    // add all to recipeBook
-    AppDelegate.persistentContainer.performBackgroundTask{ context in
-        do{
-            let fetchRecipe = NSFetchRequest<Recipe>(entityName: "Recipe")
-            fetchRecipe.predicate = NSPredicate(format: "ALL")
-            let fetchResult = try context.fetch(fetchRecipe)
-            for recipe in fetchResult{
-                RecipeBook.append(recipe)
-            }
-        }
-        catch let error as NSError{
-            print(error)
-        }
-        // don't forget to save
-        do{ try context.save() }
-        catch{ print(error) }
-    }
-    
-}
-
-struct Ing_Json: Decodable{
-    let name : String
-    let foodType : String
-    let TF : Bool
-}
-
-func init_IngredBook(){
-    let context = AppDelegate.viewContext
-    let e_ingred = NSEntityDescription.entity(forEntityName: "Ingred", in: context)
-    
-    
-    if let path = Bundle.main.path(forResource: "ingredients", ofType: "json"){
-        do{
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options:.mappedIfSafe)
-            let jsonDecode = try JSONDecoder().decode([Ing_Json].self, from: data)
-            for i in jsonDecode{
-                // do
-                let request = NSFetchRequest<Ingred>(entityName: "Ingred")
-                request.predicate = NSPredicate(format: "name = %@", i.name)
-                let fetch_result = try context.fetch(request)
-                if (fetch_result.isEmpty){
-                    continue // already exists in the ingredient
-                }
-                let ingrd = Ingred(entity: e_ingred!, insertInto: context)
-                ingrd.name = i.name
-                ingrd.inFridge = false
-                if(i.foodType == "dairy"){
-                    ingrd.foodType = Ingred.FoodType.Dairy
-                }
-                else if(i.foodType == "veg"){
-                    ingrd.foodType = Ingred.FoodType.Veggie
-                }
-                else if(i.foodType == "fruits"){
-                    ingrd.foodType = Ingred.FoodType.Fruits
-                }
-                else if(i.foodType == "baking"){
-                    ingrd.foodType = Ingred.FoodType.BakedNGrains
-                }
-                else if(i.foodType == "seasonings"){
-                    ingrd.foodType = Ingred.FoodType.Seasonings
-                }
-                else if(i.foodType == "meat"){
-                    ingrd.foodType = Ingred.FoodType.Meat
-                }
-                else if(i.foodType == "seafood"){
-                    ingrd.foodType = Ingred.FoodType.Seafood
-                }
-                else if(i.foodType == "oils"){
-                    ingrd.foodType = Ingred.FoodType.Oils
-                }
-                else if(i.foodType == "legume"){
-                    ingrd.foodType = Ingred.FoodType.Legume
-                }
-                else if(i.foodType == "soup"){
-                    ingrd.foodType = Ingred.FoodType.Soup
-                }
-                else if(i.foodType == "nuts"){
-                    ingrd.foodType = Ingred.FoodType.Nut
-                }
-                else if(i.foodType == "dairyAlt"){
-                    ingrd.foodType = Ingred.FoodType.DairyAlt
-                }
-                else if (i.foodType == "beverages"){
-                    ingrd.foodType = Ingred.FoodType.Beverages
-                }
-            }
-        }
-        catch{
-            print("in init IngredBook, error is : \(error) ")
-        }
-    }
-    // don't forget to save
-    do{ try context.save() }
-    catch{ print(error) }
-}
-
 func setCardView(view : UIView){
     view.layer.masksToBounds = false
     view.layer.shadowOffset = CGSize(width: 0, height: 3)
     view.layer.shadowRadius = 2
     view.layer.shadowOpacity = 0.5
+
 }
+
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     let myPickerData = [String](arrayLiteral: "Dairy", "Fruits", "Veggie", "Baked Goods & Grains", "Seasonings", "Legume", "Meat", "Seafood", "Nut", "Oils", "Soup", "Dairy Alternatives", "Beverages")
@@ -245,11 +65,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //Configure a simple search text field
         configureSimpleSearchTextField()
         
-        // MARK: init ingredients
-        // MARK: init recipe book
-        
-        
-        
         // Enable the Save button only if the text field has a valid Meal name.
         //        updateSaveButtonState()
         let thePicker = UIPickerView()
@@ -289,34 +104,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        //add ingredient to array
-        let input = nameTextField.text! // input ingred name
         
-        let request: NSFetchRequest<Ingred> = Ingred.fetchRequest()
-        request.predicate = NSPredicate(format: "Ingred.name = %@", input)
+        //add ingredient to array
+        let input = nameTextField.text!
+        
+        let request:NSFetchRequest<Ingred> = Ingred.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", input)
         
         AppDelegate.persistentContainer.performBackgroundTask{ context in
-            do {
-                let fetchResult = try context.fetch(request)
-                if fetchResult.count > 0 {
-                    assert(fetchResult.count > 1, "addButtonTapped -- database inconsistency")
-                    if(!fetchResult[0].inFridge) {
-                        fetchResult[0].inFridge = true
-                        fridge.append(fetchResult[0])
-                        // not already in the fridge
-                    }
-                }
+            do{
+                let result = try context.fetch(request)
+                assert(result.count == 1, "addbuttontapped - database inconsistency")
+                result[0].inFridge = true
             }
-            catch{
-                print("error")
+            catch let error as NSError{
+                print("error in add button tapped and the error is: \(error)")
             }
             
             // don't forget to save
             do{ try context.save() }
             catch{ print(error) }
         }
-        
-        
         let banner = Banner(title: "Success!", subtitle: "Added " + nameTextField.text! + " to ingredients list.", image: UIImage(named: "Icon"), backgroundColor: UIColor("#0c9b00")!)
         banner.dismissesOnTap = true
         banner.show(duration: 3.0)
@@ -351,45 +159,80 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             // Do whatever you want with the picked item
             self.nameTextField.text = item.title
-            // set subtitle to food type given ingred name
+        
+            var ft = Int32(-1)// subtitle = foodtype
+            item.subtitle = self.nameTextField.text!
             let request: NSFetchRequest<Ingred> = Ingred.fetchRequest()
-            request.predicate = NSPredicate(format: "Ingred.name = %@", item.title)
+            request.predicate = NSPredicate(format: "name == %@", self.nameTextField.text!)
             AppDelegate.persistentContainer.performBackgroundTask{ context in
-                do {
-                    let fetchResult = try context.fetch(request)
-                    if fetchResult.count > 0 {
-                        assert(fetchResult.count > 1, "addButtonTapped -- database inconsistency")
-                        item.subtitle = "\(fetchResult[0].foodType)"
-                        self.categoryTextField.text = "\(fetchResult[0].foodType)"
-                    }
+                do{
+                    let result = try context.fetch(request)
+                    assert(result.count == 1, "Inconsistent data consistency")
+                    ft = result[0].foodType
                 }
-                catch let error as NSError{
+                catch{
                     print(error)
                 }
             }
+            DispatchQueue.main.async {
+                self.categoryTextField.text = getFoodTypeString(rawValue_in: ft)
+            }
+            
+            self.categoryTextField.text = self.nameTextField.text!
+            // self.categoryTextField.text = FTtoSTRING(ing_in: IngredBook[self.nameTextField.text!]!)
             self.nameTextField.resignFirstResponder()
             self.nameTextField.hideResultsList()
             self.moreInfoLabel.text = item.subtitle
         }
         
-        let request: NSFetchRequest<Ingred> = Ingred.fetchRequest()
-        // Set data source
         var ingredDropDown = [String]()
-        request.predicate = NSPredicate(format: "ALL")
-        AppDelegate.persistentContainer.performBackgroundTask{context in
-            do{
-                
-                let fetchResult = try context.fetch(request)
-                for i in fetchResult{
-                    ingredDropDown.append(i.name)
-                }
-            }
-            catch let error as NSError{
-                print(error)
-            }
+        for i in IngredBook{
+            ingredDropDown.append(i.value(forKey: "name") as! String)
         }
-        nameTextField.filterStrings(ingredDropDown)
+        self.nameTextField.filterStrings(ingredDropDown)
+        /*
+        DispatchQueue.main.async {
+            // Set data source
+            var ingredDropDown = [String]()
+            for i in IngredBook{
+                ingredDropDown.append(i.name)
+            }
+            self.nameTextField.filterStrings(ingredDropDown)
+        }*/
     }
+    
 }
 
 
+func getFoodTypeString(rawValue_in: Int32) -> String{
+    let group = Ingred.FoodType(rawValue: rawValue_in)!
+    switch group {
+    case .Dairy:
+        return "Dairy"
+    case .Fruits:
+        return "Fruits"
+    case .Veggie:
+        return"Veggetables"
+    case .BakedNGrains:
+        return "Baked and grains"
+    case .Seasonings:
+        return "Seasonings"
+    case .Meat:
+        return "Meat"
+    case .Seafood:
+        return "Seafood"
+    case .Legume:
+        return "Legumes"
+    case .Nut:
+        return "Nuts"
+    case .Oils:
+        return "Oils"
+    case .Soup:
+        return "Soup"
+    case .DairyAlt:
+        return "Dairy Alternatives"
+    default:
+        return ""
+    }
+    
+}

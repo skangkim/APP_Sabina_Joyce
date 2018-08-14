@@ -8,8 +8,25 @@
 
 import UIKit
 import PopupDialog
+import CoreData
 
-var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
+var SLArray = [NSManagedObject]() // Array of IngredInfo
+
+// var shoppingListArray = [(Int, NSOrderedSet)]() // index of recipebook
+
+func fetch_SL(){
+    SLArray = []
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    let managedObjectContext = appDelegate.persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<IngredInfo>(entityName:"IngredInfo")
+    let pred = NSPredicate(format: "isSL == %@", NSNumber(value: true))
+    fetchRequest.predicate = pred
+    do {
+        SLArray = try managedObjectContext.fetch(fetchRequest) as [NSManagedObject]
+    } catch let error as NSError {
+        print("Could not fetch. \(error)")
+    }
+}
 
 class ShoppingListTableViewController: UITableViewController {
     
@@ -17,6 +34,8 @@ class ShoppingListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetch_SL()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,6 +56,9 @@ class ShoppingListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        fetch_SL()
+        
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor("8CD600")
@@ -50,7 +72,7 @@ class ShoppingListTableViewController: UITableViewController {
                 NSAttributedStringKey.font : UIFont(name: "HelveticaNeue-Medium", size: 16)!,
                 NSAttributedStringKey.foregroundColor : UIColor("#565656"),
                 ], for: .normal)
-        if shoppingListArray.count == 0 {
+        if SLArray.count == 0 {
             TableViewHelper.EmptyMessage(message: "Your Shopping List! \n Add from any recipe page, \n or click 'add' above!", viewController: self)
         }
         else {
@@ -71,7 +93,7 @@ class ShoppingListTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return shoppingListArray.count
+        return SLArray.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,38 +107,7 @@ class ShoppingListTableViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: 30))
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textColor = UIColor.black
-        if let group = Ingred.FoodType(rawValue: Int32(section)) {
-            switch group {
-            case .Dairy:
-                label.text = "Dairy"
-            case .Fruits:
-                label.text = "Fruits"
-            case .Veggie:
-                label.text = "Veggetables"
-            case .BakedNGrains:
-                label.text = "Baked and grains"
-            case .Seasonings:
-                label.text = "Seasonings"
-            case .Meat:
-                label.text = "Meat"
-            case .Seafood:
-                label.text = "Seafood"
-            case .Legume:
-                label.text = "Legumes"
-            case .Nut:
-                label.text = "Nuts"
-            case .Oils:
-                label.text = "Oils"
-            case .Soup:
-                label.text = "Soup"
-            case .DairyAlt:
-                label.text = "Dairy Alternatives"
-            case .Beverages:
-                label.text = "Beverages"
-            default:
-                label.text = ""
-            }
-        }
+        label.text = getFoodTypeString(rawValue_in: Int32(section))
         view.addSubview(label)
         return view
     }
@@ -169,11 +160,21 @@ class ShoppingListTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+        let context = AppDelegate.persistentContainer.viewContext
         if editingStyle == .delete {
             // Delete the row from the data source
-            shoppingListArray.remove(at: indexPath.row)
+            do {
+                let ingredInfo = SLArray[indexPath.row]
+                ingredInfo.setValue(false, forKey: "isSL")
+                
+            } catch let error as NSError {
+                print("Could not fetch. \(error)")
+            }
+            SLArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
+            do{ try context.save() }
+            catch { print("failed saving isSL == false @ tableview .delete in SLTableviewController") }
         }
     }
     

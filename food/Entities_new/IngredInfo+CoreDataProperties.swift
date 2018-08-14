@@ -16,16 +16,16 @@ extension IngredInfo {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<IngredInfo> {
         return NSFetchRequest<IngredInfo>(entityName: "IngredInfo")
     }
+    
     @objc public enum Unit: Int32{
         case lb
         case oz
         case count
     }
-    
-    
-    @NSManaged public var isSL: Bool
-    @NSManaged public var unit: Unit
+
+    @NSManaged public var unit: Int32
     @NSManaged public var quantity: Double
+    @NSManaged public var isSL: Bool
     @NSManaged public var ingredients: Ingred
     @NSManaged public var recipe: Recipe
 

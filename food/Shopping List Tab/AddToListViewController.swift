@@ -8,7 +8,6 @@
 
 import UIKit
 import SearchTextField
-import CoreData
 
 class AddToListViewController: UIViewController, UITextFieldDelegate  {
 
@@ -58,7 +57,7 @@ class AddToListViewController: UIViewController, UITextFieldDelegate  {
             
             // Do whatever you want with the picked item
             self.ingredientName.text = item.title
-            // MARK : ???
+            item.subtitle = "this is subtitle for AddtoListView" // TODO: todo
             // item.subtitle = FTtoSTRING(ing_in: IngredBook[self.ingredientName.text!]!)
             self.ingredientName.resignFirstResponder()
             self.ingredientName.hideResultsList()
@@ -66,25 +65,10 @@ class AddToListViewController: UIViewController, UITextFieldDelegate  {
         }
         
         // Set data source
-        // MARK: ????
-        let request: NSFetchRequest<Ingred> = Ingred.fetchRequest()
-        var ingredDropDown = [String]()
         
-        request.predicate = NSPredicate(format: "ALL")
-        AppDelegate.persistentContainer.performBackgroundTask{context in
-            do{
-                
-                let fetchResult = try context.fetch(request)
-                for i in fetchResult{
-                    ingredDropDown.append(i.name)
-                }
-            }
-            catch let error as NSError{
-                print(error)
-            }
-        }
+        let ingredDropDown = [String](arrayLiteral: "Dairy", "Fruits", "Veggie", "Baked Goods & Grains", "Seasonings", "Legume", "Meat", "Seafood", "Nut", "Oils", "Soup", "Dairy Alternatives", "Beverages")
         ingredientName.filterStrings(ingredDropDown)
         
-    }
+}
 
 }
