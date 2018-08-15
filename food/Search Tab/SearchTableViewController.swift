@@ -85,7 +85,16 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
+        if collectionView.tag == 0 {
         return MyRecipeArr.count
+        }
+        else if collectionView.tag == 1 {
+            return PotRecipeArr.count
+        }
+        else {
+            return 0
+            ////TODO: fix later
+        }
     }
     // myRecipe
     func collectionView(_ collectionView: UICollectionView,
@@ -94,6 +103,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         
         let context = AppDelegate.persistentContainer.viewContext
         
+        /////////MY RECIPES ROW/////////////
         if collectionView.tag == 0 {
             // print(collectionView.tag)
             // print("0", indexPath.section, indexPath.row)
@@ -106,7 +116,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
              let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
             /*
              cell?.moreIngredients.text = "You need \(this_recipe.ingredients.count) more ingredients!"*/
-            cell?.moreIngredients.text = "this is not fore myRecipe"
+            cell?.moreIngredients.text = "You have all the needed ingredients !"
             setShadow(UICollectionViewCell: cell!)
             
             // show red heart if favorites
@@ -121,12 +131,14 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
                     let image = UIImage(named: "")
                     cell.filledHeart.image = image
                     this_recipe.setValue(false, forKey: "isFav")
+                    print(MyRecipeArr[indexPath.row].value(forKey: "isFav") as! Bool)
                 }
                 else{
                     // add to fav list
                     let image = UIImage(named: "icons8-heart-30.png")
                     cell.filledHeart.image = image
                     this_recipe.setValue(true, forKey: "isFav")
+                    print(MyRecipeArr[indexPath.row].value(forKey: "isFav") as! Bool)
                 }
             }
             
@@ -135,18 +147,21 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             return cell!
             
         }
-        else {
+            
+        /////////POTENTIAL RECIPES ROW/////////////
+        else if collectionView.tag == 1 {
             // print(collectionView.tag)
             // print("1", indexPath.section, indexPath.row)
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search2CollectionViewCell",
                                                           for: indexPath) as? Search2CollectionViewCell
             
-            
-            cell?.recipeName.text = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
-            let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
+            if PotRecipeArr.count > 0 {
+            let this_recipe = PotRecipeArr[indexPath.row].value(forKey: "recipe") as! Recipe
+            cell?.recipeName.text = this_recipe.name as! String
             /*
-            cell?.moreIngredients.text = " \(this_recipe.ingredients.count) more ingredients!"*/
-            cell?.moreIngredients.text = "this is not fore myRecipe"
+             cell?.moreIngredients.text = " \(this_recipe.ingredients.count) more ingredients!"*/
+            cell?.moreIngredients.text = "You need \(this_recipe.ingredients.count) more ingredients!"
             setShadow2(UICollectionViewCell: cell!)
             
             
@@ -175,7 +190,53 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             catch { print("failed saving @ 2nd part of collectionview in searchtableviewcontroller ") }
             
             return cell!
+            }
+        return cell!
         }
+        
+        ///////////FAVORITES ROW//////////////
+        else {
+            // print(collectionView.tag)
+            // print("1", indexPath.section, indexPath.row)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Search3CollectionViewCell",
+                                                          for: indexPath) as? Search3CollectionViewCell
+            
+            
+            cell?.recipeName.text = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
+            let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
+            /*
+            cell?.moreIngredients.text = " \(this_recipe.ingredients.count) more ingredients!"*/
+            //cell?.moreIngredients.text = "this is not fore myRecipe"
+            setShadow3(UICollectionViewCell: cell!)
+            
+            
+            // show red heart if favorites
+            if(this_recipe.isFav){
+                let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
+            }
+            
+            //on checkbox click
+            cell?.onClick = { cell in
+                if(this_recipe.isFav){
+                    let image = UIImage(named: "")
+                    cell.filledHeart.image = image
+                    this_recipe.setValue(false, forKey: "isFav")
+                }
+                else{
+                    // add to fav list
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell.filledHeart.image = image
+                    this_recipe.setValue(true, forKey: "isFav")
+                }
+            }
+            
+            do{ try context.save() }
+            catch { print("failed saving @ 2nd part of collectionview in searchtableviewcontroller ") }
+            
+            return cell!
+
+    }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = MyRecipeArr[indexPath.row]
@@ -220,7 +281,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         self.navigationController?.navigationBar.tintColor = UIColor("FFAF87")
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        if MyRecipeArr.count == 0 {
+        if MyRecipeArr.count == 0 && PotRecipeArr.count == 0 {
             TableViewHelper.EmptyMessage(message: "Add Ingredients to see recommended Recipes !!", viewController: self)
         }
         else {
@@ -239,7 +300,8 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+            return 3
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -256,8 +318,16 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
         }
-        else {
+            
+        else if indexPath.section == 1 {
             guard let tableViewCell = cell as? Search2TableViewCell else { return }
+            
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            
+        }
+        
+        else {
+            guard let tableViewCell = cell as? Search3TableViewCell else { return }
             
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             
@@ -284,7 +354,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             cell.collectionView.tag = 0
             return cell
         }
-        else {
+        else if indexPath.section == 1 {
             let cellIdentifier = "Search2TableViewCell"
             
             
@@ -299,6 +369,23 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             tableView.estimatedRowHeight = 291.5
             
             cell.collection2View.tag = 1
+            return cell
+        }
+        else {
+            let cellIdentifier = "Search3TableViewCell"
+            
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Search3TableViewCell  else {
+                fatalError("The dequeued cell is not an instance of Search3TableViewCell.")
+            }
+            guard let tableViewCell = cell as? Search3TableViewCell else { return cell }
+            
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            
+            tableView.rowHeight = 291.5
+            tableView.estimatedRowHeight = 291.5
+            
+            cell.collection3View.tag = 2
             return cell
         }
     }
@@ -363,4 +450,3 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     }
     
 }
-
