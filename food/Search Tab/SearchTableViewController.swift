@@ -74,6 +74,7 @@ func generate_my_and_pot_Recipe(){
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var index: Int?
+    var row: Int?
     
     @IBOutlet weak var zeroLabel: UILabel!
     
@@ -239,15 +240,19 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let recipe = MyRecipeArr[indexPath.row]
+
+        //let recipe = MyRecipeArr[indexPath.row]
         index = indexPath.row // index is MyRecipeArr's index not RecipeBook's ..
-        print(recipe.value(forKey: "name") as! String)
+        if collectionView.tag == 0 { row = 0 }
+        else if collectionView.tag == 1 { row = 1 }
+        else { row = 2 }
+        //print(recipe.value(forKey: "name") as! String)
         // index = RecipeBook.index(of: recipe)
         // print(index)
         
         // print(RecipeBook[index!].value(forKey: "name") as! String)
         
-        performSegue(withIdentifier: "showDaFullRecipe", sender: index) // sending myRecipeArr's index 
+        performSegue(withIdentifier: "showDaFullRecipe", sender: index) // sending myRecipeArr's index
     }
     
     override func viewDidLoad() {
@@ -439,9 +444,10 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let data = index
-        
+
         if let destinationViewController = segue.destination as? SearchViewController {
             destinationViewController.index = data
+
         }
         
     }

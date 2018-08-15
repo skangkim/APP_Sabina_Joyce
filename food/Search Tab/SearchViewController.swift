@@ -11,10 +11,12 @@ import CoreData
 class SearchViewController: UIViewController {
     
     var index: Int?
+
     
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var steps: UILabel!
     
+    @IBOutlet weak var neededIngredLabel: UILabel!
     @IBOutlet weak var filledHeart: UIImageView!
     @IBAction func heartTapped(_ sender: Any) {
         //delete from favorites
@@ -82,12 +84,6 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor("8cd600")
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         
-        //        //get rid of bottom line of navigation
-        //        let navigationBar = navigationController!.navigationBar
-        //        navigationBar.isTranslucent = false
-        //        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //        navigationBar.shadowImage = UIImage()
-        
         //setting the page info
         
         let recipe = MyRecipeArr[index!]
@@ -95,7 +91,7 @@ class SearchViewController: UIViewController {
         steps.text = recipe.value(forKey: "steps") as! String
         
         
-        numIngredientsNeeded.text = ""
+        neededIngredLabel.text = ""
         addButton.isHidden = true
         
         if(recipe.value(forKey: "isFav") as! Bool){
