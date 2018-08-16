@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.244228"
+            timestampString = "556082537.502093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.244342"
+            timestampString = "556082537.502399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.244481"
+            timestampString = "556082537.502587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.244614"
+            timestampString = "556082537.516934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.244804"
+            timestampString = "556082537.5181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.24497"
+            timestampString = "556082537.519244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
@@ -522,13 +522,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchViewController.swift"
-            timestampString = "556000203.245128"
+            timestampString = "556082537.519694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "heartTapped(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "food.SearchViewController.heartTapped(Any) -&gt; ()"
+                  moduleName = "food"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchViewController.swift"
+                  timestampString = "556082654.539099"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "food.SearchViewController.heartTapped(Any) -&gt; ()"
+                  moduleName = "food"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchViewController.swift"
+                  timestampString = "556082654.54102"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -538,7 +570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchViewController.swift"
-            timestampString = "556000203.255888"
+            timestampString = "556082537.51991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -554,7 +586,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.256292"
+            timestampString = "556082537.52007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -570,7 +602,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.25639"
+            timestampString = "556082537.520276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -586,7 +618,7 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Favorites%20Tab/FavoritesTableViewController.swift"
-                  timestampString = "556000124.318831"
+                  timestampString = "556082654.55081"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -601,7 +633,7 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Favorites%20Tab/FavoritesTableViewController.swift"
-                  timestampString = "556000124.322464"
+                  timestampString = "556082654.553106"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -808,11 +840,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.256947"
+            timestampString = "556082537.520852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -824,11 +856,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.257111"
+            timestampString = "556082537.521758"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -840,7 +872,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.257269"
+            timestampString = "556082537.522504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -852,31 +884,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "food.SearchTableViewController.index.getter : Swift.Optional&lt;Swift.Int&gt;"
+                  symbolName = "food.SearchTableViewController.index.getter : Swift.Optional&lt;food.Recipe&gt;"
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchTableViewController.swift"
-                  timestampString = "556000124.464636"
+                  timestampString = "556082658.847906"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "84">
+                  offsetFromSymbolStart = "109">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "food.SearchTableViewController.index.setter : Swift.Optional&lt;Swift.Int&gt;"
+                  symbolName = "food.SearchTableViewController.index.setter : Swift.Optional&lt;food.Recipe&gt;"
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchTableViewController.swift"
-                  timestampString = "556000124.468501"
+                  timestampString = "556082658.852721"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "122">
+                  offsetFromSymbolStart = "112">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -886,12 +918,12 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchTableViewController.swift"
-                  timestampString = "556000124.472227"
+                  timestampString = "556082658.8558"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "39">
+                  offsetFromSymbolStart = "31">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -901,12 +933,12 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchTableViewController.swift"
-                  timestampString = "556000124.475545"
+                  timestampString = "556082658.860359"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "85">
+                  offsetFromSymbolStart = "77">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -916,12 +948,12 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Search%20Tab/SearchTableViewController.swift"
-                  timestampString = "556000124.479341"
+                  timestampString = "556082658.862633"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "54">
+                  offsetFromSymbolStart = "46">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -965,7 +997,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.257587"
+            timestampString = "556082537.52343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -981,11 +1013,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.257718"
+            timestampString = "556082537.524161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -997,11 +1029,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.257883"
+            timestampString = "556082537.524745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1029,11 +1061,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.25804"
+            timestampString = "556082537.525388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1045,11 +1077,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Search Tab/SearchTableViewController.swift"
-            timestampString = "556000203.258195"
+            timestampString = "556082537.525947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1061,7 +1093,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.258274"
+            timestampString = "556082537.528021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -1077,7 +1109,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.25837"
+            timestampString = "556082537.529794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -1093,7 +1125,7 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Favorites%20Tab/FavoritesTableViewController.swift"
-                  timestampString = "556000124.614151"
+                  timestampString = "556082659.814096"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -1108,7 +1140,7 @@
                   moduleName = "food"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jlee/Desktop/EAT-APP-master/food/Favorites%20Tab/FavoritesTableViewController.swift"
-                  timestampString = "556000124.640761"
+                  timestampString = "556082659.816662"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -1125,7 +1157,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "food/Favorites Tab/FavoritesTableViewController.swift"
-            timestampString = "556000203.2584749"
+            timestampString = "556082537.530051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"

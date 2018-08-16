@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class FavoritesTableViewController: UITableViewController {
-    var index = 0
+    var index: Recipe?
     var FavList = [Recipe]()
     
     func updateFavList(){
@@ -152,7 +152,7 @@ class FavoritesTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
+        index = FavList[indexPath.row]
         performSegue(withIdentifier: "favoritesFullRecipe", sender: index)
     }
 

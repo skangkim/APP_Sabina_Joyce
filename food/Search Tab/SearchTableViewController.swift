@@ -73,8 +73,7 @@ func generate_my_and_pot_Recipe(){
 
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var index: Int?
-    var row: Int?
+    var index: Recipe?
     
     @IBOutlet weak var zeroLabel: UILabel!
     
@@ -240,17 +239,15 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
     }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        //let recipe = MyRecipeArr[indexPath.row]
-        index = indexPath.row // index is MyRecipeArr's index not RecipeBook's ..
-        if collectionView.tag == 0 { row = 0 }
-        else if collectionView.tag == 1 { row = 1 }
-        else { row = 2 }
-        //print(recipe.value(forKey: "name") as! String)
-        // index = RecipeBook.index(of: recipe)
-        // print(index)
-        
-        // print(RecipeBook[index!].value(forKey: "name") as! String)
+        if collectionView.tag == 0 {
+            index = MyRecipeArr[indexPath.row] as? Recipe
+        }
+        else if collectionView.tag == 1 {
+            index = PotRecipeArr[indexPath.row].value(forKey: "recipe") as? Recipe
+        }
+        else {
+           index = MyRecipeArr[indexPath.row] as? Recipe
+        }
         
         performSegue(withIdentifier: "showDaFullRecipe", sender: index) // sending myRecipeArr's index
     }
@@ -395,11 +392,10 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = MyRecipeArr[indexPath.row]
-        index = RecipeBook.index(of: recipe)
-        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let index = MyRecipeArr[indexPath.row] as! Recipe
+//        performSegue(withIdentifier: "showDaFullRecipe", sender: index)
+//    }
     
     /*
      // Override to support conditional editing of the table view.

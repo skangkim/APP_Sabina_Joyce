@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 class SearchViewController: UIViewController {
     
-    var index: Int?
+    var index: Recipe?
 
     
     @IBOutlet weak var recipeName: UILabel!
@@ -22,16 +22,16 @@ class SearchViewController: UIViewController {
         //delete from favorites
         
         let context = AppDelegate.persistentContainer.viewContext
-        if(MyRecipeArr[index!].value(forKey: "isFav") as! Bool){
+        if(index?.value(forKey: "isFav") as! Bool){
             // if it's favorite, delete from fav
             let image = UIImage(named: "")
             filledHeart.image = image
-            MyRecipeArr[index!].setValue(false, forKey: "isFav")
+            index?.setValue(false, forKey: "isFav")
         }
         else{
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
-            MyRecipeArr[index!].setValue(true, forKey: "isFav")
+            index?.setValue(true, forKey: "isFav")
         }
         
         
@@ -50,11 +50,11 @@ class SearchViewController: UIViewController {
         // MARK: just for now, add all
         
         let context = AppDelegate.persistentContainer.viewContext
-        let r = MyRecipeArr[index!]
+        let r = index
         
         do{
             let fetchIngred = NSFetchRequest<IngredInfo>(entityName: "IngredInfo")
-            fetchIngred.predicate = NSPredicate(format: "recipe == %@", r)
+            fetchIngred.predicate = NSPredicate(format: "recipe == %@", r!)
             let ingreds = try context.fetch(fetchIngred)
             for i in ingreds{
                 i.setValue(true, forKey: "isSL")
@@ -86,15 +86,15 @@ class SearchViewController: UIViewController {
         
         //setting the page info
         
-        let recipe = MyRecipeArr[index!]
-        recipeName.text = recipe.value(forKey: "name") as! String
-        steps.text = recipe.value(forKey: "steps") as! String
+        let recipe = index
+        recipeName.text = recipe?.value(forKey: "name") as! String
+        steps.text = recipe?.value(forKey: "steps") as! String
         
         
         neededIngredLabel.text = ""
         addButton.isHidden = true
         
-        if(recipe.value(forKey: "isFav") as! Bool){
+        if(recipe?.value(forKey: "isFav") as! Bool){
             let image = UIImage(named: "icons8-heart-30.png")
             filledHeart.image = image
         }
