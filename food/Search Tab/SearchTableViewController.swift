@@ -67,8 +67,6 @@ func generate_my_and_pot_Recipe(){
 }
 
 
-
-
 class SearchTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var index: Recipe?
@@ -90,7 +88,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             return PotRecipeArr.count
         }
         else {
-            return 0
+            return FavList.count
             ////TODO: fix later
         }
     }
@@ -120,6 +118,10 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             // show red heart if favorites
             if(this_recipe.isFav){
                 let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
+            }
+            else {
+                let image = UIImage(named: "")
                 cell?.filledHeart.image = image
             }
             //on checkbox click
@@ -163,11 +165,15 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
             setShadow2(UICollectionViewCell: cell!)
             
             
-            // show red heart if favorites
-            if(this_recipe.isFav){
-                let image = UIImage(named: "icons8-heart-30.png")
-                cell?.filledHeart.image = image
-            }
+                // show red heart if favorites
+                if(this_recipe.isFav){
+                    let image = UIImage(named: "icons8-heart-30.png")
+                    cell?.filledHeart.image = image
+                }
+                else {
+                    let image = UIImage(named: "")
+                    cell?.filledHeart.image = image
+                }
             
             //on checkbox click
             cell?.onClick = { cell in
@@ -200,17 +206,19 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
                                                           for: indexPath) as? Search3CollectionViewCell
             
             
-            cell?.recipeName.text = MyRecipeArr[indexPath.row].value(forKey: "name") as! String
-            let this_recipe = MyRecipeArr[indexPath.row] as! Recipe
-            /*
-            cell?.moreIngredients.text = " \(this_recipe.ingredients.count) more ingredients!"*/
-            //cell?.moreIngredients.text = "this is not fore myRecipe"
+            cell?.recipeName.text = FavList[indexPath.row].value(forKey: "name") as! String
+            let this_recipe = FavList[indexPath.row] as! Recipe
+            cell?.moreIngredients.text = "You need \(this_recipe.ingredients.count) more ingredients!"
             setShadow3(UICollectionViewCell: cell!)
             
             
             // show red heart if favorites
             if(this_recipe.isFav){
                 let image = UIImage(named: "icons8-heart-30.png")
+                cell?.filledHeart.image = image
+            }
+            else {
+                let image = UIImage(named: "")
                 cell?.filledHeart.image = image
             }
             
@@ -275,6 +283,7 @@ class SearchTableViewController: UITableViewController, UICollectionViewDelegate
         super.viewWillAppear(animated)
         
         generate_my_and_pot_Recipe()
+        fetch_FavList()
         
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white

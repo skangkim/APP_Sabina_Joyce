@@ -77,6 +77,7 @@ class FavoritesTableViewController: UITableViewController {
             TableViewHelper.EmptyMessage(message: "Your Favorite Recipies go here! \n Click the heart on the recipes that you love", viewController: self)
         } else {
             TableViewHelper.EmptyMessage(message: "", viewController: self)
+//            tableView.backgroundColor = UIColor.lightGray
         }
         
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
@@ -108,7 +109,8 @@ class FavoritesTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
         cell.recipeTitle.text! = FavList[indexPath.row].value(forKey: "name") as! String
-
+        let image = UIImage(named: "icons8-heart-30.png")
+        cell.filledHeart.image = image
         //when favorites heart clicked
         cell.onClick = { cell in
             
@@ -124,6 +126,13 @@ class FavoritesTableViewController: UITableViewController {
                 this_recipe.setValue(false, forKey: "isFav")
                 FavList.remove(at: indexPath.row)
                 tableView.reloadData()
+                
+                if FavList.count == 0 {
+                    TableViewHelper.EmptyMessage(message: "Your Favorite Recipies go here! \n Click the heart on the recipes that you love", viewController: self)
+                } else {
+                    TableViewHelper.EmptyMessage(message: "", viewController: self)
+                }
+                
             }
             else{
                 let image = UIImage(named: "")
