@@ -9,27 +9,24 @@
 import UIKit
 import CoreData
 
+var FavList = [NSManagedObject]()
+
+func fetch_FavList(){
+    FavList = []
+    let context = AppDelegate.viewContext
+    let request = NSFetchRequest<Recipe>(entityName: "Recipe")
+    request.predicate = NSPredicate(format: "isFav == %@", NSNumber(value: true))
+    do{
+        FavList = try context.fetch(request) as [NSManagedObject]
+    }
+    catch let error as NSError{
+        print("couldnt get fav list \(error)")
+    }
+}
+
 class FavoritesTableViewController: UITableViewController {
     var index: Recipe?
-    var FavList = [Recipe]()
     
-    func updateFavList(){
-        FavList = []
-        
-        DispatchQueue.main.async {
-            AppDelegate.persistentContainer.performBackgroundTask{ context in
-                do{
-                    let fetchFav = NSFetchRequest<Recipe>(entityName: "Recipe")
-                    fetchFav.predicate = NSPredicate(format: "isFav == %@", NSNumber(value: true))
-                    self.FavList = try context.fetch(fetchFav)
-                }
-                catch let error as NSError{
-                    print(error)
-                }
-            }
-        }
-    }
-
     @IBOutlet weak var zeroLabel: UILabel!
 //    @IBAction func favoritesTapped(_ sender: Any) {
 //        if FavoritesList.contains(index) {
@@ -48,7 +45,7 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateFavList()
+        fetch_FavList()
         tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,6 +67,7 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetch_FavList()
         tableView.reloadData()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -109,38 +107,35 @@ class FavoritesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as? FavoritesTableViewCell  else {
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
-        cell.recipeTitle.text! = self.FavList[indexPath.row].value(forKey: "name") as! String
-        // print("in FavTable: at \(indexPath.row), it's \(RecipeBook[indexPath.row].name) in RecipeBook\n but it's \(self.FavList[indexPath.row]) in Fav list")
+        cell.recipeTitle.text! = FavList[indexPath.row].value(forKey: "name") as! String
 
         //when favorites heart clicked
         cell.onClick = { cell in
             
             let context = AppDelegate.persistentContainer.viewContext
             
-            if RecipeBook[indexPath.row].value(forKey: "isFav") as! Bool{
-                let image = UIImage(named: "")
-                cell.filledHeart.image = image
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    RecipeBook[indexPath.row].setValue(false, forKey: "isFav")
-                    self.updateFavList()
-                    tableView.reloadData()
-                }
-            }
-            else{
+            // heart button function
+            // set isFav to false
+            
+            let this_recipe = FavList[indexPath.row] as! Recipe
+            if(this_recipe.isFav){
                 let image = UIImage(named: "icons8-heart-30.png")
                 cell.filledHeart.image = image
-                RecipeBook[indexPath.row].setValue(true, forKey: "isFav")
+                this_recipe.setValue(false, forKey: "isFav")
+                FavList.remove(at: indexPath.row)
+                tableView.reloadData()
             }
+            else{
+                let image = UIImage(named: "")
+                cell.filledHeart.image = image
+                print("ERROR in heart button - it should always be true. Not modifying isFav for debugging")
+            }
+            
             
             context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             // save changes
             do{ try context.save() }
             catch let error as NSError{ print("couldnt set isFav @ tableview at FavTVC. Error: \(error)") }
-        }
-        
-        if RecipeBook[indexPath.row].value(forKey: "isFav") as! Bool {
-            let image = UIImage(named: "icons8-heart-30.png")
-            cell.filledHeart.image = image
         }
         
         //set shadow
@@ -152,7 +147,7 @@ class FavoritesTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = FavList[indexPath.row]
+        index = FavList[indexPath.row] as! Recipe
         performSegue(withIdentifier: "favoritesFullRecipe", sender: index)
     }
 

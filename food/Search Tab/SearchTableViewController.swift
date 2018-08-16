@@ -29,12 +29,10 @@ func generate_my_and_pot_Recipe(){
         for r in recipes{
             var count = 0;
             let all_ingred = r.ingredients.allObjects as? [IngredInfo] // get all the ingredients that this recipe needs
-            print(all_ingred?.count)
             let fetchIngred = NSFetchRequest<Ingred>(entityName: "Ingred") // fetch in Ingred
             let inFridgePred = NSPredicate(format: "inFridge == %@" , NSNumber(value: true)) // those in fridge
             var need_ingred = [Ingred]()
             for i in all_ingred!{
-                print(i.ingredients.name)
                 let hasInfoPred = NSPredicate(format: "ingredInfo == %@", i) // AND the ones that match this recipe
                 fetchIngred.predicate = NSCompoundPredicate(type: .and, subpredicates: [inFridgePred, hasInfoPred])
                 let result = try context.fetch(fetchIngred)
